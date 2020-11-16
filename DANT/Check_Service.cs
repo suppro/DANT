@@ -12,10 +12,13 @@ namespace DANT
     using System;
     using System.Collections.Generic;
     
-    public partial class ServiceList
+    public partial class Check_Service
     {
         public int id { get; set; }
-        public string service { get; set; }
-        public string cost { get; set; }
+        public int check_id { get; set; }
+        public int service_id { get; set; }
+    
+        public virtual Check Check { get; set; }
+        public virtual Service Service { get; set; }
     }
 }

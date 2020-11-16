@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbPosition = new System.Windows.Forms.Label();
@@ -38,97 +39,106 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgvClient = new System.Windows.Forms.DataGridView();
-            this.clientData = new DANT.ClientData();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtClientEmail = new System.Windows.Forms.TextBox();
-            this.txtClientPhone = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtClientPatronymic = new System.Windows.Forms.TextBox();
-            this.txtClientName = new System.Windows.Forms.TextBox();
-            this.txtClientSurname = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnClient = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtClientSurname = new System.Windows.Forms.TextBox();
+            this.txtClientEmail = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
+            this.txtClientPhone = new System.Windows.Forms.TextBox();
+            this.txtClientPatronymic = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dgvClient = new System.Windows.Forms.DataGridView();
+            this.clientDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientData = new DANT.ClientData();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cmbAppointmentDoctor = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.dtAppointment = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnClearAppointment = new System.Windows.Forms.Button();
+            this.btnDeleteAppointment = new System.Windows.Forms.Button();
+            this.cbAppointmentStatus = new System.Windows.Forms.ComboBox();
+            this.appointmentStatusDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentStatusData = new DANT.AppointmentStatusData();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnAppointment = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtClientID = new System.Windows.Forms.TextBox();
             this.dtDateAppointment = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
             this.cbTime = new System.Windows.Forms.ComboBox();
             this.timeDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.timeData = new DANT.TimeData();
+            this.label12 = new System.Windows.Forms.Label();
             this.cmbDoctorName = new System.Windows.Forms.ComboBox();
             this.employeeDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeData = new DANT.EmployeeData();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.appointmentDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.appointmentData = new DANT.AppointmentData();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtClientID = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnAppointment = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbAppointmentDoctor = new System.Windows.Forms.ComboBox();
+            this.appointmentDoctorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentDoctorData = new DANT.AppointmentDoctorData();
+            this.dgvAppointment = new System.Windows.Forms.DataGridView();
+            this.appointmentData2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentData2 = new DANT.AppointmentData();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.appointmentData1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentData1 = new DANT.AppointmentData();
+            this.appointmentDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentData = new DANT.AppointmentData();
             this.employeeTableAdapter = new DANT.EmployeeDataTableAdapters.EmployeeTableAdapter();
             this.timetableTableAdapter = new DANT.TimeDataTableAdapters.TimetableTableAdapter();
             this.dataTable1TableAdapter = new DANT.AppointmentDataTableAdapters.DataTable1TableAdapter();
             this.clientTableAdapter = new DANT.ClientDataTableAdapters.ClientTableAdapter();
-            this.clientDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.dtAppointment = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.appointmentDoctorData = new DANT.AppointmentDoctorData();
-            this.appointmentDoctorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataTable1TableAdapter1 = new DANT.AppointmentDoctorDataTableAdapters.DataTable1TableAdapter();
-            this.appointmentData1 = new DANT.AppointmentData();
-            this.appointmentData1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentStatusTableAdapter = new DANT.AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter();
             this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cardnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusappointmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientDataBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientData)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentData2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentData2)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientDataBindingSource1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentData1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentData1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -146,6 +156,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(166, 450);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(16, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(132, 153);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // lbDate
             // 
@@ -233,27 +251,45 @@
             this.tabPage1.Text = "Добавить пациента";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dgvClient
+            // panel3
             // 
-            this.dgvClient.AutoGenerateColumns = false;
-            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.cardnumberDataGridViewTextBoxColumn,
-            this.fioDataGridViewTextBoxColumn1,
-            this.phoneDataGridViewTextBoxColumn1,
-            this.emailDataGridViewTextBoxColumn});
-            this.dgvClient.DataSource = this.clientDataBindingSource1;
-            this.dgvClient.Location = new System.Drawing.Point(206, 6);
-            this.dgvClient.Name = "dgvClient";
-            this.dgvClient.RowHeadersVisible = false;
-            this.dgvClient.Size = new System.Drawing.Size(590, 388);
-            this.dgvClient.TabIndex = 23;
+            this.panel3.BackColor = System.Drawing.Color.OldLace;
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.btnClient);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.txtClientSurname);
+            this.panel3.Controls.Add(this.txtClientEmail);
+            this.panel3.Controls.Add(this.txtClientName);
+            this.panel3.Controls.Add(this.txtClientPhone);
+            this.panel3.Controls.Add(this.txtClientPatronymic);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 400);
+            this.panel3.TabIndex = 24;
             // 
-            // clientData
+            // label7
             // 
-            this.clientData.DataSetName = "ClientData";
-            this.clientData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(6, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(189, 24);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Добавить пациента";
+            // 
+            // btnClient
+            // 
+            this.btnClient.Location = new System.Drawing.Point(3, 236);
+            this.btnClient.Name = "btnClient";
+            this.btnClient.Size = new System.Drawing.Size(184, 26);
+            this.btnClient.TabIndex = 11;
+            this.btnClient.Text = "Добавить клиента";
+            this.btnClient.UseVisualStyleBackColor = true;
+            this.btnClient.Click += new System.EventHandler(this.AddClient);
             // 
             // label8
             // 
@@ -264,6 +300,15 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Email";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(0, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Фамилия";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -273,6 +318,13 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Телефон";
             // 
+            // txtClientSurname
+            // 
+            this.txtClientSurname.Location = new System.Drawing.Point(3, 54);
+            this.txtClientSurname.Name = "txtClientSurname";
+            this.txtClientSurname.Size = new System.Drawing.Size(184, 20);
+            this.txtClientSurname.TabIndex = 14;
+            // 
             // txtClientEmail
             // 
             this.txtClientEmail.Location = new System.Drawing.Point(3, 210);
@@ -280,12 +332,26 @@
             this.txtClientEmail.Size = new System.Drawing.Size(184, 20);
             this.txtClientEmail.TabIndex = 20;
             // 
+            // txtClientName
+            // 
+            this.txtClientName.Location = new System.Drawing.Point(3, 93);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.Size = new System.Drawing.Size(184, 20);
+            this.txtClientName.TabIndex = 15;
+            // 
             // txtClientPhone
             // 
             this.txtClientPhone.Location = new System.Drawing.Point(3, 171);
             this.txtClientPhone.Name = "txtClientPhone";
             this.txtClientPhone.Size = new System.Drawing.Size(184, 20);
             this.txtClientPhone.TabIndex = 19;
+            // 
+            // txtClientPatronymic
+            // 
+            this.txtClientPatronymic.Location = new System.Drawing.Point(3, 132);
+            this.txtClientPatronymic.Name = "txtClientPatronymic";
+            this.txtClientPatronymic.Size = new System.Drawing.Size(184, 20);
+            this.txtClientPatronymic.TabIndex = 16;
             // 
             // label2
             // 
@@ -305,55 +371,33 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Имя";
             // 
-            // txtClientPatronymic
+            // dgvClient
             // 
-            this.txtClientPatronymic.Location = new System.Drawing.Point(3, 132);
-            this.txtClientPatronymic.Name = "txtClientPatronymic";
-            this.txtClientPatronymic.Size = new System.Drawing.Size(184, 20);
-            this.txtClientPatronymic.TabIndex = 16;
+            this.dgvClient.AutoGenerateColumns = false;
+            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.cardnumberDataGridViewTextBoxColumn,
+            this.fioDataGridViewTextBoxColumn1,
+            this.phoneDataGridViewTextBoxColumn1,
+            this.emailDataGridViewTextBoxColumn});
+            this.dgvClient.DataSource = this.clientDataBindingSource1;
+            this.dgvClient.Location = new System.Drawing.Point(206, 6);
+            this.dgvClient.Name = "dgvClient";
+            this.dgvClient.RowHeadersVisible = false;
+            this.dgvClient.Size = new System.Drawing.Size(590, 388);
+            this.dgvClient.TabIndex = 23;
+            this.dgvClient.DoubleClick += new System.EventHandler(this.selectClient);
             // 
-            // txtClientName
+            // clientDataBindingSource1
             // 
-            this.txtClientName.Location = new System.Drawing.Point(3, 93);
-            this.txtClientName.Name = "txtClientName";
-            this.txtClientName.Size = new System.Drawing.Size(184, 20);
-            this.txtClientName.TabIndex = 15;
+            this.clientDataBindingSource1.DataMember = "Client";
+            this.clientDataBindingSource1.DataSource = this.clientData;
             // 
-            // txtClientSurname
+            // clientData
             // 
-            this.txtClientSurname.Location = new System.Drawing.Point(3, 54);
-            this.txtClientSurname.Name = "txtClientSurname";
-            this.txtClientSurname.Size = new System.Drawing.Size(184, 20);
-            this.txtClientSurname.TabIndex = 14;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(0, 38);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Фамилия";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(6, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 24);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Добавить клиента";
-            // 
-            // btnClient
-            // 
-            this.btnClient.Location = new System.Drawing.Point(3, 236);
-            this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(184, 26);
-            this.btnClient.TabIndex = 11;
-            this.btnClient.Text = "Добавить клиента";
-            this.btnClient.UseVisualStyleBackColor = true;
-            this.btnClient.Click += new System.EventHandler(this.AddClient);
+            this.clientData.DataSetName = "ClientData";
+            this.clientData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage3
             // 
@@ -363,7 +407,7 @@
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.cmbAppointmentDoctor);
-            this.tabPage3.Controls.Add(this.dataGridView2);
+            this.tabPage3.Controls.Add(this.dgvAppointment);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -371,36 +415,134 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Запись пациента";
             // 
-            // label10
+            // dtAppointment
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(206, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(162, 24);
-            this.label10.TabIndex = 41;
-            this.label10.Text = "Записи ко врачу:";
+            this.dtAppointment.Location = new System.Drawing.Point(587, 14);
+            this.dtAppointment.Name = "dtAppointment";
+            this.dtAppointment.Size = new System.Drawing.Size(184, 20);
+            this.dtAppointment.TabIndex = 40;
             // 
-            // cmbAppointmentDoctor
+            // label16
             // 
-            this.cmbAppointmentDoctor.DataSource = this.appointmentDoctorDataBindingSource;
-            this.cmbAppointmentDoctor.DisplayMember = "fio";
-            this.cmbAppointmentDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAppointmentDoctor.FormattingEnabled = true;
-            this.cmbAppointmentDoctor.Location = new System.Drawing.Point(374, 14);
-            this.cmbAppointmentDoctor.Name = "cmbAppointmentDoctor";
-            this.cmbAppointmentDoctor.Size = new System.Drawing.Size(142, 21);
-            this.cmbAppointmentDoctor.TabIndex = 40;
-            this.cmbAppointmentDoctor.ValueMember = "id";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.Location = new System.Drawing.Point(522, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 24);
+            this.label16.TabIndex = 43;
+            this.label16.Text = "Дата:";
             // 
-            // button2
+            // panel2
             // 
-            this.button2.Location = new System.Drawing.Point(8, 368);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(184, 23);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "Принять изменение";
-            this.button2.UseVisualStyleBackColor = true;
+            this.panel2.BackColor = System.Drawing.Color.OldLace;
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.btnClearAppointment);
+            this.panel2.Controls.Add(this.btnDeleteAppointment);
+            this.panel2.Controls.Add(this.cbAppointmentStatus);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.btnAppointment);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.txtClientID);
+            this.panel2.Controls.Add(this.dtDateAppointment);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.cbTime);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.cmbDoctorName);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel2.Location = new System.Drawing.Point(-4, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(204, 397);
+            this.panel2.TabIndex = 42;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(7, 197);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(80, 13);
+            this.label17.TabIndex = 44;
+            this.label17.Text = "Статус записи";
+            // 
+            // btnClearAppointment
+            // 
+            this.btnClearAppointment.Location = new System.Drawing.Point(8, 302);
+            this.btnClearAppointment.Name = "btnClearAppointment";
+            this.btnClearAppointment.Size = new System.Drawing.Size(184, 23);
+            this.btnClearAppointment.TabIndex = 43;
+            this.btnClearAppointment.Text = "Отменить выбор";
+            this.btnClearAppointment.UseVisualStyleBackColor = true;
+            this.btnClearAppointment.Click += new System.EventHandler(this.ClearAppontmentClick);
+            // 
+            // btnDeleteAppointment
+            // 
+            this.btnDeleteAppointment.Enabled = false;
+            this.btnDeleteAppointment.Location = new System.Drawing.Point(8, 272);
+            this.btnDeleteAppointment.Name = "btnDeleteAppointment";
+            this.btnDeleteAppointment.Size = new System.Drawing.Size(184, 23);
+            this.btnDeleteAppointment.TabIndex = 42;
+            this.btnDeleteAppointment.Text = "Удалить запись";
+            this.btnDeleteAppointment.UseVisualStyleBackColor = true;
+            this.btnDeleteAppointment.Click += new System.EventHandler(this.DeleteAppointment);
+            // 
+            // cbAppointmentStatus
+            // 
+            this.cbAppointmentStatus.DataSource = this.appointmentStatusDataBindingSource;
+            this.cbAppointmentStatus.DisplayMember = "status_appointment";
+            this.cbAppointmentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAppointmentStatus.Enabled = false;
+            this.cbAppointmentStatus.FormattingEnabled = true;
+            this.cbAppointmentStatus.Location = new System.Drawing.Point(8, 213);
+            this.cbAppointmentStatus.Name = "cbAppointmentStatus";
+            this.cbAppointmentStatus.Size = new System.Drawing.Size(184, 21);
+            this.cbAppointmentStatus.TabIndex = 40;
+            this.cbAppointmentStatus.ValueMember = "id";
+            // 
+            // appointmentStatusDataBindingSource
+            // 
+            this.appointmentStatusDataBindingSource.DataMember = "AppointmentStatus";
+            this.appointmentStatusDataBindingSource.DataSource = this.appointmentStatusData;
+            // 
+            // appointmentStatusData
+            // 
+            this.appointmentStatusData.DataSetName = "AppointmentStatusData";
+            this.appointmentStatusData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.Location = new System.Drawing.Point(26, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(166, 24);
+            this.label15.TabIndex = 24;
+            this.label15.Text = "Запись пациента";
+            // 
+            // btnAppointment
+            // 
+            this.btnAppointment.Location = new System.Drawing.Point(8, 240);
+            this.btnAppointment.Name = "btnAppointment";
+            this.btnAppointment.Size = new System.Drawing.Size(184, 26);
+            this.btnAppointment.TabIndex = 23;
+            this.btnAppointment.Text = "Записать клиента";
+            this.btnAppointment.UseVisualStyleBackColor = true;
+            this.btnAppointment.Click += new System.EventHandler(this.AddAppointment);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(5, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(70, 13);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "ID Пациента";
+            // 
+            // txtClientID
+            // 
+            this.txtClientID.Location = new System.Drawing.Point(8, 55);
+            this.txtClientID.Name = "txtClientID";
+            this.txtClientID.Size = new System.Drawing.Size(184, 20);
+            this.txtClientID.TabIndex = 26;
             // 
             // dtDateAppointment
             // 
@@ -408,6 +550,15 @@
             this.dtDateAppointment.Name = "dtDateAppointment";
             this.dtDateAppointment.Size = new System.Drawing.Size(184, 20);
             this.dtDateAppointment.TabIndex = 38;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 78);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Имя врача";
             // 
             // cbTime
             // 
@@ -431,6 +582,15 @@
             this.timeData.DataSetName = "TimeData";
             this.timeData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 117);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 13);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Дата";
+            // 
             // cmbDoctorName
             // 
             this.cmbDoctorName.DataSource = this.employeeDataBindingSource;
@@ -453,96 +613,76 @@
             this.employeeData.DataSetName = "EmployeeData";
             this.employeeData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.timeDataGridViewTextBoxColumn,
-            this.fioDataGridViewTextBoxColumn,
-            this.cardnumberDataGridViewTextBoxColumn1,
-            this.phoneDataGridViewTextBoxColumn,
-            this.statusappointmentDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.appointmentData1BindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(210, 41);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(583, 356);
-            this.dataGridView2.TabIndex = 35;
-            // 
-            // appointmentDataBindingSource
-            // 
-            this.appointmentDataBindingSource.DataMember = "DataTable1";
-            this.appointmentDataBindingSource.DataSource = this.appointmentData;
-            // 
-            // appointmentData
-            // 
-            this.appointmentData.DataSetName = "AppointmentData";
-            this.appointmentData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 156);
+            this.label11.Location = new System.Drawing.Point(7, 156);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 33;
             this.label11.Text = "Время";
             // 
-            // label12
+            // label10
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 117);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(33, 13);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Дата";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(206, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(162, 24);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "Записи ко врачу:";
             // 
-            // label13
+            // cmbAppointmentDoctor
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 78);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 13);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Имя врача";
+            this.cmbAppointmentDoctor.DataSource = this.appointmentDoctorDataBindingSource;
+            this.cmbAppointmentDoctor.DisplayMember = "fio";
+            this.cmbAppointmentDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAppointmentDoctor.FormattingEnabled = true;
+            this.cmbAppointmentDoctor.Location = new System.Drawing.Point(374, 14);
+            this.cmbAppointmentDoctor.Name = "cmbAppointmentDoctor";
+            this.cmbAppointmentDoctor.Size = new System.Drawing.Size(142, 21);
+            this.cmbAppointmentDoctor.TabIndex = 40;
+            this.cmbAppointmentDoctor.ValueMember = "id";
             // 
-            // txtClientID
+            // appointmentDoctorDataBindingSource
             // 
-            this.txtClientID.Location = new System.Drawing.Point(8, 55);
-            this.txtClientID.Name = "txtClientID";
-            this.txtClientID.Size = new System.Drawing.Size(184, 20);
-            this.txtClientID.TabIndex = 26;
+            this.appointmentDoctorDataBindingSource.DataMember = "DataTable1";
+            this.appointmentDoctorDataBindingSource.DataSource = this.appointmentDoctorData;
             // 
-            // label14
+            // appointmentDoctorData
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(5, 39);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(70, 13);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "ID Пациента";
+            this.appointmentDoctorData.DataSetName = "AppointmentDoctorData";
+            this.appointmentDoctorData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label15
+            // dgvAppointment
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(24, 9);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(153, 24);
-            this.label15.TabIndex = 24;
-            this.label15.Text = "Запись клиента";
+            this.dgvAppointment.AutoGenerateColumns = false;
+            this.dgvAppointment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.timeDataGridViewTextBoxColumn,
+            this.fioDataGridViewTextBoxColumn,
+            this.cardnumberDataGridViewTextBoxColumn1,
+            this.phoneDataGridViewTextBoxColumn,
+            this.statusappointmentDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn,
+            this.idDataGridViewTextBoxColumn1});
+            this.dgvAppointment.DataSource = this.appointmentData2BindingSource;
+            this.dgvAppointment.Location = new System.Drawing.Point(210, 41);
+            this.dgvAppointment.Name = "dgvAppointment";
+            this.dgvAppointment.RowHeadersVisible = false;
+            this.dgvAppointment.Size = new System.Drawing.Size(583, 356);
+            this.dgvAppointment.TabIndex = 35;
+            this.dgvAppointment.DoubleClick += new System.EventHandler(this.SelectAppointment);
             // 
-            // btnAppointment
+            // appointmentData2BindingSource
             // 
-            this.btnAppointment.Location = new System.Drawing.Point(8, 198);
-            this.btnAppointment.Name = "btnAppointment";
-            this.btnAppointment.Size = new System.Drawing.Size(184, 26);
-            this.btnAppointment.TabIndex = 23;
-            this.btnAppointment.Text = "Записать клиента";
-            this.btnAppointment.UseVisualStyleBackColor = true;
-            this.btnAppointment.Click += new System.EventHandler(this.AddAppointment);
+            this.appointmentData2BindingSource.DataMember = "DataTable1";
+            this.appointmentData2BindingSource.DataSource = this.appointmentData2;
+            // 
+            // appointmentData2
+            // 
+            this.appointmentData2.DataSetName = "AppointmentData";
+            this.appointmentData2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage2
             // 
@@ -583,6 +723,26 @@
             this.dataGridView3.Size = new System.Drawing.Size(787, 359);
             this.dataGridView3.TabIndex = 0;
             // 
+            // appointmentData1BindingSource
+            // 
+            this.appointmentData1BindingSource.DataMember = "DataTable1";
+            this.appointmentData1BindingSource.DataSource = this.appointmentData1;
+            // 
+            // appointmentData1
+            // 
+            this.appointmentData1.DataSetName = "AppointmentData";
+            this.appointmentData1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // appointmentDataBindingSource
+            // 
+            this.appointmentDataBindingSource.DataMember = "DataTable1";
+            this.appointmentDataBindingSource.DataSource = this.appointmentData;
+            // 
+            // appointmentData
+            // 
+            this.appointmentData.DataSetName = "AppointmentData";
+            this.appointmentData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // employeeTableAdapter
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
@@ -599,161 +759,13 @@
             // 
             this.clientTableAdapter.ClearBeforeFill = true;
             // 
-            // clientDataBindingSource1
-            // 
-            this.clientDataBindingSource1.DataMember = "Client";
-            this.clientDataBindingSource1.DataSource = this.clientData;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "ID Клиента";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cardnumberDataGridViewTextBoxColumn
-            // 
-            this.cardnumberDataGridViewTextBoxColumn.DataPropertyName = "card_number";
-            this.cardnumberDataGridViewTextBoxColumn.HeaderText = "Номер карты";
-            this.cardnumberDataGridViewTextBoxColumn.Name = "cardnumberDataGridViewTextBoxColumn";
-            // 
-            // fioDataGridViewTextBoxColumn1
-            // 
-            this.fioDataGridViewTextBoxColumn1.DataPropertyName = "fio";
-            this.fioDataGridViewTextBoxColumn1.HeaderText = "ФИО пациента";
-            this.fioDataGridViewTextBoxColumn1.Name = "fioDataGridViewTextBoxColumn1";
-            this.fioDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // phoneDataGridViewTextBoxColumn1
-            // 
-            this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn1.HeaderText = "Телефон";
-            this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.OldLace;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.btnAppointment);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.txtClientID);
-            this.panel2.Controls.Add(this.dtDateAppointment);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.cbTime);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.cmbDoctorName);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(-4, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(204, 397);
-            this.panel2.TabIndex = 42;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.OldLace;
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.btnClient);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.txtClientSurname);
-            this.panel3.Controls.Add(this.txtClientEmail);
-            this.panel3.Controls.Add(this.txtClientName);
-            this.panel3.Controls.Add(this.txtClientPhone);
-            this.panel3.Controls.Add(this.txtClientPatronymic);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 400);
-            this.panel3.TabIndex = 24;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(132, 153);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(522, 9);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 24);
-            this.label16.TabIndex = 43;
-            this.label16.Text = "Дата:";
-            // 
-            // dtAppointment
-            // 
-            this.dtAppointment.Location = new System.Drawing.Point(587, 14);
-            this.dtAppointment.Name = "dtAppointment";
-            this.dtAppointment.Size = new System.Drawing.Size(184, 20);
-            this.dtAppointment.TabIndex = 40;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(8, 341);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(184, 21);
-            this.comboBox1.TabIndex = 40;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(8, 322);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(94, 13);
-            this.label17.TabIndex = 41;
-            this.label17.Text = "Изменить статус";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(8, 230);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 23);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Отменить запись";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // appointmentDoctorData
-            // 
-            this.appointmentDoctorData.DataSetName = "AppointmentDoctorData";
-            this.appointmentDoctorData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // appointmentDoctorDataBindingSource
-            // 
-            this.appointmentDoctorDataBindingSource.DataMember = "DataTable1";
-            this.appointmentDoctorDataBindingSource.DataSource = this.appointmentDoctorData;
-            // 
             // dataTable1TableAdapter1
             // 
             this.dataTable1TableAdapter1.ClearBeforeFill = true;
             // 
-            // appointmentData1
+            // appointmentStatusTableAdapter
             // 
-            this.appointmentData1.DataSetName = "AppointmentData";
-            this.appointmentData1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // appointmentData1BindingSource
-            // 
-            this.appointmentData1BindingSource.DataMember = "DataTable1";
-            this.appointmentData1BindingSource.DataSource = this.appointmentData1;
+            this.appointmentStatusTableAdapter.ClearBeforeFill = true;
             // 
             // timeDataGridViewTextBoxColumn
             // 
@@ -767,6 +779,7 @@
             this.fioDataGridViewTextBoxColumn.HeaderText = "ФИО Пациента";
             this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
             this.fioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fioDataGridViewTextBoxColumn.Width = 200;
             // 
             // cardnumberDataGridViewTextBoxColumn1
             // 
@@ -793,6 +806,47 @@
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.Visible = false;
             // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ID Клиента";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cardnumberDataGridViewTextBoxColumn
+            // 
+            this.cardnumberDataGridViewTextBoxColumn.DataPropertyName = "card_number";
+            this.cardnumberDataGridViewTextBoxColumn.HeaderText = "Номер карты";
+            this.cardnumberDataGridViewTextBoxColumn.Name = "cardnumberDataGridViewTextBoxColumn";
+            // 
+            // fioDataGridViewTextBoxColumn1
+            // 
+            this.fioDataGridViewTextBoxColumn1.DataPropertyName = "fio";
+            this.fioDataGridViewTextBoxColumn1.HeaderText = "ФИО пациента";
+            this.fioDataGridViewTextBoxColumn1.Name = "fioDataGridViewTextBoxColumn1";
+            this.fioDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.fioDataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // phoneDataGridViewTextBoxColumn1
+            // 
+            this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn1.HeaderText = "Телефон";
+            this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -802,35 +856,40 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "AdminForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientDataBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientData)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentData2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentData2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientDataBindingSource1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentData1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentData1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -862,7 +921,7 @@
         private System.Windows.Forms.Button btnClient;
         private System.Windows.Forms.ComboBox cbTime;
         private System.Windows.Forms.ComboBox cmbDoctorName;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvAppointment;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -877,7 +936,6 @@
         private System.Windows.Forms.BindingSource timeDataBindingSource;
         private TimeData timeData;
         private TimeDataTableAdapters.TimetableTableAdapter timetableTableAdapter;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbAppointmentDoctor;
         private System.Windows.Forms.BindingSource appointmentDataBindingSource;
@@ -893,29 +951,36 @@
         private ClientData clientData;
         private ClientDataTableAdapters.ClientTableAdapter clientTableAdapter;
         private System.Windows.Forms.BindingSource clientDataBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DateTimePicker dtAppointment;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbAppointmentStatus;
+        private System.Windows.Forms.Button btnDeleteAppointment;
         private System.Windows.Forms.BindingSource appointmentDoctorDataBindingSource;
         private AppointmentDoctorData appointmentDoctorData;
         private AppointmentDoctorDataTableAdapters.DataTable1TableAdapter dataTable1TableAdapter1;
         private System.Windows.Forms.BindingSource appointmentData1BindingSource;
         private AppointmentData appointmentData1;
+        private System.Windows.Forms.BindingSource appointmentStatusDataBindingSource;
+        private AppointmentStatusData appointmentStatusData;
+        private AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter appointmentStatusTableAdapter;
+        private System.Windows.Forms.Button btnClearAppointment;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.BindingSource appointmentData2BindingSource;
+        private AppointmentData appointmentData2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusappointmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
     }
 }

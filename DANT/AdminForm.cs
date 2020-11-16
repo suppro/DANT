@@ -24,6 +24,10 @@ namespace DANT
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentData2.DataTable1". При необходимости она может быть перемещена или удалена.
+            this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentStatusData.AppointmentStatus". При необходимости она может быть перемещена или удалена.
+            this.appointmentStatusTableAdapter.Fill(this.appointmentStatusData.AppointmentStatus);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentData1.DataTable1". При необходимости она может быть перемещена или удалена.
             this.dataTable1TableAdapter.Fill(this.appointmentData1.DataTable1);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentDoctorData.DataTable1". При необходимости она может быть перемещена или удалена.
@@ -108,9 +112,9 @@ namespace DANT
             appointment.client_id = Convert.ToInt32(txtClientID.Text.Trim());
             appointment.employee_id = Convert.ToInt32(cmbDoctorName.SelectedValue.ToString());
             appointment.date = dtDateAppointment.Value.Date;
-            appointment.time_id = Convert.ToInt32(cbTime.SelectedValue.ToString());
-            appointment.status_id = 1;
-            MessageBox.Show("id доктора " + appointment.employee_id + "id времени " + appointment.time_id);
+            appointment.time_id = Convert.ToInt32(cbTime.SelectedValue);
+            appointment.comment = "хэр";
+
 
             if (String.IsNullOrEmpty(appointment.client_id.ToString()) || String.IsNullOrEmpty(appointment.employee_id.ToString()) || String.IsNullOrEmpty(appointment.date.ToString()) || String.IsNullOrEmpty(appointment.time_id.ToString()))
             {
@@ -119,15 +123,72 @@ namespace DANT
            
             using (DANTDBEntities db = new DANTDBEntities())
             {
-                db.Appointment.Add(appointment);
+                if (appointment.id == 0)
+                {
+                    appointment.status_id = 1;
+                    db.Appointment.Add(appointment);
+                }
+                else
+                    appointment.status_id = Convert.ToInt32(cbAppointmentStatus.SelectedValue);
+                    db.Entry(appointment).State = EntityState.Modified;
                 db.SaveChanges();
             }
             
             txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
-            client.id = 0;
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
-            MessageBox.Show("Данные успешно добавлены");
-           
+            appointment.id = 0;
+            this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
+            MessageBox.Show("Данные успешно добавлены");  
+        }
+
+        private void SelectAppointment(object sender, EventArgs e)
+        {
+            if (dgvClient.CurrentRow.Index != -1)
+            {
+                appointment.id = Convert.ToInt32(dgvAppointment.CurrentRow.Cells["idDataGridViewTextBoxColumn1"].Value);
+                txtClientID.Enabled = false;
+                cmbDoctorName.Enabled = false;
+                dtDateAppointment.Enabled = false;
+                cbTime.Enabled = false;
+                cbAppointmentStatus.Enabled = true;
+                using (DANTDBEntities db = new DANTDBEntities())
+                {
+                    appointment = db.Appointment.Where(x => x.id == appointment.id).FirstOrDefault();
+                    cbAppointmentStatus.SelectedValue = appointment.status_id;
+                    txtClientID.Text = appointment.client_id.ToString();
+                    cmbDoctorName.SelectedValue = appointment.employee_id;
+                    dtDateAppointment.Value = appointment.date;
+                    cbTime.SelectedValue = appointment.time_id;
+                }
+                btnAppointment.Text = "Обновить запись";
+            }
+        }
+        private void DeleteAppointment(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Удалить эту запись?", "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using (DANTDBEntities db = new DANTDBEntities())
+                {
+                    var entry = db.Entry(appointment);
+                    if (entry.State == EntityState.Detached)
+                        db.Appointment.Attach(appointment);
+                    db.Appointment.Remove(appointment);
+                    db.SaveChanges();
+                    this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
+                    ClearAppointment();
+                    MessageBox.Show("Удаление прошло успешно");
+                }
+            }
+        }
+        private void ClearAppontmentClick(object sender, EventArgs e)
+        {
+            ClearAppointment();
+        }
+        private void ClearAppointment()
+        {
+            txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
+            btnClearAppointment.Enabled = false;
+            btnAppointment.Text = "Обновить запись";
+            appointment.id = 0;
         }
     }   
 }

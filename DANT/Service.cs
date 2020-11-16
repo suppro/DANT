@@ -12,18 +12,19 @@ namespace DANT
     using System;
     using System.Collections.Generic;
     
-    public partial class EmployeeStatus
+    public partial class Service
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EmployeeStatus()
+        public Service()
         {
-            this.Employee = new HashSet<Employee>();
+            this.Check_Service = new HashSet<Check_Service>();
         }
     
         public int id { get; set; }
-        public string position { get; set; }
+        public string service1 { get; set; }
+        public string cost { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
+        public virtual ICollection<Check_Service> Check_Service { get; set; }
     }
 }
