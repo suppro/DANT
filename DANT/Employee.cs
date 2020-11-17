@@ -18,7 +18,6 @@ namespace DANT
         public Employee()
         {
             this.Appointment = new HashSet<Appointment>();
-            this.Check = new HashSet<Check>();
         }
     
         public int id { get; set; }
@@ -33,8 +32,6 @@ namespace DANT
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointment> Appointment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Check> Check { get; set; }
         public virtual Position Position { get; set; }
     }
 }

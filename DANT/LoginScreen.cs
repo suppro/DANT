@@ -66,9 +66,24 @@ namespace DANT
             }
             else
             {
-                this.Visible = false;
-                AdminForm userForm = new AdminForm(login);
-                userForm.Show();
+                if (employee.position_id == 1) 
+                {
+                    this.Visible = false;
+                    AdminForm userForm = new AdminForm(login);
+                    userForm.Show();
+                }
+                else if(employee.position_id == 7)
+                {
+                    this.Visible = false;
+                    ManageForm manageForm= new ManageForm(login);
+                    manageForm.Show();
+                }
+                else
+                {
+                    this.Visible = false;
+                    EmployeeForm employeeForm = new EmployeeForm(login);
+                    employeeForm.Show();
+                }
             }
         }
 

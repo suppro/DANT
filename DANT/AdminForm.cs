@@ -16,6 +16,7 @@ namespace DANT
         string loginName;
         Client client = new Client();
         Appointment appointment = new Appointment();
+        Check check = new Check();
         public AdminForm(string loginName)
         {
             InitializeComponent();
@@ -24,18 +25,7 @@ namespace DANT
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentData2.DataTable1". При необходимости она может быть перемещена или удалена.
-            this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentStatusData.AppointmentStatus". При необходимости она может быть перемещена или удалена.
-            this.appointmentStatusTableAdapter.Fill(this.appointmentStatusData.AppointmentStatus);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentData1.DataTable1". При необходимости она может быть перемещена или удалена.
-            this.dataTable1TableAdapter.Fill(this.appointmentData1.DataTable1);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentDoctorData.DataTable1". При необходимости она может быть перемещена или удалена.
-            this.dataTable1TableAdapter1.Fill(this.appointmentDoctorData.DataTable1);
-            this.clientTableAdapter.Fill(this.clientData.Client);
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
-            this.timetableTableAdapter.Fill(this.timeData.Timetable);
-            this.employeeTableAdapter.Fill(this.employeeData.Employee);
+            UpdateTable();
             loadUserInfo();
         }
 
@@ -46,11 +36,11 @@ namespace DANT
             {
 
                 Employee model = (from u in db.Employee
-                                  join q in db.EmployeeStatus on u.position_id equals q.id
+                                  join q in db.Position on u.position_id equals q.id
                                   where u.login == loginName
                                   select u).FirstOrDefault();
                 lbEmployeeName.Text = model.name + " " + model.surname;
-                lbPosition.Text = model.EmployeeStatus.position;
+                lbPosition.Text = model.Position.position1;
                 if (model == null)
                 {
                     MessageBox.Show("Ошибка закрузки данных пользователя", "Ошибка");
@@ -65,15 +55,33 @@ namespace DANT
             client.name = txtClientName.Text.Trim();
             client.patronymic = txtClientPatronymic.Text.Trim();
             client.phone = txtClientPhone.Text.Trim();
-            client.email = txtClientEmail.Text.Trim();
-            if (client.id == 1)
-                client.card_number = 100000;
-            else
-                client.card_number = Convert.ToInt32(dgvClient[1, dgvClient.Rows.Count - 1].Value) + 1;
-            if (String.IsNullOrEmpty(client.surname) || String.IsNullOrEmpty(client.name) || String.IsNullOrEmpty(client.patronymic) || String.IsNullOrEmpty(client.phone) || String.IsNullOrEmpty(client.email))
+            if (String.IsNullOrEmpty(client.surname) || String.IsNullOrEmpty(client.name) || String.IsNullOrEmpty(client.patronymic) || String.IsNullOrEmpty(client.phone))
             {
-                MessageBox.Show("Все поля должны быть заполненны"); return;
+                MessageBox.Show("Все поля должны быть заполненны"); 
+                return;
             }
+            if (client.id == 0)
+            {
+                using (DANTDBEntities db = new DANTDBEntities())
+                {
+                    if (client.id != 0) 
+                    {
+                        Client model = (from u in db.Client
+                                        orderby u.card_number descending
+                                        select u).FirstOrDefault();
+                        client.card_number = model.card_number + 1;
+                        if (model == null)
+                        {
+                            MessageBox.Show("Ошибка закрузки данных пользователя", "Ошибка");
+                            return;
+                        }
+                    }
+                    else
+                        client.card_number = 100000;
+                }
+            }
+            else
+                client.card_number = Convert.ToInt32(txtNumberCard.Text.Trim());
 
             using (DANTDBEntities db = new DANTDBEntities())
             {
@@ -83,7 +91,7 @@ namespace DANT
                     db.Entry(client).State = EntityState.Modified;
                 db.SaveChanges();
             }
-            txtClientName.Text = txtClientSurname.Text = txtClientPatronymic.Text = txtClientPhone.Text = txtClientEmail.Text = "";
+            txtClientName.Text = txtClientSurname.Text = txtClientPatronymic.Text = txtClientPhone.Text = "";
             client.id = 0;
             this.clientTableAdapter.Fill(this.clientData.Client);
             MessageBox.Show("Данные успешно добавлены");
@@ -97,11 +105,16 @@ namespace DANT
                 using (DANTDBEntities db = new DANTDBEntities())
                 {
                     client = db.Client.Where(x => x.id == client.id).FirstOrDefault();
+                    if (client == null)
+                    {
+                        MessageBox.Show("Ошибка закрузки данных пользователя", "Ошибка");
+                        return;
+                    }
                     txtClientName.Text = client.name;
                     txtClientSurname.Text = client.surname;
                     txtClientPatronymic.Text = client.patronymic;
                     txtClientPhone.Text = client.phone;
-                    txtClientEmail.Text = client.email;
+                    txtNumberCard.Text = client.card_number.ToString();
                 }
                 btnClient.Text = "Обновить запись";
             }
@@ -113,14 +126,19 @@ namespace DANT
             appointment.employee_id = Convert.ToInt32(cmbDoctorName.SelectedValue.ToString());
             appointment.date = dtDateAppointment.Value.Date;
             appointment.time_id = Convert.ToInt32(cbTime.SelectedValue);
-            appointment.comment = "хэр";
+            if (client.id == 1)
+                appointment.number_appointment = 510000;
+            else
+                appointment.number_appointment = Convert.ToInt32(dgvClient[1, dgvClient.Rows.Count - 1].Value) + 1;
 
 
             if (String.IsNullOrEmpty(appointment.client_id.ToString()) || String.IsNullOrEmpty(appointment.employee_id.ToString()) || String.IsNullOrEmpty(appointment.date.ToString()) || String.IsNullOrEmpty(appointment.time_id.ToString()))
             {
                 MessageBox.Show("Все поля должны быть заполненны"); return;
             }
-           
+
+            DateTime dateAppointment = new DateTime(dtDateAppointment.Value.Year, dtDateAppointment.Value.Month, dtDateAppointment.Value.Day);
+
             using (DANTDBEntities db = new DANTDBEntities())
             {
                 if (appointment.id == 0)
@@ -128,16 +146,20 @@ namespace DANT
                     appointment.status_id = 1;
                     db.Appointment.Add(appointment);
                 }
-                else
+                else 
+                {
                     appointment.status_id = Convert.ToInt32(cbAppointmentStatus.SelectedValue);
                     db.Entry(appointment).State = EntityState.Modified;
+                }
+                    
                 db.SaveChanges();
             }
             
             txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
             appointment.id = 0;
             this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
-            MessageBox.Show("Данные успешно добавлены");  
+            MessageBox.Show("Данные успешно добавлены");
+            ClearAppointment();
         }
 
         private void SelectAppointment(object sender, EventArgs e)
@@ -150,9 +172,16 @@ namespace DANT
                 dtDateAppointment.Enabled = false;
                 cbTime.Enabled = false;
                 cbAppointmentStatus.Enabled = true;
+                btnDeleteAppointment.Enabled = true;
+                btnClearAppointment.Enabled = true;
                 using (DANTDBEntities db = new DANTDBEntities())
                 {
                     appointment = db.Appointment.Where(x => x.id == appointment.id).FirstOrDefault();
+                    if (appointment == null)
+                    {
+                        MessageBox.Show("Ошибка закрузки данных пользователя", "Ошибка");
+                        return;
+                    }
                     cbAppointmentStatus.SelectedValue = appointment.status_id;
                     txtClientID.Text = appointment.client_id.ToString();
                     cmbDoctorName.SelectedValue = appointment.employee_id;
@@ -178,17 +207,67 @@ namespace DANT
                     MessageBox.Show("Удаление прошло успешно");
                 }
             }
+            btnDeleteAppointment.Enabled = false;
         }
+        private void ChangeCheck(object sender, EventArgs e)
+        {
+            check.check_status_id = 2;
+            using (DANTDBEntities db = new DANTDBEntities())
+            {
+                db.Entry(check).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            UpdateTable();
+        }
+        private void SelectCheck(object sender, EventArgs e)
+        {
+            if (dgvCheckList.CurrentRow.Index != -1)
+            {
+                check.id = Convert.ToInt32(dgvCheckList.CurrentRow.Cells["idDataGridViewTextBoxColumn1"].Value);
+                using (DANTDBEntities db = new DANTDBEntities())
+                {
+                    check = db.Check.Where(x => x.id == check.id).FirstOrDefault();
+                    if (check == null)
+                    {
+                        MessageBox.Show("Ошибка закрузки данных пользователя", "Ошибка");
+                        return;
+                    }
+                }
+                btnChangeCheck.Enabled = true;
+            }
+        }
+
         private void ClearAppontmentClick(object sender, EventArgs e)
         {
             ClearAppointment();
         }
         private void ClearAppointment()
         {
+            this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
             txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
+            txtClientID.Enabled = true;
+            cmbDoctorName.Enabled = true;
+            dtDateAppointment.Enabled = true;
+            cbTime.Enabled = true;
+            cbAppointmentStatus.Enabled = false;
             btnClearAppointment.Enabled = false;
-            btnAppointment.Text = "Обновить запись";
+            btnDeleteAppointment.Enabled = false;
+            btnAppointment.Text = "Добавить запись";
             appointment.id = 0;
         }
+        private void UpdateTable()
+        {
+            this.dataTable1TableAdapter2.Fill(this.checkList1.DataTable1);
+            this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
+            this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
+            this.appointmentStatusTableAdapter.Fill(this.appointmentStatusData.AppointmentStatus);
+            this.dataTable1TableAdapter.Fill(this.appointmentData1.DataTable1);
+            this.dataTable1TableAdapter1.Fill(this.appointmentDoctorData.DataTable1);
+            this.clientTableAdapter.Fill(this.clientData.Client);
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            this.timetableTableAdapter.Fill(this.timeData.Timetable);
+            this.employeeTableAdapter.Fill(this.employeeData.Employee);
+        }
+
     }   
 }

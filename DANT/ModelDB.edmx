@@ -14,8 +14,8 @@
           <Property Name="client_id" Type="int" Nullable="false" />
           <Property Name="employee_id" Type="int" Nullable="false" />
           <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="number_appointment" Type="int" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
-          <Property Name="comment" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="AppointmentStatus">
           <Key>
@@ -29,28 +29,17 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="client_id" Type="int" Nullable="false" />
-          <Property Name="employee_id" Type="int" Nullable="false" />
           <Property Name="appointment_id" Type="int" Nullable="false" />
-          <Property Name="number_check" Type="int" Nullable="false" />
-          <Property Name="service_list" Type="varchar(max)" Nullable="false" />
-          <Property Name="service_cost" Type="int" Nullable="false" />
           <Property Name="check_status_id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Check_Service">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="check_id" Type="int" Nullable="false" />
-          <Property Name="service_id" Type="int" Nullable="false" />
+          <Property Name="number_check" Type="int" Nullable="false" />
+          <Property Name="service_cost" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CheckStatus">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="check_status" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="check_status" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -61,8 +50,7 @@
           <Property Name="surname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="patronymic" Type="varchar" MaxLength="50" />
           <Property Name="phone" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="50" />
-          <Property Name="card_number" Type="int" />
+          <Property Name="card_number" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -84,14 +72,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="position" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Service">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="service" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="cost" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Timetable">
           <Key>
@@ -172,54 +152,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Check_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="Check" Type="Self.Check" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Check">
-              <PropertyRef Name="client_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Check_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Check" Type="Self.Check" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Check">
-              <PropertyRef Name="employee_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Check_Service_Check">
-          <End Role="Check" Type="Self.Check" Multiplicity="1" />
-          <End Role="Check_Service" Type="Self.Check_Service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Check">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Check_Service">
-              <PropertyRef Name="check_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Check_Service_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="1" />
-          <End Role="Check_Service" Type="Self.Check_Service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Service">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Check_Service">
-              <PropertyRef Name="service_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_EmployeeStatus">
           <End Role="Position" Type="Self.Position" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -236,12 +168,10 @@
           <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppointmentStatus" EntityType="Self.AppointmentStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Check" EntityType="Self.Check" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Check_Service" EntityType="Self.Check_Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CheckStatus" EntityType="Self.CheckStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Timetable" EntityType="Self.Timetable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Appointment_AppointmentStatus" Association="Self.FK_Appointment_AppointmentStatus">
             <End Role="AppointmentStatus" EntitySet="AppointmentStatus" />
@@ -267,22 +197,6 @@
             <End Role="CheckStatus" EntitySet="CheckStatus" />
             <End Role="Check" EntitySet="Check" />
           </AssociationSet>
-          <AssociationSet Name="FK_Check_Client" Association="Self.FK_Check_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Check" EntitySet="Check" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Check_Employee" Association="Self.FK_Check_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Check" EntitySet="Check" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Check_Service_Check" Association="Self.FK_Check_Service_Check">
-            <End Role="Check" EntitySet="Check" />
-            <End Role="Check_Service" EntitySet="Check_Service" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Check_Service_Service" Association="Self.FK_Check_Service_Service">
-            <End Role="Service" EntitySet="Service" />
-            <End Role="Check_Service" EntitySet="Check_Service" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_EmployeeStatus" Association="Self.FK_Employee_EmployeeStatus">
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
@@ -302,8 +216,8 @@
           <Property Name="client_id" Type="Int32" Nullable="false" />
           <Property Name="employee_id" Type="Int32" Nullable="false" />
           <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="number_appointment" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AppointmentStatus" Relationship="Self.FK_Appointment_AppointmentStatus" FromRole="Appointment" ToRole="AppointmentStatus" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Appointment_Client" FromRole="Appointment" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Appointment_Employee" FromRole="Appointment" ToRole="Employee" />
@@ -323,35 +237,19 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="client_id" Type="Int32" Nullable="false" />
-          <Property Name="employee_id" Type="Int32" Nullable="false" />
           <Property Name="appointment_id" Type="Int32" Nullable="false" />
-          <Property Name="number_check" Type="Int32" Nullable="false" />
-          <Property Name="service_list" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="service_cost" Type="Int32" Nullable="false" />
           <Property Name="check_status_id" Type="Int32" Nullable="false" />
+          <Property Name="number_check" Type="Int32" Nullable="false" />
+          <Property Name="service_cost" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK_Check_Appointment" FromRole="Check" ToRole="Appointment" />
           <NavigationProperty Name="CheckStatus" Relationship="Self.FK_Check_CheckStatus" FromRole="Check" ToRole="CheckStatus" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Check_Client" FromRole="Check" ToRole="Client" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Check_Employee" FromRole="Check" ToRole="Employee" />
-          <NavigationProperty Name="Check_Service" Relationship="Self.FK_Check_Service_Check" FromRole="Check" ToRole="Check_Service" />
-        </EntityType>
-        <EntityType Name="Check_Service">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="check_id" Type="Int32" Nullable="false" />
-          <Property Name="service_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Check" Relationship="Self.FK_Check_Service_Check" FromRole="Check_Service" ToRole="Check" />
-          <NavigationProperty Name="Service" Relationship="Self.FK_Check_Service_Service" FromRole="Check_Service" ToRole="Service" />
         </EntityType>
         <EntityType Name="CheckStatus">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="check_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="check_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Check" Relationship="Self.FK_Check_CheckStatus" FromRole="CheckStatus" ToRole="Check" />
         </EntityType>
         <EntityType Name="Client">
@@ -363,10 +261,8 @@
           <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="card_number" Type="Int32" />
+          <Property Name="card_number" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_Client" FromRole="Client" ToRole="Appointment" />
-          <NavigationProperty Name="Check" Relationship="Self.FK_Check_Client" FromRole="Client" ToRole="Check" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -382,7 +278,6 @@
           <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_Employee" FromRole="Employee" ToRole="Appointment" />
-          <NavigationProperty Name="Check" Relationship="Self.FK_Check_Employee" FromRole="Employee" ToRole="Check" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Employee_EmployeeStatus" FromRole="Employee" ToRole="Position" />
         </EntityType>
         <EntityType Name="Position">
@@ -392,15 +287,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="position1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_EmployeeStatus" FromRole="Position" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="Service">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="service1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Check_Service" Relationship="Self.FK_Check_Service_Service" FromRole="Service" ToRole="Check_Service" />
         </EntityType>
         <EntityType Name="Timetable">
           <Key>
@@ -482,54 +368,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Check_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="Check" Type="Self.Check" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Check">
-              <PropertyRef Name="client_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Check_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Check" Type="Self.Check" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Check">
-              <PropertyRef Name="employee_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Check_Service_Check">
-          <End Role="Check" Type="Self.Check" Multiplicity="1" />
-          <End Role="Check_Service" Type="Self.Check_Service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Check">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Check_Service">
-              <PropertyRef Name="check_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Check_Service_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="1" />
-          <End Role="Check_Service" Type="Self.Check_Service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Service">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Check_Service">
-              <PropertyRef Name="service_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_EmployeeStatus">
           <End Role="Position" Type="Self.Position" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -546,12 +384,10 @@
           <EntitySet Name="Appointment" EntityType="Self.Appointment" />
           <EntitySet Name="AppointmentStatus" EntityType="Self.AppointmentStatus" />
           <EntitySet Name="Check" EntityType="Self.Check" />
-          <EntitySet Name="Check_Service" EntityType="Self.Check_Service" />
           <EntitySet Name="CheckStatus" EntityType="Self.CheckStatus" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Position" EntityType="Self.Position" />
-          <EntitySet Name="Service" EntityType="Self.Service" />
           <EntitySet Name="Timetable" EntityType="Self.Timetable" />
           <AssociationSet Name="FK_Appointment_AppointmentStatus" Association="Self.FK_Appointment_AppointmentStatus">
             <End Role="AppointmentStatus" EntitySet="AppointmentStatus" />
@@ -577,22 +413,6 @@
             <End Role="CheckStatus" EntitySet="CheckStatus" />
             <End Role="Check" EntitySet="Check" />
           </AssociationSet>
-          <AssociationSet Name="FK_Check_Client" Association="Self.FK_Check_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Check" EntitySet="Check" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Check_Employee" Association="Self.FK_Check_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Check" EntitySet="Check" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Check_Service_Check" Association="Self.FK_Check_Service_Check">
-            <End Role="Check" EntitySet="Check" />
-            <End Role="Check_Service" EntitySet="Check_Service" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Check_Service_Service" Association="Self.FK_Check_Service_Service">
-            <End Role="Service" EntitySet="Service" />
-            <End Role="Check_Service" EntitySet="Check_Service" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_EmployeeStatus" Association="Self.FK_Employee_EmployeeStatus">
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
@@ -612,8 +432,8 @@
                 <ScalarProperty Name="client_id" ColumnName="client_id" />
                 <ScalarProperty Name="employee_id" ColumnName="employee_id" />
                 <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="number_appointment" ColumnName="number_appointment" />
                 <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="comment" ColumnName="comment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -629,22 +449,10 @@
             <EntityTypeMapping TypeName="DANTDBModel.Check">
               <MappingFragment StoreEntitySet="Check">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="client_id" ColumnName="client_id" />
-                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
                 <ScalarProperty Name="appointment_id" ColumnName="appointment_id" />
-                <ScalarProperty Name="number_check" ColumnName="number_check" />
-                <ScalarProperty Name="service_list" ColumnName="service_list" />
-                <ScalarProperty Name="service_cost" ColumnName="service_cost" />
                 <ScalarProperty Name="check_status_id" ColumnName="check_status_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Check_Service">
-            <EntityTypeMapping TypeName="DANTDBModel.Check_Service">
-              <MappingFragment StoreEntitySet="Check_Service">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="check_id" ColumnName="check_id" />
-                <ScalarProperty Name="service_id" ColumnName="service_id" />
+                <ScalarProperty Name="number_check" ColumnName="number_check" />
+                <ScalarProperty Name="service_cost" ColumnName="service_cost" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -664,7 +472,6 @@
                 <ScalarProperty Name="surname" ColumnName="surname" />
                 <ScalarProperty Name="patronymic" ColumnName="patronymic" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="card_number" ColumnName="card_number" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -689,15 +496,6 @@
               <MappingFragment StoreEntitySet="Position">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="position1" ColumnName="position" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Service">
-            <EntityTypeMapping TypeName="DANTDBModel.Service">
-              <MappingFragment StoreEntitySet="Service">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="service1" ColumnName="service" />
-                <ScalarProperty Name="cost" ColumnName="cost" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

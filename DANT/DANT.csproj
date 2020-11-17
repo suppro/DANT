@@ -42,7 +42,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -88,10 +90,12 @@
     <Compile Include="Check.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="CheckStatus.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+    <Compile Include="CheckList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckList.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Check_Service.cs">
+    <Compile Include="CheckStatus.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
@@ -115,6 +119,11 @@
     </Compile>
     <Compile Include="EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeListData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeListData.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
@@ -143,13 +152,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NumberAppointment.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NumberAppointment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Patient.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Position.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+    <Compile Include="ServicesDate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServicesDate.xsd</DependentUpon>
     </Compile>
     <Compile Include="TimeData.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -213,6 +234,17 @@
     <None Include="AppointmentStatusData.xss">
       <DependentUpon>AppointmentStatusData.xsd</DependentUpon>
     </None>
+    <None Include="CheckList.xsc">
+      <DependentUpon>CheckList.xsd</DependentUpon>
+    </None>
+    <None Include="CheckList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CheckList.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CheckList.xss">
+      <DependentUpon>CheckList.xsd</DependentUpon>
+    </None>
     <None Include="ClientData.xsc">
       <DependentUpon>ClientData.xsd</DependentUpon>
     </None>
@@ -235,6 +267,17 @@
     <None Include="EmployeeData.xss">
       <DependentUpon>EmployeeData.xsd</DependentUpon>
     </None>
+    <None Include="EmployeeListData.xsc">
+      <DependentUpon>EmployeeListData.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeeListData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmployeeListData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="EmployeeListData.xss">
+      <DependentUpon>EmployeeListData.xsd</DependentUpon>
+    </None>
     <EntityDeploy Include="ModelDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
@@ -242,7 +285,29 @@
     <None Include="ModelDB.edmx.diagram">
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </None>
+    <None Include="NumberAppointment.xsc">
+      <DependentUpon>NumberAppointment.xsd</DependentUpon>
+    </None>
+    <None Include="NumberAppointment.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NumberAppointment.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="NumberAppointment.xss">
+      <DependentUpon>NumberAppointment.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Patient.xsc">
+      <DependentUpon>Patient.xsd</DependentUpon>
+    </None>
+    <None Include="Patient.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Patient.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Patient.xss">
+      <DependentUpon>Patient.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -252,6 +317,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ServicesDate.xsc">
+      <DependentUpon>ServicesDate.xsd</DependentUpon>
+    </None>
+    <None Include="ServicesDate.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ServicesDate.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ServicesDate.xss">
+      <DependentUpon>ServicesDate.xsd</DependentUpon>
+    </None>
     <None Include="TimeData.xsc">
       <DependentUpon>TimeData.xsd</DependentUpon>
     </None>

@@ -14,26 +14,13 @@ namespace DANT
     
     public partial class Check
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Check()
-        {
-            this.Check_Service = new HashSet<Check_Service>();
-        }
-    
         public int id { get; set; }
-        public int client_id { get; set; }
-        public int employee_id { get; set; }
         public int appointment_id { get; set; }
-        public int number_check { get; set; }
-        public string service_list { get; set; }
-        public int service_cost { get; set; }
         public int check_status_id { get; set; }
+        public int number_check { get; set; }
+        public int service_cost { get; set; }
     
         public virtual Appointment Appointment { get; set; }
         public virtual CheckStatus CheckStatus { get; set; }
-        public virtual Client Client { get; set; }
-        public virtual Employee Employee { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Check_Service> Check_Service { get; set; }
     }
 }

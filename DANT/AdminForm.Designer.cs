@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbPosition = new System.Windows.Forms.Label();
@@ -42,11 +41,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnClient = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtClientSurname = new System.Windows.Forms.TextBox();
-            this.txtClientEmail = new System.Windows.Forms.TextBox();
             this.txtClientName = new System.Windows.Forms.TextBox();
             this.txtClientPhone = new System.Windows.Forms.TextBox();
             this.txtClientPatronymic = new System.Windows.Forms.TextBox();
@@ -84,12 +81,30 @@
             this.appointmentDoctorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentDoctorData = new DANT.AppointmentDoctorData();
             this.dgvAppointment = new System.Windows.Forms.DataGridView();
+            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusappointmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentData2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentData2 = new DANT.AppointmentData();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnChangeCheck = new System.Windows.Forms.Button();
+            this.dgvCheckList = new System.Windows.Forms.DataGridView();
+            this.timeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numbercheckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fioDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardnumberDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servicecostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkList1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkList1 = new DANT.CheckList();
             this.appointmentData1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentData1 = new DANT.AppointmentData();
             this.appointmentDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -100,20 +115,16 @@
             this.clientTableAdapter = new DANT.ClientDataTableAdapters.ClientTableAdapter();
             this.dataTable1TableAdapter1 = new DANT.AppointmentDoctorDataTableAdapters.DataTable1TableAdapter();
             this.appointmentStatusTableAdapter = new DANT.AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter();
-            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusappointmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkList = new DANT.CheckList();
+            this.checkListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTable1TableAdapter2 = new DANT.CheckListTableAdapters.DataTable1TableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cardnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNumberCard = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -134,17 +145,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData2)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkList1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkList1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.OldLace;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lbDate);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.lbPosition);
@@ -157,18 +171,10 @@
             this.panel1.Size = new System.Drawing.Size(166, 450);
             this.panel1.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(132, 153);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // lbDate
             // 
             this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbDate.Location = new System.Drawing.Point(9, 315);
+            this.lbDate.Location = new System.Drawing.Point(9, 151);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(152, 20);
             this.lbDate.TabIndex = 5;
@@ -178,7 +184,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(5, 295);
+            this.label5.Location = new System.Drawing.Point(5, 131);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 20);
             this.label5.TabIndex = 4;
@@ -190,7 +196,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbPosition.Location = new System.Drawing.Point(5, 248);
+            this.lbPosition.Location = new System.Drawing.Point(5, 84);
             this.lbPosition.Name = "lbPosition";
             this.lbPosition.Size = new System.Drawing.Size(160, 20);
             this.lbPosition.TabIndex = 3;
@@ -200,7 +206,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(29, 228);
+            this.label3.Location = new System.Drawing.Point(29, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 20);
             this.label3.TabIndex = 2;
@@ -212,7 +218,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbEmployeeName.Location = new System.Drawing.Point(3, 198);
+            this.lbEmployeeName.Location = new System.Drawing.Point(3, 34);
             this.lbEmployeeName.Name = "lbEmployeeName";
             this.lbEmployeeName.Size = new System.Drawing.Size(160, 20);
             this.lbEmployeeName.TabIndex = 1;
@@ -222,7 +228,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 176);
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 20);
             this.label1.TabIndex = 0;
@@ -254,13 +260,13 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.OldLace;
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.txtNumberCard);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.btnClient);
-            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.txtClientSurname);
-            this.panel3.Controls.Add(this.txtClientEmail);
             this.panel3.Controls.Add(this.txtClientName);
             this.panel3.Controls.Add(this.txtClientPhone);
             this.panel3.Controls.Add(this.txtClientPatronymic);
@@ -291,15 +297,6 @@
             this.btnClient.UseVisualStyleBackColor = true;
             this.btnClient.Click += new System.EventHandler(this.AddClient);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(2, 194);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 13);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Email";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -324,13 +321,6 @@
             this.txtClientSurname.Name = "txtClientSurname";
             this.txtClientSurname.Size = new System.Drawing.Size(184, 20);
             this.txtClientSurname.TabIndex = 14;
-            // 
-            // txtClientEmail
-            // 
-            this.txtClientEmail.Location = new System.Drawing.Point(3, 210);
-            this.txtClientEmail.Name = "txtClientEmail";
-            this.txtClientEmail.Size = new System.Drawing.Size(184, 20);
-            this.txtClientEmail.TabIndex = 20;
             // 
             // txtClientName
             // 
@@ -379,8 +369,7 @@
             this.idDataGridViewTextBoxColumn,
             this.cardnumberDataGridViewTextBoxColumn,
             this.fioDataGridViewTextBoxColumn1,
-            this.phoneDataGridViewTextBoxColumn1,
-            this.emailDataGridViewTextBoxColumn});
+            this.phoneDataGridViewTextBoxColumn1});
             this.dgvClient.DataSource = this.clientDataBindingSource1;
             this.dgvClient.Location = new System.Drawing.Point(206, 6);
             this.dgvClient.Name = "dgvClient";
@@ -510,11 +499,10 @@
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(26, 9);
+            this.label15.Location = new System.Drawing.Point(22, 9);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(166, 24);
+            this.label15.Size = new System.Drawing.Size(182, 24);
             this.label15.TabIndex = 24;
             this.label15.Text = "Запись пациента";
             // 
@@ -674,99 +662,6 @@
             this.dgvAppointment.TabIndex = 35;
             this.dgvAppointment.DoubleClick += new System.EventHandler(this.SelectAppointment);
             // 
-            // appointmentData2BindingSource
-            // 
-            this.appointmentData2BindingSource.DataMember = "DataTable1";
-            this.appointmentData2BindingSource.DataSource = this.appointmentData2;
-            // 
-            // appointmentData2
-            // 
-            this.appointmentData2.DataSetName = "AppointmentData";
-            this.appointmentData2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.SeaShell;
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.dataGridView3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(799, 400);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Список обслуж. клиентов";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(454, 371);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(171, 23);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Просмотр чека";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(128, 371);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(171, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Подтвердить оплату чека";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(787, 359);
-            this.dataGridView3.TabIndex = 0;
-            // 
-            // appointmentData1BindingSource
-            // 
-            this.appointmentData1BindingSource.DataMember = "DataTable1";
-            this.appointmentData1BindingSource.DataSource = this.appointmentData1;
-            // 
-            // appointmentData1
-            // 
-            this.appointmentData1.DataSetName = "AppointmentData";
-            this.appointmentData1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // appointmentDataBindingSource
-            // 
-            this.appointmentDataBindingSource.DataMember = "DataTable1";
-            this.appointmentDataBindingSource.DataSource = this.appointmentData;
-            // 
-            // appointmentData
-            // 
-            this.appointmentData.DataSetName = "AppointmentData";
-            this.appointmentData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // timetableTableAdapter
-            // 
-            this.timetableTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataTable1TableAdapter
-            // 
-            this.dataTable1TableAdapter.ClearBeforeFill = true;
-            // 
-            // clientTableAdapter
-            // 
-            this.clientTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataTable1TableAdapter1
-            // 
-            this.dataTable1TableAdapter1.ClearBeforeFill = true;
-            // 
-            // appointmentStatusTableAdapter
-            // 
-            this.appointmentStatusTableAdapter.ClearBeforeFill = true;
-            // 
             // timeDataGridViewTextBoxColumn
             // 
             this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
@@ -814,6 +709,205 @@
             this.idDataGridViewTextBoxColumn1.ReadOnly = true;
             this.idDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // appointmentData2BindingSource
+            // 
+            this.appointmentData2BindingSource.DataMember = "DataTable1";
+            this.appointmentData2BindingSource.DataSource = this.appointmentData2;
+            // 
+            // appointmentData2
+            // 
+            this.appointmentData2.DataSetName = "AppointmentData";
+            this.appointmentData2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.SeaShell;
+            this.tabPage2.Controls.Add(this.dateTimePicker1);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.btnChangeCheck);
+            this.tabPage2.Controls.Add(this.dgvCheckList);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(799, 400);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Список обслуж. клиентов";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(454, 8);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(184, 20);
+            this.dateTimePicker1.TabIndex = 44;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.Location = new System.Drawing.Point(389, 3);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(59, 24);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "Дата:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.Location = new System.Drawing.Point(177, 3);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(58, 24);
+            this.label19.TabIndex = 46;
+            this.label19.Text = "Врач:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.appointmentDoctorDataBindingSource;
+            this.comboBox1.DisplayMember = "fio";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(241, 8);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(142, 21);
+            this.comboBox1.TabIndex = 45;
+            this.comboBox1.ValueMember = "id";
+            // 
+            // btnChangeCheck
+            // 
+            this.btnChangeCheck.Enabled = false;
+            this.btnChangeCheck.Location = new System.Drawing.Point(269, 371);
+            this.btnChangeCheck.Name = "btnChangeCheck";
+            this.btnChangeCheck.Size = new System.Drawing.Size(237, 23);
+            this.btnChangeCheck.TabIndex = 1;
+            this.btnChangeCheck.Text = "Подтвердить оплату чека";
+            this.btnChangeCheck.UseVisualStyleBackColor = true;
+            // 
+            // dgvCheckList
+            // 
+            this.dgvCheckList.AutoGenerateColumns = false;
+            this.dgvCheckList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCheckList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.timeDataGridViewTextBoxColumn1,
+            this.numbercheckDataGridViewTextBoxColumn,
+            this.fioDataGridViewTextBoxColumn2,
+            this.cardnumberDataGridViewTextBoxColumn2,
+            this.servicecostDataGridViewTextBoxColumn,
+            this.checkstatusDataGridViewTextBoxColumn});
+            this.dgvCheckList.DataSource = this.checkList1BindingSource;
+            this.dgvCheckList.Location = new System.Drawing.Point(6, 35);
+            this.dgvCheckList.Name = "dgvCheckList";
+            this.dgvCheckList.RowHeadersVisible = false;
+            this.dgvCheckList.Size = new System.Drawing.Size(787, 330);
+            this.dgvCheckList.TabIndex = 0;
+            // 
+            // timeDataGridViewTextBoxColumn1
+            // 
+            this.timeDataGridViewTextBoxColumn1.DataPropertyName = "time";
+            this.timeDataGridViewTextBoxColumn1.HeaderText = "Время";
+            this.timeDataGridViewTextBoxColumn1.Name = "timeDataGridViewTextBoxColumn1";
+            // 
+            // numbercheckDataGridViewTextBoxColumn
+            // 
+            this.numbercheckDataGridViewTextBoxColumn.DataPropertyName = "number_check";
+            this.numbercheckDataGridViewTextBoxColumn.HeaderText = "Номер чека";
+            this.numbercheckDataGridViewTextBoxColumn.Name = "numbercheckDataGridViewTextBoxColumn";
+            // 
+            // fioDataGridViewTextBoxColumn2
+            // 
+            this.fioDataGridViewTextBoxColumn2.DataPropertyName = "fio";
+            this.fioDataGridViewTextBoxColumn2.HeaderText = "ФИО Пациента";
+            this.fioDataGridViewTextBoxColumn2.Name = "fioDataGridViewTextBoxColumn2";
+            this.fioDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.fioDataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // cardnumberDataGridViewTextBoxColumn2
+            // 
+            this.cardnumberDataGridViewTextBoxColumn2.DataPropertyName = "card_number";
+            this.cardnumberDataGridViewTextBoxColumn2.HeaderText = "Номер карты";
+            this.cardnumberDataGridViewTextBoxColumn2.Name = "cardnumberDataGridViewTextBoxColumn2";
+            // 
+            // servicecostDataGridViewTextBoxColumn
+            // 
+            this.servicecostDataGridViewTextBoxColumn.DataPropertyName = "service_cost";
+            this.servicecostDataGridViewTextBoxColumn.HeaderText = "Стоимость услуг";
+            this.servicecostDataGridViewTextBoxColumn.Name = "servicecostDataGridViewTextBoxColumn";
+            // 
+            // checkstatusDataGridViewTextBoxColumn
+            // 
+            this.checkstatusDataGridViewTextBoxColumn.DataPropertyName = "check_status";
+            this.checkstatusDataGridViewTextBoxColumn.HeaderText = "Статус чека";
+            this.checkstatusDataGridViewTextBoxColumn.Name = "checkstatusDataGridViewTextBoxColumn";
+            // 
+            // checkList1BindingSource
+            // 
+            this.checkList1BindingSource.DataMember = "DataTable1";
+            this.checkList1BindingSource.DataSource = this.checkList1;
+            // 
+            // checkList1
+            // 
+            this.checkList1.DataSetName = "CheckList";
+            this.checkList1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // appointmentData1BindingSource
+            // 
+            this.appointmentData1BindingSource.DataMember = "DataTable1";
+            this.appointmentData1BindingSource.DataSource = this.appointmentData1;
+            // 
+            // appointmentData1
+            // 
+            this.appointmentData1.DataSetName = "AppointmentData";
+            this.appointmentData1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // appointmentDataBindingSource
+            // 
+            this.appointmentDataBindingSource.DataMember = "DataTable1";
+            this.appointmentDataBindingSource.DataSource = this.appointmentData;
+            // 
+            // appointmentData
+            // 
+            this.appointmentData.DataSetName = "AppointmentData";
+            this.appointmentData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // timetableTableAdapter
+            // 
+            this.timetableTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataTable1TableAdapter
+            // 
+            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            // 
+            // clientTableAdapter
+            // 
+            this.clientTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataTable1TableAdapter1
+            // 
+            this.dataTable1TableAdapter1.ClearBeforeFill = true;
+            // 
+            // appointmentStatusTableAdapter
+            // 
+            this.appointmentStatusTableAdapter.ClearBeforeFill = true;
+            // 
+            // checkList
+            // 
+            this.checkList.DataSetName = "CheckList";
+            this.checkList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // checkListBindingSource
+            // 
+            this.checkListBindingSource.DataMember = "DataTable1";
+            this.checkListBindingSource.DataSource = this.checkList;
+            // 
+            // dataTable1TableAdapter2
+            // 
+            this.dataTable1TableAdapter2.ClearBeforeFill = true;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -841,11 +935,22 @@
             this.phoneDataGridViewTextBoxColumn1.HeaderText = "Телефон";
             this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
             // 
-            // emailDataGridViewTextBoxColumn
+            // txtNumberCard
             // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.txtNumberCard.Enabled = false;
+            this.txtNumberCard.Location = new System.Drawing.Point(3, 210);
+            this.txtNumberCard.Name = "txtNumberCard";
+            this.txtNumberCard.Size = new System.Drawing.Size(184, 20);
+            this.txtNumberCard.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(0, 194);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Номер карты";
             // 
             // AdminForm
             // 
@@ -861,7 +966,6 @@
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -885,11 +989,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData2)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkList1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkList1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -907,9 +1016,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dgvClient;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtClientEmail;
         private System.Windows.Forms.TextBox txtClientPhone;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -942,16 +1049,14 @@
         private AppointmentData appointmentData;
         private AppointmentDataTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Button btnChangeCheck;
+        private System.Windows.Forms.DataGridView dgvCheckList;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn patronymicDataGridViewTextBoxColumn;
         private ClientData clientData;
         private ClientDataTableAdapters.ClientTableAdapter clientTableAdapter;
         private System.Windows.Forms.BindingSource clientDataBindingSource1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DateTimePicker dtAppointment;
         private System.Windows.Forms.Label label16;
@@ -970,11 +1075,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.BindingSource appointmentData2BindingSource;
         private AppointmentData appointmentData2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn1;
@@ -982,5 +1082,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusappointmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource checkListBindingSource;
+        private CheckList checkList;
+        private CheckListTableAdapters.DataTable1TableAdapter dataTable1TableAdapter2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.BindingSource checkList1BindingSource;
+        private CheckList checkList1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numbercheckDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn servicecostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkstatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtNumberCard;
     }
 }

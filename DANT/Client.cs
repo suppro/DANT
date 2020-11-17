@@ -18,7 +18,6 @@ namespace DANT
         public Client()
         {
             this.Appointment = new HashSet<Appointment>();
-            this.Check = new HashSet<Check>();
         }
     
         public int id { get; set; }
@@ -26,12 +25,9 @@ namespace DANT
         public string surname { get; set; }
         public string patronymic { get; set; }
         public string phone { get; set; }
-        public string email { get; set; }
-        public Nullable<int> card_number { get; set; }
+        public int card_number { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointment> Appointment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Check> Check { get; set; }
     }
 }

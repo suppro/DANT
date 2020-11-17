@@ -28,12 +28,10 @@ namespace DANT
         public virtual DbSet<Appointment> Appointment { get; set; }
         public virtual DbSet<AppointmentStatus> AppointmentStatus { get; set; }
         public virtual DbSet<Check> Check { get; set; }
-        public virtual DbSet<Check_Service> Check_Service { get; set; }
         public virtual DbSet<CheckStatus> CheckStatus { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Position> Position { get; set; }
-        public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<Timetable> Timetable { get; set; }
     }
 }

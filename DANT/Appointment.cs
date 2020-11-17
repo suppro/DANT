@@ -25,8 +25,8 @@ namespace DANT
         public int client_id { get; set; }
         public int employee_id { get; set; }
         public int status_id { get; set; }
+        public int number_appointment { get; set; }
         public System.DateTime date { get; set; }
-        public string comment { get; set; }
     
         public virtual AppointmentStatus AppointmentStatus { get; set; }
         public virtual Client Client { get; set; }
