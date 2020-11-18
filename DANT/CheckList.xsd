@@ -12,23 +12,28 @@
               <DbSource ConnectionRef="DANTDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Timetable.time, [Check].number_check, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, [Check].service_cost, CheckStatus.check_status
+                    <CommandText>SELECT        [Check].number_check, CheckStatus.check_status, Client.name + ' ' + Client.surname  + ' ' +  Client.patronymic AS fio, Client.card_number, Appointment.employee_id, Appointment.date, [Check].check_status_id, [Check].service_cost, 
+                         Timetable.time
 FROM            [Check] INNER JOIN
+                         CheckStatus ON [Check].check_status_id = CheckStatus.id INNER JOIN
                          Appointment ON [Check].appointment_id = Appointment.id INNER JOIN
-                         Timetable ON Appointment.time_id = Timetable.id INNER JOIN
                          Client ON Appointment.client_id = Client.id INNER JOIN
-                         CheckStatus ON [Check].check_status_id = CheckStatus.id</CommandText>
+                         Timetable ON Appointment.time_id = Timetable.id</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="time" DataSetColumn="time" />
               <Mapping SourceColumn="number_check" DataSetColumn="number_check" />
-              <Mapping SourceColumn="fio" DataSetColumn="fio" />
-              <Mapping SourceColumn="service_cost" DataSetColumn="service_cost" />
               <Mapping SourceColumn="check_status" DataSetColumn="check_status" />
+              <Mapping SourceColumn="card_number" DataSetColumn="card_number" />
+              <Mapping SourceColumn="employee_id" DataSetColumn="employee_id" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="check_status_id" DataSetColumn="check_status_id" />
+              <Mapping SourceColumn="service_cost" DataSetColumn="service_cost" />
+              <Mapping SourceColumn="time" DataSetColumn="time" />
+              <Mapping SourceColumn="fio" DataSetColumn="fio" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -43,6 +48,19 @@ FROM            [Check] INNER JOIN
         <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
+              <xs:element name="number_check" msprop:Generator_ColumnVarNameInTable="columnnumber_check" msprop:Generator_ColumnPropNameInRow="number_check" msprop:Generator_ColumnPropNameInTable="number_checkColumn" msprop:Generator_UserColumnName="number_check" type="xs:int" />
+              <xs:element name="check_status" msprop:Generator_ColumnVarNameInTable="columncheck_status" msprop:Generator_ColumnPropNameInRow="check_status" msprop:Generator_ColumnPropNameInTable="check_statusColumn" msprop:Generator_UserColumnName="check_status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="card_number" msprop:Generator_ColumnVarNameInTable="columncard_number" msprop:Generator_ColumnPropNameInRow="card_number" msprop:Generator_ColumnPropNameInTable="card_numberColumn" msprop:Generator_UserColumnName="card_number" type="xs:int" />
+              <xs:element name="employee_id" msprop:Generator_ColumnVarNameInTable="columnemployee_id" msprop:Generator_ColumnPropNameInRow="employee_id" msprop:Generator_ColumnPropNameInTable="employee_idColumn" msprop:Generator_UserColumnName="employee_id" type="xs:int" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" />
+              <xs:element name="check_status_id" msprop:Generator_ColumnVarNameInTable="columncheck_status_id" msprop:Generator_ColumnPropNameInRow="check_status_id" msprop:Generator_ColumnPropNameInTable="check_status_idColumn" msprop:Generator_UserColumnName="check_status_id" type="xs:int" />
+              <xs:element name="service_cost" msprop:Generator_ColumnVarNameInTable="columnservice_cost" msprop:Generator_ColumnPropNameInRow="service_cost" msprop:Generator_ColumnPropNameInTable="service_costColumn" msprop:Generator_UserColumnName="service_cost" type="xs:int" />
               <xs:element name="time" msprop:Generator_ColumnVarNameInTable="columntime" msprop:Generator_ColumnPropNameInRow="time" msprop:Generator_ColumnPropNameInTable="timeColumn" msprop:Generator_UserColumnName="time">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -50,19 +68,10 @@ FROM            [Check] INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="number_check" msprop:Generator_ColumnVarNameInTable="columnnumber_check" msprop:Generator_ColumnPropNameInRow="number_check" msprop:Generator_ColumnPropNameInTable="number_checkColumn" msprop:Generator_UserColumnName="number_check" type="xs:int" />
               <xs:element name="fio" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfio" msprop:Generator_ColumnPropNameInRow="fio" msprop:Generator_ColumnPropNameInTable="fioColumn" msprop:Generator_UserColumnName="fio" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="152" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="service_cost" msprop:Generator_ColumnVarNameInTable="columnservice_cost" msprop:Generator_ColumnPropNameInRow="service_cost" msprop:Generator_ColumnPropNameInTable="service_costColumn" msprop:Generator_UserColumnName="service_cost" type="xs:int" />
-              <xs:element name="check_status" msprop:Generator_ColumnVarNameInTable="columncheck_status" msprop:Generator_ColumnPropNameInRow="check_status" msprop:Generator_ColumnPropNameInTable="check_statusColumn" msprop:Generator_UserColumnName="check_status">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

@@ -279,15 +279,23 @@ namespace DANT {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
             
-            private global::System.Data.DataColumn columntime;
-            
             private global::System.Data.DataColumn columnnumber_check;
             
-            private global::System.Data.DataColumn columnfio;
+            private global::System.Data.DataColumn columncheck_status;
+            
+            private global::System.Data.DataColumn columncard_number;
+            
+            private global::System.Data.DataColumn columnemployee_id;
+            
+            private global::System.Data.DataColumn columndate;
+            
+            private global::System.Data.DataColumn columncheck_status_id;
             
             private global::System.Data.DataColumn columnservice_cost;
             
-            private global::System.Data.DataColumn columncheck_status;
+            private global::System.Data.DataColumn columntime;
+            
+            private global::System.Data.DataColumn columnfio;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -324,14 +332,6 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn timeColumn {
-                get {
-                    return this.columntime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn number_checkColumn {
                 get {
                     return this.columnnumber_check;
@@ -340,9 +340,41 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fioColumn {
+            public global::System.Data.DataColumn check_statusColumn {
                 get {
-                    return this.columnfio;
+                    return this.columncheck_status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn card_numberColumn {
+                get {
+                    return this.columncard_number;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn employee_idColumn {
+                get {
+                    return this.columnemployee_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dateColumn {
+                get {
+                    return this.columndate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn check_status_idColumn {
+                get {
+                    return this.columncheck_status_id;
                 }
             }
             
@@ -356,9 +388,17 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn check_statusColumn {
+            public global::System.Data.DataColumn timeColumn {
                 get {
-                    return this.columncheck_status;
+                    return this.columntime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn fioColumn {
+                get {
+                    return this.columnfio;
                 }
             }
             
@@ -399,14 +439,18 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string time, int number_check, string fio, int service_cost, string check_status) {
+            public DataTable1Row AddDataTable1Row(int number_check, string check_status, int card_number, int employee_id, System.DateTime date, int check_status_id, int service_cost, string time, string fio) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        time,
                         number_check,
-                        fio,
+                        check_status,
+                        card_number,
+                        employee_id,
+                        date,
+                        check_status_id,
                         service_cost,
-                        check_status};
+                        time,
+                        fio};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -429,34 +473,50 @@ namespace DANT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columntime = base.Columns["time"];
                 this.columnnumber_check = base.Columns["number_check"];
-                this.columnfio = base.Columns["fio"];
-                this.columnservice_cost = base.Columns["service_cost"];
                 this.columncheck_status = base.Columns["check_status"];
+                this.columncard_number = base.Columns["card_number"];
+                this.columnemployee_id = base.Columns["employee_id"];
+                this.columndate = base.Columns["date"];
+                this.columncheck_status_id = base.Columns["check_status_id"];
+                this.columnservice_cost = base.Columns["service_cost"];
+                this.columntime = base.Columns["time"];
+                this.columnfio = base.Columns["fio"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columntime = new global::System.Data.DataColumn("time", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntime);
                 this.columnnumber_check = new global::System.Data.DataColumn("number_check", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumber_check);
-                this.columnfio = new global::System.Data.DataColumn("fio", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfio);
-                this.columnservice_cost = new global::System.Data.DataColumn("service_cost", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnservice_cost);
                 this.columncheck_status = new global::System.Data.DataColumn("check_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncheck_status);
-                this.columntime.AllowDBNull = false;
-                this.columntime.MaxLength = 50;
+                this.columncard_number = new global::System.Data.DataColumn("card_number", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncard_number);
+                this.columnemployee_id = new global::System.Data.DataColumn("employee_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemployee_id);
+                this.columndate = new global::System.Data.DataColumn("date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate);
+                this.columncheck_status_id = new global::System.Data.DataColumn("check_status_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncheck_status_id);
+                this.columnservice_cost = new global::System.Data.DataColumn("service_cost", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnservice_cost);
+                this.columntime = new global::System.Data.DataColumn("time", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntime);
+                this.columnfio = new global::System.Data.DataColumn("fio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfio);
                 this.columnnumber_check.AllowDBNull = false;
-                this.columnfio.ReadOnly = true;
-                this.columnfio.MaxLength = 152;
-                this.columnservice_cost.AllowDBNull = false;
                 this.columncheck_status.AllowDBNull = false;
                 this.columncheck_status.MaxLength = 50;
+                this.columncard_number.AllowDBNull = false;
+                this.columnemployee_id.AllowDBNull = false;
+                this.columndate.AllowDBNull = false;
+                this.columncheck_status_id.AllowDBNull = false;
+                this.columnservice_cost.AllowDBNull = false;
+                this.columntime.AllowDBNull = false;
+                this.columntime.MaxLength = 50;
+                this.columnfio.ReadOnly = true;
+                this.columnfio.MaxLength = 152;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -599,17 +659,6 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string time {
-                get {
-                    return ((string)(this[this.tableDataTable1.timeColumn]));
-                }
-                set {
-                    this[this.tableDataTable1.timeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int number_check {
                 get {
                     return ((int)(this[this.tableDataTable1.number_checkColumn]));
@@ -621,17 +670,56 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string fio {
+            public string check_status {
                 get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.fioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'fio\' в таблице \'DataTable1\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tableDataTable1.check_statusColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.fioColumn] = value;
+                    this[this.tableDataTable1.check_statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int card_number {
+                get {
+                    return ((int)(this[this.tableDataTable1.card_numberColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.card_numberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int employee_id {
+                get {
+                    return ((int)(this[this.tableDataTable1.employee_idColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.employee_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableDataTable1.dateColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int check_status_id {
+                get {
+                    return ((int)(this[this.tableDataTable1.check_status_idColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.check_status_idColumn] = value;
                 }
             }
             
@@ -648,12 +736,28 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string check_status {
+            public string time {
                 get {
-                    return ((string)(this[this.tableDataTable1.check_statusColumn]));
+                    return ((string)(this[this.tableDataTable1.timeColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.check_statusColumn] = value;
+                    this[this.tableDataTable1.timeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string fio {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.fioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'fio\' в таблице \'DataTable1\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.fioColumn] = value;
                 }
             }
             
@@ -829,11 +933,15 @@ namespace DANT.CheckListTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable1";
-            tableMapping.ColumnMappings.Add("time", "time");
             tableMapping.ColumnMappings.Add("number_check", "number_check");
-            tableMapping.ColumnMappings.Add("fio", "fio");
-            tableMapping.ColumnMappings.Add("service_cost", "service_cost");
             tableMapping.ColumnMappings.Add("check_status", "check_status");
+            tableMapping.ColumnMappings.Add("card_number", "card_number");
+            tableMapping.ColumnMappings.Add("employee_id", "employee_id");
+            tableMapping.ColumnMappings.Add("date", "date");
+            tableMapping.ColumnMappings.Add("check_status_id", "check_status_id");
+            tableMapping.ColumnMappings.Add("service_cost", "service_cost");
+            tableMapping.ColumnMappings.Add("time", "time");
+            tableMapping.ColumnMappings.Add("fio", "fio");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -850,12 +958,13 @@ namespace DANT.CheckListTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Timetable.time, [Check].number_check, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, [Check].service_cost, CheckStatus.check_status
+            this._commandCollection[0].CommandText = @"SELECT        [Check].number_check, CheckStatus.check_status, Client.name + ' ' + Client.surname  + ' ' +  Client.patronymic AS fio, Client.card_number, Appointment.employee_id, Appointment.date, [Check].check_status_id, [Check].service_cost, 
+                         Timetable.time
 FROM            [Check] INNER JOIN
+                         CheckStatus ON [Check].check_status_id = CheckStatus.id INNER JOIN
                          Appointment ON [Check].appointment_id = Appointment.id INNER JOIN
-                         Timetable ON Appointment.time_id = Timetable.id INNER JOIN
                          Client ON Appointment.client_id = Client.id INNER JOIN
-                         CheckStatus ON [Check].check_status_id = CheckStatus.id";
+                         Timetable ON Appointment.time_id = Timetable.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

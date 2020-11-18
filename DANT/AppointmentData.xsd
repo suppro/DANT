@@ -12,12 +12,14 @@
               <DbSource ConnectionRef="DANTDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Timetable.time, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, Client.card_number, Client.phone, AppointmentStatus.status_appointment, Appointment.date, Appointment.id
+                    <CommandText>SELECT        Timetable.time, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, Client.card_number, Client.phone, AppointmentStatus.status_appointment, Appointment.date, Appointment.id, Appointment.employee_id, 
+                         Timetable.id AS Expr1
 FROM            Appointment INNER JOIN
                          AppointmentStatus ON Appointment.status_id = AppointmentStatus.id INNER JOIN
                          Client ON Appointment.client_id = Client.id INNER JOIN
                          Employee ON Appointment.employee_id = Employee.id INNER JOIN
-                         Timetable ON Appointment.time_id = Timetable.id</CommandText>
+                         Timetable ON Appointment.time_id = Timetable.id
+ORDER BY Expr1</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -31,6 +33,8 @@ FROM            Appointment INNER JOIN
               <Mapping SourceColumn="date" DataSetColumn="date" />
               <Mapping SourceColumn="card_number" DataSetColumn="card_number" />
               <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="employee_id" DataSetColumn="employee_id" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -42,7 +46,7 @@ FROM            Appointment INNER JOIN
   <xs:element name="AppointmentData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AppointmentData" msprop:Generator_UserDSName="AppointmentData">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="time" msprop:Generator_ColumnVarNameInTable="columntime" msprop:Generator_ColumnPropNameInRow="time" msprop:Generator_ColumnPropNameInTable="timeColumn" msprop:Generator_UserColumnName="time">
@@ -74,8 +78,10 @@ FROM            Appointment INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" />
-              <xs:element name="card_number" msprop:Generator_ColumnVarNameInTable="columncard_number" msprop:Generator_ColumnPropNameInRow="card_number" msprop:Generator_ColumnPropNameInTable="card_numberColumn" msprop:Generator_UserColumnName="card_number" type="xs:int" minOccurs="0" />
+              <xs:element name="card_number" msprop:Generator_ColumnVarNameInTable="columncard_number" msprop:Generator_ColumnPropNameInRow="card_number" msprop:Generator_ColumnPropNameInTable="card_numberColumn" msprop:Generator_UserColumnName="card_number" type="xs:int" />
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="employee_id" msprop:Generator_ColumnVarNameInTable="columnemployee_id" msprop:Generator_ColumnPropNameInRow="employee_id" msprop:Generator_ColumnPropNameInTable="employee_idColumn" msprop:Generator_UserColumnName="employee_id" type="xs:int" />
+              <xs:element name="Expr1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

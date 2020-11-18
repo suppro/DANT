@@ -95,7 +95,7 @@ namespace DANT
 
         private void updateTable() 
         {
-            this.dataTable1TableAdapter2.Fill(this.checkList2.DataTable1);
+            this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
             this.dataTable1TableAdapter1.Fill(this.numberAppointment.DataTable1);
             this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
         }

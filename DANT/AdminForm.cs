@@ -25,8 +25,10 @@ namespace DANT
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
+
             UpdateTable();
             loadUserInfo();
+            TableFilter();
         }
 
         private void loadUserInfo()
@@ -138,6 +140,29 @@ namespace DANT
             }
 
             DateTime dateAppointment = new DateTime(dtDateAppointment.Value.Year, dtDateAppointment.Value.Month, dtDateAppointment.Value.Day);
+            DateTime dt = DateTime.Today;
+            DateTime datePosibleAppointment = new DateTime(dt.Year, dt.Month + 1, dt.Day);
+
+            if (dateAppointment <= DateTime.Today)
+            {
+                MessageBox.Show("Записать пациента возможно только на следующие дни от текущей даты", "Ошибка"); return;
+            }
+            if (dateAppointment > datePosibleAppointment)
+            {
+                MessageBox.Show("Записать пациента возможно только не более чем на месяц вперед", "Ошибка"); return;
+            }
+            
+            using (DANTDBEntities db = new DANTDBEntities())
+            {
+                Appointment model = (from u in db.Appointment
+                                     where u.date == appointment.date && u.time_id == appointment.time_id && u.employee_id == appointment.employee_id
+                                     select u).FirstOrDefault();
+                if (model != null)
+                {
+                    MessageBox.Show("Нельзя записать пациента на одну дату, время и врача более одно раза", "Ошибка");
+                    return;
+                }
+            }
 
             using (DANTDBEntities db = new DANTDBEntities())
             {
@@ -157,7 +182,7 @@ namespace DANT
             
             txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
             appointment.id = 0;
-            this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
             MessageBox.Show("Данные успешно добавлены");
             ClearAppointment();
         }
@@ -202,7 +227,7 @@ namespace DANT
                         db.Appointment.Attach(appointment);
                     db.Appointment.Remove(appointment);
                     db.SaveChanges();
-                    this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
+                    this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
                     ClearAppointment();
                     MessageBox.Show("Удаление прошло успешно");
                 }
@@ -243,7 +268,7 @@ namespace DANT
         }
         private void ClearAppointment()
         {
-            this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
             txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
             txtClientID.Enabled = true;
             cmbDoctorName.Enabled = true;
@@ -255,19 +280,27 @@ namespace DANT
             btnAppointment.Text = "Добавить запись";
             appointment.id = 0;
         }
+
+        private void TableFilterClick(object sender, EventArgs e)
+        {
+            TableFilter();
+        }
+        private void TableFilter()
+        {
+            var doctorSelected = Convert.ToInt32(cmbAppointmentDoctor.SelectedValue);
+            var dateSelected = new DateTime(dtAppointment.Value.Year, dtAppointment.Value.Month, dtAppointment.Value.Day);
+            appointmentDataBindingSource.Filter = $"employee_id = '{doctorSelected}' and date = '{dateSelected}'";
+            this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
+        }
         private void UpdateTable()
         {
-            this.dataTable1TableAdapter2.Fill(this.checkList1.DataTable1);
             this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
-            this.dataTable1TableAdapter.Fill(this.appointmentData2.DataTable1);
-            this.appointmentStatusTableAdapter.Fill(this.appointmentStatusData.AppointmentStatus);
-            this.dataTable1TableAdapter.Fill(this.appointmentData1.DataTable1);
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
             this.dataTable1TableAdapter1.Fill(this.appointmentDoctorData.DataTable1);
             this.clientTableAdapter.Fill(this.clientData.Client);
             this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
             this.timetableTableAdapter.Fill(this.timeData.Timetable);
             this.employeeTableAdapter.Fill(this.employeeData.Employee);
         }
-
     }   
 }
