@@ -25,10 +25,10 @@ namespace DANT
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-
             UpdateTable();
             loadUserInfo();
-            TableFilter();
+            TableFilterAppointment();
+            TableFilterCheck();
         }
 
         private void loadUserInfo()
@@ -124,45 +124,34 @@ namespace DANT
 
         private void AddAppointment(object sender, EventArgs e)
         {
+            DateTime dateAppointment = new DateTime(dtDateAppointment.Value.Year, dtDateAppointment.Value.Month, dtDateAppointment.Value.Day);
             appointment.client_id = Convert.ToInt32(txtClientID.Text.Trim());
             appointment.employee_id = Convert.ToInt32(cmbDoctorName.SelectedValue.ToString());
             appointment.date = dtDateAppointment.Value.Date;
             appointment.time_id = Convert.ToInt32(cbTime.SelectedValue);
-            if (client.id == 1)
-                appointment.number_appointment = 510000;
-            else
-                appointment.number_appointment = Convert.ToInt32(dgvClient[1, dgvClient.Rows.Count - 1].Value) + 1;
-
 
             if (String.IsNullOrEmpty(appointment.client_id.ToString()) || String.IsNullOrEmpty(appointment.employee_id.ToString()) || String.IsNullOrEmpty(appointment.date.ToString()) || String.IsNullOrEmpty(appointment.time_id.ToString()))
             {
                 MessageBox.Show("Все поля должны быть заполненны"); return;
             }
 
-            DateTime dateAppointment = new DateTime(dtDateAppointment.Value.Year, dtDateAppointment.Value.Month, dtDateAppointment.Value.Day);
-            DateTime dt = DateTime.Today;
-            DateTime datePosibleAppointment = new DateTime(dt.Year, dt.Month + 1, dt.Day);
-
-            if (dateAppointment <= DateTime.Today)
-            {
-                MessageBox.Show("Записать пациента возможно только на следующие дни от текущей даты", "Ошибка"); return;
-            }
-            if (dateAppointment > datePosibleAppointment)
-            {
-                MessageBox.Show("Записать пациента возможно только не более чем на месяц вперед", "Ошибка"); return;
-            }
-            
             using (DANTDBEntities db = new DANTDBEntities())
             {
                 Appointment model = (from u in db.Appointment
-                                     where u.date == appointment.date && u.time_id == appointment.time_id && u.employee_id == appointment.employee_id
-                                     select u).FirstOrDefault();
-                if (model != null)
+                               orderby u.number_appointment descending
+                               select u).FirstOrDefault();
+                if (model == null)
                 {
-                    MessageBox.Show("Нельзя записать пациента на одну дату, время и врача более одно раза", "Ошибка");
-                    return;
+                    appointment.number_appointment = 510000;
                 }
+                else
+                    appointment.number_appointment = model.number_appointment + 1;
             }
+
+            if (appointment.id == 0)
+                if (!VerificationForm(dateAppointment))
+                    return;
+
 
             using (DANTDBEntities db = new DANTDBEntities())
             {
@@ -171,12 +160,25 @@ namespace DANT
                     appointment.status_id = 1;
                     db.Appointment.Add(appointment);
                 }
-                else 
+                else
                 {
                     appointment.status_id = Convert.ToInt32(cbAppointmentStatus.SelectedValue);
+                    /*
+                    if (appointment.status_id == 1)
+                    {
+                        MessageBox.Show("Нельзя поменять статус записи на 'Записан'","Ошибка"); return;
+                    }
+                    if (DateTime.Today < dateAppointment && appointment.status_id == 2)
+                    {
+                        MessageBox.Show("Нельзя поменять статус записи на 'Явился на прием' до такого как наступит дата приема ", "Ошибка"); return;
+                    }
+                    if (DateTime.Today < dateAppointment && appointment.status_id == 3)
+                    {
+                        MessageBox.Show("Нельзя поменять статус записи на 'Не явился на прием' до такого как наступит дата приема ", "Ошибка"); return;
+                    }
+                    */
                     db.Entry(appointment).State = EntityState.Modified;
                 }
-                    
                 db.SaveChanges();
             }
             
@@ -242,13 +244,14 @@ namespace DANT
                 db.Entry(check).State = EntityState.Modified;
                 db.SaveChanges();
             }
+            btnChangeCheck.Enabled = false;
             UpdateTable();
         }
         private void SelectCheck(object sender, EventArgs e)
         {
             if (dgvCheckList.CurrentRow.Index != -1)
             {
-                check.id = Convert.ToInt32(dgvCheckList.CurrentRow.Cells["idDataGridViewTextBoxColumn1"].Value);
+                check.id = Convert.ToInt32(dgvCheckList.CurrentRow.Cells["idDataGridViewTextBoxColumn3"].Value);
                 using (DANTDBEntities db = new DANTDBEntities())
                 {
                     check = db.Check.Where(x => x.id == check.id).FirstOrDefault();
@@ -281,26 +284,90 @@ namespace DANT
             appointment.id = 0;
         }
 
-        private void TableFilterClick(object sender, EventArgs e)
+        private void TableFilterClickAppointment(object sender, EventArgs e)
         {
-            TableFilter();
+            TableFilterAppointment();
         }
-        private void TableFilter()
+        private void TableFilterClickCheck(object sender, EventArgs e)
         {
-            var doctorSelected = Convert.ToInt32(cmbAppointmentDoctor.SelectedValue);
-            var dateSelected = new DateTime(dtAppointment.Value.Year, dtAppointment.Value.Month, dtAppointment.Value.Day);
-            appointmentDataBindingSource.Filter = $"employee_id = '{doctorSelected}' and date = '{dateSelected}'";
+            TableFilterCheck();
+        }
+        private void TableFilterCheck()
+        {
+            var doctorCheckSelected = Convert.ToInt32(cmbAppointmentDoctor.SelectedValue);
+            var dateCheckSelected = new DateTime(dtAppointment.Value.Year, dtAppointment.Value.Month, dtAppointment.Value.Day);
+            checkListBindingSource.Filter = $"employee_id = '{doctorCheckSelected}' and date = '{dateCheckSelected}'";
             this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
+        }
+        private void TableFilterAppointment()
+        {
+            var doctorAppointmentSelected = Convert.ToInt32(cmbAppointmentDoctor.SelectedValue);
+            var dateAppointmentSelected = new DateTime(dtAppointment.Value.Year, dtAppointment.Value.Month, dtAppointment.Value.Day);
+            appointmentDataBindingSource.Filter = $"employee_id = '{doctorAppointmentSelected}' and date = '{dateAppointmentSelected}'";
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
         }
         private void UpdateTable()
         {
+            this.employeeTableAdapter.Fill(this.employeeData.Employee);
+            this.dataTable1TableAdapter1.Fill(this.appointmentDoctorData.DataTable1);
+            this.appointmentStatusTableAdapter.Fill(this.appointmentStatusData.AppointmentStatus);
+            this.employeeTableAdapter1.Fill(this.checkDoctorData.Employee);
             this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
             this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
-            this.dataTable1TableAdapter1.Fill(this.appointmentDoctorData.DataTable1);
             this.clientTableAdapter.Fill(this.clientData.Client);
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
             this.timetableTableAdapter.Fill(this.timeData.Timetable);
-            this.employeeTableAdapter.Fill(this.employeeData.Employee);
+        }
+        private bool VerificationForm(DateTime dateAppointment)
+        {
+            
+            DateTime dt = DateTime.Today;
+            DateTime datePosibleAppointment = new DateTime(dt.Year, dt.Month + 1, dt.Day);
+
+            if (dateAppointment <= DateTime.Today)
+            {
+                MessageBox.Show("Записать пациента возможно только на следующие дни от текущей даты", "Ошибка"); return false;
+            }
+            if (dateAppointment > datePosibleAppointment)
+            {
+                MessageBox.Show("Записать пациента возможно только не более чем на месяц вперед", "Ошибка"); return false;
+            }
+
+            using (DANTDBEntities db = new DANTDBEntities())
+            {
+                Appointment model = (from u in db.Appointment
+                                     where u.date == appointment.date && u.time_id == appointment.time_id && u.employee_id == appointment.employee_id
+                                     select u).FirstOrDefault();
+                if (model != null)
+                {
+                    MessageBox.Show("Нельзя записать пациента на одну дату, время и врача более одно раза", "Ошибка");
+                    return false;
+                }
+            }
+
+            using (DANTDBEntities db = new DANTDBEntities())
+            {
+                Appointment model = (from u in db.Appointment
+                                     where u.date == appointment.date && u.time_id == appointment.time_id
+                                     select u).FirstOrDefault();
+                if (model != null)
+                {
+                    MessageBox.Show("Нельзя записать пациента на одну дату и время более одно раза", "Ошибка");
+                    return false;
+                }
+            }
+
+            using (DANTDBEntities db = new DANTDBEntities())
+            {
+                Appointment model = (from u in db.Appointment
+                                     where u.date == appointment.date && u.time_id == appointment.time_id
+                                     select u).FirstOrDefault();
+                if (model != null)
+                {
+                    MessageBox.Show("Нельзя записать пациента на одну дату и время более одно раза", "Ошибка");
+                    return false;
+                }
+            }
+            return true;
         }
     }   
 }

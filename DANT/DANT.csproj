@@ -90,6 +90,11 @@
     <Compile Include="Check.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CheckDoctorData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckDoctorData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CheckList.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -233,6 +238,17 @@
     </None>
     <None Include="AppointmentStatusData.xss">
       <DependentUpon>AppointmentStatusData.xsd</DependentUpon>
+    </None>
+    <None Include="CheckDoctorData.xsc">
+      <DependentUpon>CheckDoctorData.xsd</DependentUpon>
+    </None>
+    <None Include="CheckDoctorData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CheckDoctorData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CheckDoctorData.xss">
+      <DependentUpon>CheckDoctorData.xsd</DependentUpon>
     </None>
     <None Include="CheckList.xsc">
       <DependentUpon>CheckList.xsd</DependentUpon>

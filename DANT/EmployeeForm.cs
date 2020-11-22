@@ -65,7 +65,7 @@ namespace DANT
                 check.number_check = model.number_check + 1;
                 if (model == null)
                 {
-                    MessageBox.Show("Ошибка закрузки данных пользователя", "Ошибка");
+                    MessageBox.Show("Ошибка закрузки данных", "Ошибка");
                     return;
                 }
             }
@@ -76,21 +76,18 @@ namespace DANT
                 {
                     db.Check.Add(check);
                     db.SaveChanges();
+                    appointment = db.Appointment.Where(x => x.id == check.appointment_id).FirstOrDefault();
+                    appointment.status_id = 4;
+                    db.Entry(appointment).State = EntityState.Modified;
+                    db.SaveChanges();
                 }
+                txtServiceCost.Text = "";
+                appointment.id = 0;
+                updateTable();
+                MessageBox.Show("Данные успешно добавлены");
             }
-
-            using (DANTDBEntities db = new DANTDBEntities())
-            {
-                appointment = db.Appointment.Where(x => x.id == check.appointment_id).FirstOrDefault();
-                appointment.status_id = 4;
-                db.Entry(appointment).State = EntityState.Modified;
-                db.SaveChanges();
-            }
-
-            txtServiceCost.Text = "";
-            appointment.id = 0;
-            updateTable();
-            MessageBox.Show("Данные успешно добавлены");
+            else
+                return;
         }
 
         private void updateTable() 

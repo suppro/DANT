@@ -12,8 +12,8 @@
               <DbSource ConnectionRef="DANTDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        [Check].number_check, CheckStatus.check_status, Client.name + ' ' + Client.surname  + ' ' +  Client.patronymic AS fio, Client.card_number, Appointment.employee_id, Appointment.date, [Check].check_status_id, [Check].service_cost, 
-                         Timetable.time
+                    <CommandText>SELECT        [Check].number_check, CheckStatus.check_status, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, Client.card_number, Appointment.employee_id, Appointment.date, [Check].check_status_id, 
+                         [Check].service_cost, Timetable.time, [Check].id
 FROM            [Check] INNER JOIN
                          CheckStatus ON [Check].check_status_id = CheckStatus.id INNER JOIN
                          Appointment ON [Check].appointment_id = Appointment.id INNER JOIN
@@ -34,6 +34,7 @@ FROM            [Check] INNER JOIN
               <Mapping SourceColumn="service_cost" DataSetColumn="service_cost" />
               <Mapping SourceColumn="time" DataSetColumn="time" />
               <Mapping SourceColumn="fio" DataSetColumn="fio" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -45,7 +46,7 @@ FROM            [Check] INNER JOIN
   <xs:element name="CheckList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CheckList" msprop:Generator_UserDSName="CheckList">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="number_check" msprop:Generator_ColumnVarNameInTable="columnnumber_check" msprop:Generator_ColumnPropNameInRow="number_check" msprop:Generator_ColumnPropNameInTable="number_checkColumn" msprop:Generator_UserColumnName="number_check" type="xs:int" />
@@ -75,10 +76,15 @@ FROM            [Check] INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

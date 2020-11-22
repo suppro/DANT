@@ -787,7 +787,7 @@ namespace DANT.EmployeeDataTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        surname + \' \' + name AS fio, id\r\nFROM            Employee\r\nWHERE   " +
-                "      id != 7";
+                "     (position_id <> 7) AND (position_id <> 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

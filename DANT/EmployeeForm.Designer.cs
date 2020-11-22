@@ -57,6 +57,16 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvCheckList = new System.Windows.Forms.DataGridView();
+            this.timeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numbercheckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkList = new DANT.CheckList();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patient = new DANT.Patient();
             this.servicesDateBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,17 +82,7 @@
             this.appointmentStatusTableAdapter = new DANT.PatientTableAdapters.AppointmentStatusTableAdapter();
             this.serviceTableAdapter = new DANT.ServicesDateTableAdapters.ServiceTableAdapter();
             this.dataTable1TableAdapter1 = new DANT.NumberAppointmentTableAdapters.DataTable1TableAdapter();
-            this.checkList = new DANT.CheckList();
-            this.checkListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataTable1TableAdapter2 = new DANT.CheckListTableAdapters.DataTable1TableAdapter();
-            this.timeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numbercheckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -93,13 +93,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesDateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesDate)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -359,134 +359,6 @@
             this.dgvCheckList.Size = new System.Drawing.Size(787, 360);
             this.dgvCheckList.TabIndex = 1;
             // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataMember = "AppointmentStatus";
-            this.patientBindingSource.DataSource = this.patient;
-            // 
-            // patient
-            // 
-            this.patient.DataSetName = "Patient";
-            this.patient.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // servicesDateBindingSource
-            // 
-            this.servicesDateBindingSource.DataMember = "Service";
-            this.servicesDateBindingSource.DataSource = this.servicesDate;
-            // 
-            // servicesDate
-            // 
-            this.servicesDate.DataSetName = "ServicesDate";
-            this.servicesDate.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataTable1TableAdapter
-            // 
-            this.dataTable1TableAdapter.ClearBeforeFill = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.OldLace;
-            this.panel1.Controls.Add(this.lbDate);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.lbPosition);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.lbEmployeeName);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(166, 450);
-            this.panel1.TabIndex = 3;
-            // 
-            // lbDate
-            // 
-            this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbDate.Location = new System.Drawing.Point(9, 151);
-            this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(152, 20);
-            this.lbDate.TabIndex = 5;
-            this.lbDate.Text = "дата";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(5, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Сегодняшняя дата";
-            // 
-            // lbPosition
-            // 
-            this.lbPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbPosition.Location = new System.Drawing.Point(5, 84);
-            this.lbPosition.Name = "lbPosition";
-            this.lbPosition.Size = new System.Drawing.Size(160, 20);
-            this.lbPosition.TabIndex = 3;
-            this.lbPosition.Text = "должность";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(29, 64);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Должность:";
-            // 
-            // lbEmployeeName
-            // 
-            this.lbEmployeeName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbEmployeeName.Location = new System.Drawing.Point(3, 34);
-            this.lbEmployeeName.Name = "lbEmployeeName";
-            this.lbEmployeeName.Size = new System.Drawing.Size(160, 20);
-            this.lbEmployeeName.TabIndex = 1;
-            this.lbEmployeeName.Text = "имя";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Имя сотрудника:";
-            // 
-            // appointmentStatusTableAdapter
-            // 
-            this.appointmentStatusTableAdapter.ClearBeforeFill = true;
-            // 
-            // serviceTableAdapter
-            // 
-            this.serviceTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataTable1TableAdapter1
-            // 
-            this.dataTable1TableAdapter1.ClearBeforeFill = true;
-            // 
-            // checkList
-            // 
-            this.checkList.DataSetName = "CheckList";
-            this.checkList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // checkListBindingSource
-            // 
-            this.checkListBindingSource.DataMember = "DataTable1";
-            this.checkListBindingSource.DataSource = this.checkList;
-            // 
-            // dataTable1TableAdapter2
-            // 
-            this.dataTable1TableAdapter2.ClearBeforeFill = true;
-            // 
             // timeDataGridViewTextBoxColumn1
             // 
             this.timeDataGridViewTextBoxColumn1.DataPropertyName = "time";
@@ -539,6 +411,137 @@
             this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
             this.dateDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // checkListBindingSource
+            // 
+            this.checkListBindingSource.DataMember = "DataTable1";
+            this.checkListBindingSource.DataSource = this.checkList;
+            // 
+            // checkList
+            // 
+            this.checkList.DataSetName = "CheckList";
+            this.checkList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataMember = "AppointmentStatus";
+            this.patientBindingSource.DataSource = this.patient;
+            // 
+            // patient
+            // 
+            this.patient.DataSetName = "Patient";
+            this.patient.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // servicesDateBindingSource
+            // 
+            this.servicesDateBindingSource.DataMember = "Service";
+            this.servicesDateBindingSource.DataSource = this.servicesDate;
+            // 
+            // servicesDate
+            // 
+            this.servicesDate.DataSetName = "ServicesDate";
+            this.servicesDate.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataTable1TableAdapter
+            // 
+            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.OldLace;
+            this.panel1.Controls.Add(this.lbDate);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lbPosition);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lbEmployeeName);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(166, 450);
+            this.panel1.TabIndex = 3;
+            // 
+            // lbDate
+            // 
+            this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbDate.Location = new System.Drawing.Point(9, 132);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(152, 20);
+            this.lbDate.TabIndex = 5;
+            this.lbDate.Text = "дата";
+            this.lbDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(5, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(156, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Сегодняшняя дата";
+            // 
+            // lbPosition
+            // 
+            this.lbPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbPosition.Location = new System.Drawing.Point(5, 84);
+            this.lbPosition.Name = "lbPosition";
+            this.lbPosition.Size = new System.Drawing.Size(160, 20);
+            this.lbPosition.TabIndex = 3;
+            this.lbPosition.Text = "должность";
+            this.lbPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(29, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Должность:";
+            // 
+            // lbEmployeeName
+            // 
+            this.lbEmployeeName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbEmployeeName.Location = new System.Drawing.Point(3, 34);
+            this.lbEmployeeName.Name = "lbEmployeeName";
+            this.lbEmployeeName.Size = new System.Drawing.Size(160, 20);
+            this.lbEmployeeName.TabIndex = 1;
+            this.lbEmployeeName.Text = "имя";
+            this.lbEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Имя сотрудника:";
+            // 
+            // appointmentStatusTableAdapter
+            // 
+            this.appointmentStatusTableAdapter.ClearBeforeFill = true;
+            // 
+            // serviceTableAdapter
+            // 
+            this.serviceTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataTable1TableAdapter1
+            // 
+            this.dataTable1TableAdapter1.ClearBeforeFill = true;
+            // 
+            // dataTable1TableAdapter2
+            // 
+            this.dataTable1TableAdapter2.ClearBeforeFill = true;
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,14 +567,14 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesDateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesDate)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

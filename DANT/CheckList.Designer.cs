@@ -297,6 +297,8 @@ namespace DANT {
             
             private global::System.Data.DataColumn columnfio;
             
+            private global::System.Data.DataColumn columnid;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public DataTable1DataTable() {
@@ -404,6 +406,14 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -450,10 +460,18 @@ namespace DANT {
                         check_status_id,
                         service_cost,
                         time,
-                        fio};
+                        fio,
+                        null};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public DataTable1Row FindByid(int id) {
+                return ((DataTable1Row)(this.Rows.Find(new object[] {
+                            id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -482,6 +500,7 @@ namespace DANT {
                 this.columnservice_cost = base.Columns["service_cost"];
                 this.columntime = base.Columns["time"];
                 this.columnfio = base.Columns["fio"];
+                this.columnid = base.Columns["id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -505,6 +524,10 @@ namespace DANT {
                 base.Columns.Add(this.columntime);
                 this.columnfio = new global::System.Data.DataColumn("fio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfio);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
                 this.columnnumber_check.AllowDBNull = false;
                 this.columncheck_status.AllowDBNull = false;
                 this.columncheck_status.MaxLength = 50;
@@ -517,6 +540,12 @@ namespace DANT {
                 this.columntime.MaxLength = 50;
                 this.columnfio.ReadOnly = true;
                 this.columnfio.MaxLength = 152;
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -763,6 +792,17 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int id {
+                get {
+                    return ((int)(this[this.tableDataTable1.idColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsfioNull() {
                 return this.IsNull(this.tableDataTable1.fioColumn);
             }
@@ -942,6 +982,7 @@ namespace DANT.CheckListTableAdapters {
             tableMapping.ColumnMappings.Add("service_cost", "service_cost");
             tableMapping.ColumnMappings.Add("time", "time");
             tableMapping.ColumnMappings.Add("fio", "fio");
+            tableMapping.ColumnMappings.Add("id", "id");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -958,8 +999,8 @@ namespace DANT.CheckListTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        [Check].number_check, CheckStatus.check_status, Client.name + ' ' + Client.surname  + ' ' +  Client.patronymic AS fio, Client.card_number, Appointment.employee_id, Appointment.date, [Check].check_status_id, [Check].service_cost, 
-                         Timetable.time
+            this._commandCollection[0].CommandText = @"SELECT        [Check].number_check, CheckStatus.check_status, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, Client.card_number, Appointment.employee_id, Appointment.date, [Check].check_status_id, 
+                         [Check].service_cost, Timetable.time, [Check].id
 FROM            [Check] INNER JOIN
                          CheckStatus ON [Check].check_status_id = CheckStatus.id INNER JOIN
                          Appointment ON [Check].appointment_id = Appointment.id INNER JOIN

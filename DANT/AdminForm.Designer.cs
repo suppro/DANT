@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,6 +69,8 @@
             this.btnClearAppointment = new System.Windows.Forms.Button();
             this.btnDeleteAppointment = new System.Windows.Forms.Button();
             this.cbAppointmentStatus = new System.Windows.Forms.ComboBox();
+            this.appointmentStatusDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentStatusData = new DANT.AppointmentStatusData();
             this.label15 = new System.Windows.Forms.Label();
             this.btnAppointment = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -88,34 +90,6 @@
             this.appointmentDoctorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentDoctorData = new DANT.AppointmentDoctorData();
             this.dgvAppointment = new System.Windows.Forms.DataGridView();
-            this.appointmentDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.appointmentData = new DANT.AppointmentData();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.cmbCheckDoctor = new System.Windows.Forms.ComboBox();
-            this.btnChangeCheck = new System.Windows.Forms.Button();
-            this.dgvCheckList = new System.Windows.Forms.DataGridView();
-            this.timeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numbercheckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fioDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardnumberDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.servicecostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkList = new DANT.CheckList();
-            this.appointmentStatusDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.appointmentStatusData = new DANT.AppointmentStatusData();
-            this.employeeTableAdapter = new DANT.EmployeeDataTableAdapters.EmployeeTableAdapter();
-            this.timetableTableAdapter = new DANT.TimeDataTableAdapters.TimetableTableAdapter();
-            this.clientTableAdapter = new DANT.ClientDataTableAdapters.ClientTableAdapter();
-            this.dataTable1TableAdapter1 = new DANT.AppointmentDoctorDataTableAdapters.DataTable1TableAdapter();
-            this.appointmentStatusTableAdapter = new DANT.AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter();
-            this.dataTable1TableAdapter = new DANT.AppointmentDataTableAdapters.DataTable1TableAdapter();
-            this.dataTable1TableAdapter2 = new DANT.CheckListTableAdapters.DataTable1TableAdapter();
             this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,6 +99,37 @@
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expr1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentData = new DANT.AppointmentData();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cmbCheckDoctor = new System.Windows.Forms.ComboBox();
+            this.checkDoctorDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkDoctorData = new DANT.CheckDoctorData();
+            this.btnChangeCheck = new System.Windows.Forms.Button();
+            this.dgvCheckList = new System.Windows.Forms.DataGridView();
+            this.timeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numbercheckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fioDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardnumberDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servicecostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkstatusidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkList = new DANT.CheckList();
+            this.timetableTableAdapter = new DANT.TimeDataTableAdapters.TimetableTableAdapter();
+            this.clientTableAdapter = new DANT.ClientDataTableAdapters.ClientTableAdapter();
+            this.dataTable1TableAdapter = new DANT.AppointmentDataTableAdapters.DataTable1TableAdapter();
+            this.employeeTableAdapter = new DANT.EmployeeDataTableAdapters.EmployeeTableAdapter();
+            this.dataTable1TableAdapter1 = new DANT.AppointmentDoctorDataTableAdapters.DataTable1TableAdapter();
+            this.appointmentStatusTableAdapter = new DANT.AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter();
+            this.employeeTableAdapter1 = new DANT.CheckDoctorDataTableAdapters.EmployeeTableAdapter();
+            this.dataTable1TableAdapter2 = new DANT.CheckListTableAdapters.DataTable1TableAdapter();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -134,6 +139,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientData)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).BeginInit();
@@ -144,11 +151,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkDoctorDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkDoctorData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -169,17 +176,18 @@
             // lbDate
             // 
             this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbDate.Location = new System.Drawing.Point(9, 151);
+            this.lbDate.Location = new System.Drawing.Point(7, 132);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(152, 20);
             this.lbDate.TabIndex = 5;
             this.lbDate.Text = "дата";
+            this.lbDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(5, 131);
+            this.label5.Location = new System.Drawing.Point(3, 112);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 20);
             this.label5.TabIndex = 4;
@@ -191,17 +199,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbPosition.Location = new System.Drawing.Point(5, 84);
+            this.lbPosition.Location = new System.Drawing.Point(6, 85);
             this.lbPosition.Name = "lbPosition";
             this.lbPosition.Size = new System.Drawing.Size(160, 20);
             this.lbPosition.TabIndex = 3;
             this.lbPosition.Text = "должность";
+            this.lbPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(29, 64);
+            this.label3.Location = new System.Drawing.Point(30, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 20);
             this.label3.TabIndex = 2;
@@ -218,6 +227,7 @@
             this.lbEmployeeName.Size = new System.Drawing.Size(160, 20);
             this.lbEmployeeName.TabIndex = 1;
             this.lbEmployeeName.Text = "имя";
+            this.lbEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -449,7 +459,7 @@
             this.dtAppointment.Name = "dtAppointment";
             this.dtAppointment.Size = new System.Drawing.Size(184, 20);
             this.dtAppointment.TabIndex = 40;
-            this.dtAppointment.ValueChanged += new System.EventHandler(this.TableFilterClick);
+            this.dtAppointment.ValueChanged += new System.EventHandler(this.TableFilterClickAppointment);
             // 
             // label16
             // 
@@ -516,7 +526,8 @@
             // 
             // cbAppointmentStatus
             // 
-            this.cbAppointmentStatus.DisplayMember = "id";
+            this.cbAppointmentStatus.DataSource = this.appointmentStatusDataBindingSource;
+            this.cbAppointmentStatus.DisplayMember = "status_appointment";
             this.cbAppointmentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAppointmentStatus.Enabled = false;
             this.cbAppointmentStatus.FormattingEnabled = true;
@@ -525,6 +536,16 @@
             this.cbAppointmentStatus.Size = new System.Drawing.Size(184, 21);
             this.cbAppointmentStatus.TabIndex = 40;
             this.cbAppointmentStatus.ValueMember = "id";
+            // 
+            // appointmentStatusDataBindingSource
+            // 
+            this.appointmentStatusDataBindingSource.DataMember = "AppointmentStatus";
+            this.appointmentStatusDataBindingSource.DataSource = this.appointmentStatusData;
+            // 
+            // appointmentStatusData
+            // 
+            this.appointmentStatusData.DataSetName = "AppointmentStatusData";
+            this.appointmentStatusData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label15
             // 
@@ -660,7 +681,7 @@
             this.cmbAppointmentDoctor.Size = new System.Drawing.Size(142, 21);
             this.cmbAppointmentDoctor.TabIndex = 40;
             this.cmbAppointmentDoctor.ValueMember = "id";
-            this.cmbAppointmentDoctor.SelectedIndexChanged += new System.EventHandler(this.TableFilterClick);
+            this.cmbAppointmentDoctor.SelectedIndexChanged += new System.EventHandler(this.TableFilterClickAppointment);
             // 
             // appointmentDoctorDataBindingSource
             // 
@@ -694,6 +715,68 @@
             this.dgvAppointment.TabIndex = 35;
             this.dgvAppointment.DoubleClick += new System.EventHandler(this.SelectAppointment);
             // 
+            // timeDataGridViewTextBoxColumn
+            // 
+            this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
+            this.timeDataGridViewTextBoxColumn.HeaderText = "Время";
+            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
+            // 
+            // fioDataGridViewTextBoxColumn
+            // 
+            this.fioDataGridViewTextBoxColumn.DataPropertyName = "fio";
+            this.fioDataGridViewTextBoxColumn.HeaderText = "ФИО Пациента";
+            this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
+            this.fioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fioDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            // 
+            // statusappointmentDataGridViewTextBoxColumn
+            // 
+            this.statusappointmentDataGridViewTextBoxColumn.DataPropertyName = "status_appointment";
+            this.statusappointmentDataGridViewTextBoxColumn.HeaderText = "Статус записи";
+            this.statusappointmentDataGridViewTextBoxColumn.Name = "statusappointmentDataGridViewTextBoxColumn";
+            // 
+            // cardnumberDataGridViewTextBoxColumn1
+            // 
+            this.cardnumberDataGridViewTextBoxColumn1.DataPropertyName = "card_number";
+            this.cardnumberDataGridViewTextBoxColumn1.HeaderText = "Номер карты";
+            this.cardnumberDataGridViewTextBoxColumn1.Name = "cardnumberDataGridViewTextBoxColumn1";
+            // 
+            // employeeidDataGridViewTextBoxColumn
+            // 
+            this.employeeidDataGridViewTextBoxColumn.DataPropertyName = "employee_id";
+            this.employeeidDataGridViewTextBoxColumn.HeaderText = "employee_id";
+            this.employeeidDataGridViewTextBoxColumn.Name = "employeeidDataGridViewTextBoxColumn";
+            this.employeeidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // expr1DataGridViewTextBoxColumn
+            // 
+            this.expr1DataGridViewTextBoxColumn.DataPropertyName = "Expr1";
+            this.expr1DataGridViewTextBoxColumn.HeaderText = "Expr1";
+            this.expr1DataGridViewTextBoxColumn.Name = "expr1DataGridViewTextBoxColumn";
+            this.expr1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.expr1DataGridViewTextBoxColumn.Visible = false;
+            // 
             // appointmentDataBindingSource
             // 
             this.appointmentDataBindingSource.DataMember = "DataTable1";
@@ -718,7 +801,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(799, 400);
             this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Список обслуж. клиентов";
+            this.tabPage2.Text = "Список обслуж. пациентов";
             // 
             // dateTimePicker1
             // 
@@ -726,7 +809,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(184, 20);
             this.dateTimePicker1.TabIndex = 44;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.TableFilterClick);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.TableFilterClickCheck);
             // 
             // label18
             // 
@@ -750,7 +833,7 @@
             // 
             // cmbCheckDoctor
             // 
-            this.cmbCheckDoctor.DataSource = this.appointmentDoctorDataBindingSource;
+            this.cmbCheckDoctor.DataSource = this.checkDoctorDataBindingSource;
             this.cmbCheckDoctor.DisplayMember = "fio";
             this.cmbCheckDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCheckDoctor.FormattingEnabled = true;
@@ -759,7 +842,17 @@
             this.cmbCheckDoctor.Size = new System.Drawing.Size(142, 21);
             this.cmbCheckDoctor.TabIndex = 45;
             this.cmbCheckDoctor.ValueMember = "id";
-            this.cmbCheckDoctor.SelectedIndexChanged += new System.EventHandler(this.TableFilterClick);
+            this.cmbCheckDoctor.SelectionChangeCommitted += new System.EventHandler(this.TableFilterClickCheck);
+            // 
+            // checkDoctorDataBindingSource
+            // 
+            this.checkDoctorDataBindingSource.DataMember = "Employee";
+            this.checkDoctorDataBindingSource.DataSource = this.checkDoctorData;
+            // 
+            // checkDoctorData
+            // 
+            this.checkDoctorData.DataSetName = "CheckDoctorData";
+            this.checkDoctorData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnChangeCheck
             // 
@@ -775,43 +868,45 @@
             // dgvCheckList
             // 
             this.dgvCheckList.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCheckList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCheckList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.timeDataGridViewTextBoxColumn1,
             this.numbercheckDataGridViewTextBoxColumn,
             this.fioDataGridViewTextBoxColumn3,
             this.cardnumberDataGridViewTextBoxColumn3,
-            this.checkstatusDataGridViewTextBoxColumn,
             this.servicecostDataGridViewTextBoxColumn,
+            this.checkstatusDataGridViewTextBoxColumn,
             this.employeeidDataGridViewTextBoxColumn1,
-            this.dateDataGridViewTextBoxColumn1});
+            this.dateDataGridViewTextBoxColumn1,
+            this.checkstatusidDataGridViewTextBoxColumn,
+            this.idDataGridViewTextBoxColumn3});
             this.dgvCheckList.DataSource = this.checkListBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCheckList.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCheckList.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCheckList.Location = new System.Drawing.Point(6, 35);
             this.dgvCheckList.Name = "dgvCheckList";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCheckList.RowHeadersVisible = false;
             this.dgvCheckList.Size = new System.Drawing.Size(787, 330);
             this.dgvCheckList.TabIndex = 0;
@@ -840,20 +935,20 @@
             // cardnumberDataGridViewTextBoxColumn3
             // 
             this.cardnumberDataGridViewTextBoxColumn3.DataPropertyName = "card_number";
-            this.cardnumberDataGridViewTextBoxColumn3.HeaderText = "Номер карта";
+            this.cardnumberDataGridViewTextBoxColumn3.HeaderText = "Номер карты";
             this.cardnumberDataGridViewTextBoxColumn3.Name = "cardnumberDataGridViewTextBoxColumn3";
-            // 
-            // checkstatusDataGridViewTextBoxColumn
-            // 
-            this.checkstatusDataGridViewTextBoxColumn.DataPropertyName = "check_status";
-            this.checkstatusDataGridViewTextBoxColumn.HeaderText = "Статус чека";
-            this.checkstatusDataGridViewTextBoxColumn.Name = "checkstatusDataGridViewTextBoxColumn";
             // 
             // servicecostDataGridViewTextBoxColumn
             // 
             this.servicecostDataGridViewTextBoxColumn.DataPropertyName = "service_cost";
             this.servicecostDataGridViewTextBoxColumn.HeaderText = "Стоимость услуг";
             this.servicecostDataGridViewTextBoxColumn.Name = "servicecostDataGridViewTextBoxColumn";
+            // 
+            // checkstatusDataGridViewTextBoxColumn
+            // 
+            this.checkstatusDataGridViewTextBoxColumn.DataPropertyName = "check_status";
+            this.checkstatusDataGridViewTextBoxColumn.HeaderText = "Статус чека";
+            this.checkstatusDataGridViewTextBoxColumn.Name = "checkstatusDataGridViewTextBoxColumn";
             // 
             // employeeidDataGridViewTextBoxColumn1
             // 
@@ -869,6 +964,21 @@
             this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
             this.dateDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // checkstatusidDataGridViewTextBoxColumn
+            // 
+            this.checkstatusidDataGridViewTextBoxColumn.DataPropertyName = "check_status_id";
+            this.checkstatusidDataGridViewTextBoxColumn.HeaderText = "check_status_id";
+            this.checkstatusidDataGridViewTextBoxColumn.Name = "checkstatusidDataGridViewTextBoxColumn";
+            this.checkstatusidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn3
+            // 
+            this.idDataGridViewTextBoxColumn3.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn3.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
+            this.idDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn3.Visible = false;
+            // 
             // checkListBindingSource
             // 
             this.checkListBindingSource.DataMember = "DataTable1";
@@ -879,20 +989,6 @@
             this.checkList.DataSetName = "CheckList";
             this.checkList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // appointmentStatusDataBindingSource
-            // 
-            this.appointmentStatusDataBindingSource.DataMember = "AppointmentStatus";
-            this.appointmentStatusDataBindingSource.DataSource = this.appointmentStatusData;
-            // 
-            // appointmentStatusData
-            // 
-            this.appointmentStatusData.DataSetName = "AppointmentStatusData";
-            this.appointmentStatusData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
             // timetableTableAdapter
             // 
             this.timetableTableAdapter.ClearBeforeFill = true;
@@ -900,6 +996,14 @@
             // clientTableAdapter
             // 
             this.clientTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataTable1TableAdapter
+            // 
+            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // dataTable1TableAdapter1
             // 
@@ -909,70 +1013,13 @@
             // 
             this.appointmentStatusTableAdapter.ClearBeforeFill = true;
             // 
-            // dataTable1TableAdapter
+            // employeeTableAdapter1
             // 
-            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            this.employeeTableAdapter1.ClearBeforeFill = true;
             // 
             // dataTable1TableAdapter2
             // 
             this.dataTable1TableAdapter2.ClearBeforeFill = true;
-            // 
-            // timeDataGridViewTextBoxColumn
-            // 
-            this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
-            this.timeDataGridViewTextBoxColumn.HeaderText = "Время";
-            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
-            // 
-            // fioDataGridViewTextBoxColumn
-            // 
-            this.fioDataGridViewTextBoxColumn.DataPropertyName = "fio";
-            this.fioDataGridViewTextBoxColumn.HeaderText = "ФИО Пациента";
-            this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
-            this.fioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            // 
-            // statusappointmentDataGridViewTextBoxColumn
-            // 
-            this.statusappointmentDataGridViewTextBoxColumn.DataPropertyName = "status_appointment";
-            this.statusappointmentDataGridViewTextBoxColumn.HeaderText = "Статус записи";
-            this.statusappointmentDataGridViewTextBoxColumn.Name = "statusappointmentDataGridViewTextBoxColumn";
-            // 
-            // cardnumberDataGridViewTextBoxColumn1
-            // 
-            this.cardnumberDataGridViewTextBoxColumn1.DataPropertyName = "card_number";
-            this.cardnumberDataGridViewTextBoxColumn1.HeaderText = "Номер карты";
-            this.cardnumberDataGridViewTextBoxColumn1.Name = "cardnumberDataGridViewTextBoxColumn1";
-            // 
-            // employeeidDataGridViewTextBoxColumn
-            // 
-            this.employeeidDataGridViewTextBoxColumn.DataPropertyName = "employee_id";
-            this.employeeidDataGridViewTextBoxColumn.HeaderText = "employee_id";
-            this.employeeidDataGridViewTextBoxColumn.Name = "employeeidDataGridViewTextBoxColumn";
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // expr1DataGridViewTextBoxColumn
-            // 
-            this.expr1DataGridViewTextBoxColumn.DataPropertyName = "Expr1";
-            this.expr1DataGridViewTextBoxColumn.HeaderText = "Expr1";
-            this.expr1DataGridViewTextBoxColumn.Name = "expr1DataGridViewTextBoxColumn";
-            this.expr1DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // AdminForm
             // 
@@ -999,6 +1046,8 @@
             this.tabPage3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).EndInit();
@@ -1010,11 +1059,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentData)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkDoctorDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkDoctorData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1052,9 +1101,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnAppointment;
-        private System.Windows.Forms.BindingSource employeeDataBindingSource;
-        private EmployeeData employeeData;
-        private EmployeeDataTableAdapters.EmployeeTableAdapter employeeTableAdapter;
         private System.Windows.Forms.DateTimePicker dtDateAppointment;
         private System.Windows.Forms.BindingSource timeDataBindingSource;
         private TimeData timeData;
@@ -1076,12 +1122,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox cbAppointmentStatus;
         private System.Windows.Forms.Button btnDeleteAppointment;
-        private System.Windows.Forms.BindingSource appointmentDoctorDataBindingSource;
-        private AppointmentDoctorData appointmentDoctorData;
-        private AppointmentDoctorDataTableAdapters.DataTable1TableAdapter dataTable1TableAdapter1;
-        private System.Windows.Forms.BindingSource appointmentStatusDataBindingSource;
-        private AppointmentStatusData appointmentStatusData;
-        private AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter appointmentStatusTableAdapter;
         private System.Windows.Forms.Button btnClearAppointment;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -1100,6 +1140,18 @@
         private AppointmentDataTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource employeeDataBindingSource;
+        private EmployeeData employeeData;
+        private EmployeeDataTableAdapters.EmployeeTableAdapter employeeTableAdapter;
+        private System.Windows.Forms.BindingSource appointmentDoctorDataBindingSource;
+        private AppointmentDoctorData appointmentDoctorData;
+        private AppointmentDoctorDataTableAdapters.DataTable1TableAdapter dataTable1TableAdapter1;
+        private System.Windows.Forms.BindingSource appointmentStatusDataBindingSource;
+        private AppointmentStatusData appointmentStatusData;
+        private AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter appointmentStatusTableAdapter;
+        private System.Windows.Forms.BindingSource checkDoctorDataBindingSource;
+        private CheckDoctorData checkDoctorData;
+        private CheckDoctorDataTableAdapters.EmployeeTableAdapter employeeTableAdapter1;
         private System.Windows.Forms.BindingSource checkListBindingSource;
         private CheckList checkList;
         private CheckListTableAdapters.DataTable1TableAdapter dataTable1TableAdapter2;
@@ -1107,10 +1159,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numbercheckDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkstatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn servicecostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkstatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeidDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkstatusidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;

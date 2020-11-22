@@ -39,6 +39,8 @@ namespace DANT
 
         private void ManageForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "checkList.DataTable1". При необходимости она может быть перемещена или удалена.
+            this.dataTable1TableAdapter1.Fill(this.checkList.DataTable1);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "employeeListData.DataTable1". При необходимости она может быть перемещена или удалена.
             this.dataTable1TableAdapter.Fill(this.employeeListData.DataTable1);
             loadUserInfo();
