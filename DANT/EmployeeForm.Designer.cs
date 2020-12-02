@@ -54,7 +54,7 @@
             this.appointmentDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentData = new DANT.AppointmentData();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtCheck = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvCheckList = new System.Windows.Forms.DataGridView();
             this.timeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,6 +132,7 @@
             this.dtAppointment.Name = "dtAppointment";
             this.dtAppointment.Size = new System.Drawing.Size(184, 20);
             this.dtAppointment.TabIndex = 44;
+            this.dtAppointment.ValueChanged += new System.EventHandler(this.TableFilterClickAppointment);
             // 
             // label16
             // 
@@ -169,6 +170,7 @@
             // txtServiceCost
             // 
             this.txtServiceCost.Location = new System.Drawing.Point(9, 94);
+            this.txtServiceCost.MaxLength = 7;
             this.txtServiceCost.Name = "txtServiceCost";
             this.txtServiceCost.Size = new System.Drawing.Size(184, 20);
             this.txtServiceCost.TabIndex = 44;
@@ -312,7 +314,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SeaShell;
-            this.tabPage2.Controls.Add(this.dateTimePicker1);
+            this.tabPage2.Controls.Add(this.dtCheck);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.dgvCheckList);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -322,12 +324,13 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Список обслж. пациентов";
             // 
-            // dateTimePicker1
+            // dtCheck
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(333, 8);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(184, 20);
-            this.dateTimePicker1.TabIndex = 46;
+            this.dtCheck.Location = new System.Drawing.Point(333, 8);
+            this.dtCheck.Name = "dtCheck";
+            this.dtCheck.Size = new System.Drawing.Size(184, 20);
+            this.dtCheck.TabIndex = 46;
+            this.dtCheck.ValueChanged += new System.EventHandler(this.TableFilterClickCheck);
             // 
             // label6
             // 
@@ -485,10 +488,11 @@
             this.lbPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbPosition.AutoSize = true;
             this.lbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbPosition.Location = new System.Drawing.Point(5, 84);
             this.lbPosition.Name = "lbPosition";
-            this.lbPosition.Size = new System.Drawing.Size(160, 20);
+            this.lbPosition.Size = new System.Drawing.Size(94, 20);
             this.lbPosition.TabIndex = 3;
             this.lbPosition.Text = "должность";
             this.lbPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -508,10 +512,11 @@
             this.lbEmployeeName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmployeeName.AutoSize = true;
             this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbEmployeeName.Location = new System.Drawing.Point(3, 34);
             this.lbEmployeeName.Name = "lbEmployeeName";
-            this.lbEmployeeName.Size = new System.Drawing.Size(160, 20);
+            this.lbEmployeeName.Size = new System.Drawing.Size(38, 20);
             this.lbEmployeeName.TabIndex = 1;
             this.lbEmployeeName.Text = "имя";
             this.lbEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -550,9 +555,10 @@
             this.ClientSize = new System.Drawing.Size(984, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EmployeeForm";
             this.Text = "EmployeeForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.closeApp);
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -614,7 +620,7 @@
         private NumberAppointmentTableAdapters.DataTable1TableAdapter dataTable1TableAdapter1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvCheckList;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtCheck;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;

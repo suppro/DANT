@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -102,7 +102,7 @@
             this.appointmentDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentData = new DANT.AppointmentData();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtCheck = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.cmbCheckDoctor = new System.Windows.Forms.ComboBox();
@@ -198,10 +198,11 @@
             this.lbPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbPosition.AutoSize = true;
             this.lbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbPosition.Location = new System.Drawing.Point(6, 85);
             this.lbPosition.Name = "lbPosition";
-            this.lbPosition.Size = new System.Drawing.Size(160, 20);
+            this.lbPosition.Size = new System.Drawing.Size(94, 20);
             this.lbPosition.TabIndex = 3;
             this.lbPosition.Text = "должность";
             this.lbPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,10 +222,11 @@
             this.lbEmployeeName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmployeeName.AutoSize = true;
             this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbEmployeeName.Location = new System.Drawing.Point(3, 34);
+            this.lbEmployeeName.Location = new System.Drawing.Point(12, 34);
             this.lbEmployeeName.Name = "lbEmployeeName";
-            this.lbEmployeeName.Size = new System.Drawing.Size(160, 20);
+            this.lbEmployeeName.Size = new System.Drawing.Size(38, 20);
             this.lbEmployeeName.TabIndex = 1;
             this.lbEmployeeName.Text = "имя";
             this.lbEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -340,6 +342,7 @@
             // txtClientSurname
             // 
             this.txtClientSurname.Location = new System.Drawing.Point(3, 54);
+            this.txtClientSurname.MaxLength = 27;
             this.txtClientSurname.Name = "txtClientSurname";
             this.txtClientSurname.Size = new System.Drawing.Size(184, 20);
             this.txtClientSurname.TabIndex = 14;
@@ -347,6 +350,7 @@
             // txtClientName
             // 
             this.txtClientName.Location = new System.Drawing.Point(3, 93);
+            this.txtClientName.MaxLength = 27;
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(184, 20);
             this.txtClientName.TabIndex = 15;
@@ -354,6 +358,7 @@
             // txtClientPhone
             // 
             this.txtClientPhone.Location = new System.Drawing.Point(3, 171);
+            this.txtClientPhone.MaxLength = 27;
             this.txtClientPhone.Name = "txtClientPhone";
             this.txtClientPhone.Size = new System.Drawing.Size(184, 20);
             this.txtClientPhone.TabIndex = 19;
@@ -361,6 +366,7 @@
             // txtClientPatronymic
             // 
             this.txtClientPatronymic.Location = new System.Drawing.Point(3, 132);
+            this.txtClientPatronymic.MaxLength = 27;
             this.txtClientPatronymic.Name = "txtClientPatronymic";
             this.txtClientPatronymic.Size = new System.Drawing.Size(184, 20);
             this.txtClientPatronymic.TabIndex = 16;
@@ -578,6 +584,7 @@
             // txtClientID
             // 
             this.txtClientID.Location = new System.Drawing.Point(8, 55);
+            this.txtClientID.MaxLength = 7;
             this.txtClientID.Name = "txtClientID";
             this.txtClientID.Size = new System.Drawing.Size(184, 20);
             this.txtClientID.TabIndex = 26;
@@ -790,7 +797,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SeaShell;
-            this.tabPage2.Controls.Add(this.dateTimePicker1);
+            this.tabPage2.Controls.Add(this.dtCheck);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.cmbCheckDoctor);
@@ -803,13 +810,13 @@
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Список обслуж. пациентов";
             // 
-            // dateTimePicker1
+            // dtCheck
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(454, 8);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(184, 20);
-            this.dateTimePicker1.TabIndex = 44;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.TableFilterClickCheck);
+            this.dtCheck.Location = new System.Drawing.Point(454, 8);
+            this.dtCheck.Name = "dtCheck";
+            this.dtCheck.Size = new System.Drawing.Size(184, 20);
+            this.dtCheck.TabIndex = 44;
+            this.dtCheck.ValueChanged += new System.EventHandler(this.TableFilterClickCheck);
             // 
             // label18
             // 
@@ -868,14 +875,14 @@
             // dgvCheckList
             // 
             this.dgvCheckList.AutoGenerateColumns = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCheckList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCheckList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.timeDataGridViewTextBoxColumn1,
@@ -889,24 +896,24 @@
             this.checkstatusidDataGridViewTextBoxColumn,
             this.idDataGridViewTextBoxColumn3});
             this.dgvCheckList.DataSource = this.checkListBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCheckList.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCheckList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCheckList.Location = new System.Drawing.Point(6, 35);
             this.dgvCheckList.Name = "dgvCheckList";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCheckList.RowHeadersVisible = false;
             this.dgvCheckList.Size = new System.Drawing.Size(787, 330);
             this.dgvCheckList.TabIndex = 0;
@@ -1029,9 +1036,11 @@
             this.ClientSize = new System.Drawing.Size(984, 450);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.closeApp);
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1124,7 +1133,7 @@
         private System.Windows.Forms.Button btnDeleteAppointment;
         private System.Windows.Forms.Button btnClearAppointment;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtCheck;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox cmbCheckDoctor;

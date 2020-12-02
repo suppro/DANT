@@ -297,6 +297,8 @@ namespace DANT {
             
             private global::System.Data.DataColumn columnExpr1;
             
+            private global::System.Data.DataColumn columnstatus_id;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public DataTable1DataTable() {
@@ -404,6 +406,14 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn status_idColumn {
+                get {
+                    return this.columnstatus_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +449,7 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string time, string fio, string phone, string status_appointment, System.DateTime date, int card_number, int employee_id) {
+            public DataTable1Row AddDataTable1Row(string time, string fio, string phone, string status_appointment, System.DateTime date, int card_number, int employee_id, int status_id) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         time,
@@ -450,7 +460,8 @@ namespace DANT {
                         card_number,
                         null,
                         employee_id,
-                        null};
+                        null,
+                        status_id};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -489,6 +500,7 @@ namespace DANT {
                 this.columnid = base.Columns["id"];
                 this.columnemployee_id = base.Columns["employee_id"];
                 this.columnExpr1 = base.Columns["Expr1"];
+                this.columnstatus_id = base.Columns["status_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -512,6 +524,8 @@ namespace DANT {
                 base.Columns.Add(this.columnemployee_id);
                 this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExpr1);
+                this.columnstatus_id = new global::System.Data.DataColumn("status_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatus_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columntime.AllowDBNull = false;
@@ -536,6 +550,7 @@ namespace DANT {
                 this.columnExpr1.AutoIncrementStep = -1;
                 this.columnExpr1.AllowDBNull = false;
                 this.columnExpr1.ReadOnly = true;
+                this.columnstatus_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -782,6 +797,17 @@ namespace DANT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int status_id {
+                get {
+                    return ((int)(this[this.tableDataTable1.status_idColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.status_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsfioNull() {
                 return this.IsNull(this.tableDataTable1.fioColumn);
             }
@@ -961,6 +987,7 @@ namespace DANT.AppointmentDataTableAdapters {
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("employee_id", "employee_id");
             tableMapping.ColumnMappings.Add("Expr1", "Expr1");
+            tableMapping.ColumnMappings.Add("status_id", "status_id");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -978,7 +1005,7 @@ namespace DANT.AppointmentDataTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Timetable.time, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, Client.card_number, Client.phone, AppointmentStatus.status_appointment, Appointment.date, Appointment.id, Appointment.employee_id, 
-                         Timetable.id AS Expr1
+                         Timetable.id AS Expr1, Appointment.status_id
 FROM            Appointment INNER JOIN
                          AppointmentStatus ON Appointment.status_id = AppointmentStatus.id INNER JOIN
                          Client ON Appointment.client_id = Client.id INNER JOIN

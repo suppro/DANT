@@ -49,6 +49,7 @@
             // txtLogin
             // 
             this.txtLogin.Location = new System.Drawing.Point(22, 51);
+            this.txtLogin.MaxLength = 30;
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(124, 20);
             this.txtLogin.TabIndex = 1;
@@ -56,6 +57,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(22, 90);
+            this.txtPassword.MaxLength = 30;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(124, 20);
             this.txtPassword.TabIndex = 2;
@@ -100,9 +102,10 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

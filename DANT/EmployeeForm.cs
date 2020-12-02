@@ -13,6 +13,7 @@ namespace DANT
         string loginName;
         Appointment appointment = new Appointment();
         Check check = new Check();
+        int doctorID;
         public EmployeeForm(string loginName)
         {
             InitializeComponent();
@@ -23,8 +24,9 @@ namespace DANT
         {
             updateTable();
             loadUserInfo();
+            TableFilterCheck();
+            TableFilterAppointment();
         }
-
         private void loadUserInfo()
         {
             lbDate.Text = Convert.ToString(DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year);
@@ -35,13 +37,14 @@ namespace DANT
                                   join q in db.Position on u.position_id equals q.id
                                   where u.login == loginName
                                   select u).FirstOrDefault();
-                lbEmployeeName.Text = model.name + " " + model.surname;
-                lbPosition.Text = model.Position.position1;
                 if (model == null)
                 {
-                    MessageBox.Show("Ошибка закрузки данных пользователя", "Ошибка");
+                    MessageBox.Show("Ошибка закрузки данных", "Ошибка");
                     return;
                 }
+                lbEmployeeName.Text = model.name + " " + model.surname;
+                lbPosition.Text = model.Position.position1;
+                doctorID = model.id;
             }
         }
 
@@ -90,11 +93,40 @@ namespace DANT
                 return;
         }
 
+
         private void updateTable() 
         {
             this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
             this.dataTable1TableAdapter1.Fill(this.numberAppointment.DataTable1);
             this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+        }
+
+        private void TableFilterClickAppointment(object sender, EventArgs e)
+        {
+            TableFilterAppointment();
+        }
+        //Функция вызывается при изменении даты или врача на странице обслужанных клиентов
+        private void TableFilterClickCheck(object sender, EventArgs e)
+        {
+            TableFilterCheck();
+        }
+
+        private void TableFilterCheck()
+        {
+            var dateCheckSelected = new DateTime(dtCheck.Value.Year, dtCheck.Value.Month, dtCheck.Value.Day);
+            checkListBindingSource.Filter = $"employee_id = '{doctorID}' and date = '{dateCheckSelected}' and check_status_id <> 6";
+            this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
+        }
+        //Функция заполняет таблицу записей и фильтрует загруженные данные по выбранной дате и доктору
+        private void TableFilterAppointment()
+        {
+            var dateAppointmentSelected = new DateTime(dtAppointment.Value.Year, dtAppointment.Value.Month, dtAppointment.Value.Day);
+            appointmentDataBindingSource1.Filter = $"employee_id = '{doctorID}' and date = '{dateAppointmentSelected}' and status_id <> 6";
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+        }
+        private void closeApp(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -33,7 +33,6 @@ namespace DANT
 
             return result;
         }
-
         private void loginUser(object sender, EventArgs e)
         {
             string login = txtLogin.Text;
@@ -71,12 +70,6 @@ namespace DANT
                     this.Visible = false;
                     AdminForm userForm = new AdminForm(login);
                     userForm.Show();
-                }
-                else if(employee.position_id == 7)
-                {
-                    this.Visible = false;
-                    ManageForm manageForm= new ManageForm(login);
-                    manageForm.Show();
                 }
                 else
                 {

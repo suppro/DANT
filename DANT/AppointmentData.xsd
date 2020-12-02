@@ -13,7 +13,7 @@
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Timetable.time, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, Client.card_number, Client.phone, AppointmentStatus.status_appointment, Appointment.date, Appointment.id, Appointment.employee_id, 
-                         Timetable.id AS Expr1
+                         Timetable.id AS Expr1, Appointment.status_id
 FROM            Appointment INNER JOIN
                          AppointmentStatus ON Appointment.status_id = AppointmentStatus.id INNER JOIN
                          Client ON Appointment.client_id = Client.id INNER JOIN
@@ -35,6 +35,7 @@ ORDER BY Expr1</CommandText>
               <Mapping SourceColumn="id" DataSetColumn="id" />
               <Mapping SourceColumn="employee_id" DataSetColumn="employee_id" />
               <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="status_id" DataSetColumn="status_id" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -82,6 +83,7 @@ ORDER BY Expr1</CommandText>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
               <xs:element name="employee_id" msprop:Generator_ColumnVarNameInTable="columnemployee_id" msprop:Generator_ColumnPropNameInRow="employee_id" msprop:Generator_ColumnPropNameInTable="employee_idColumn" msprop:Generator_UserColumnName="employee_id" type="xs:int" />
               <xs:element name="Expr1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" />
+              <xs:element name="status_id" msprop:Generator_ColumnVarNameInTable="columnstatus_id" msprop:Generator_ColumnPropNameInRow="status_id" msprop:Generator_ColumnPropNameInTable="status_idColumn" msprop:Generator_UserColumnName="status_id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

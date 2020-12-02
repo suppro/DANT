@@ -831,14 +831,15 @@ namespace DANT.ClientDataTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Client] SET [phone] = @phone, [id] = @id WHERE (([card_number] = @Original_card_number) AND ([phone] = @Original_phone) AND ([id] = @Original_id));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Client] SET [card_number] = @card_number, [phone] = @phone WHERE (([card_number] = @Original_card_number) AND ([phone] = @Original_phone) AND ([id] = @Original_id));
 SELECT card_number, name + ' ' + surname + ' ' + patronymic AS fio, phone, id FROM Client WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@card_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "card_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_card_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "card_number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phone", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -854,8 +855,8 @@ SELECT card_number, name + ' ' + surname + ' ' + patronymic AS fio, phone, id FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT card_number, Client.name + \' \' + Client.surname + \' \' + Client.patronymic " +
-                "AS fio, phone, id FROM Client";
+            this._commandCollection[0].CommandText = "SELECT        card_number, name + \' \' + surname + \' \' + patronymic AS fio, phone," +
+                " id\r\nFROM            Client\r\nWHERE        (deleted IS NULL)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -945,14 +946,14 @@ SELECT card_number, name + ' ' + surname + ' ' + patronymic AS fio, phone, id FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string phone, int id, int Original_card_number, string Original_phone, int Original_id) {
+        public virtual int Update(int card_number, string phone, int Original_card_number, string Original_phone, int Original_id, int id) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(card_number));
             if ((phone == null)) {
                 throw new global::System.ArgumentNullException("phone");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(phone));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(phone));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_card_number));
             if ((Original_phone == null)) {
                 throw new global::System.ArgumentNullException("Original_phone");
@@ -961,6 +962,7 @@ SELECT card_number, name + ' ' + surname + ' ' + patronymic AS fio, phone, id FR
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_phone));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -981,8 +983,8 @@ SELECT card_number, name + ' ' + surname + ' ' + patronymic AS fio, phone, id FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string phone, int Original_card_number, string Original_phone, int Original_id) {
-            return this.Update(phone, Original_id, Original_card_number, Original_phone, Original_id);
+        public virtual int Update(int card_number, string phone, int Original_card_number, string Original_phone, int Original_id) {
+            return this.Update(card_number, phone, Original_card_number, Original_phone, Original_id, Original_id);
         }
     }
     

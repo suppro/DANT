@@ -32,7 +32,7 @@ SELECT status_appointment, id FROM AppointmentStatus WHERE (id = SCOPE_IDENTITY(
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        status_appointment, id
 FROM            AppointmentStatus
-WHERE       id != 4</CommandText>
+WHERE       id != 4 and id != 6</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -64,7 +64,7 @@ SELECT status_appointment, id FROM AppointmentStatus WHERE (id = @id)</CommandTe
   <xs:element name="AppointmentStatusData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AppointmentStatusData" msprop:Generator_UserDSName="AppointmentStatusData">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="AppointmentStatus" msprop:Generator_TableClassName="AppointmentStatusDataTable" msprop:Generator_TableVarName="tableAppointmentStatus" msprop:Generator_RowChangedName="AppointmentStatusRowChanged" msprop:Generator_TablePropName="AppointmentStatus" msprop:Generator_RowDeletingName="AppointmentStatusRowDeleting" msprop:Generator_RowChangingName="AppointmentStatusRowChanging" msprop:Generator_RowEvHandlerName="AppointmentStatusRowChangeEventHandler" msprop:Generator_RowDeletedName="AppointmentStatusRowDeleted" msprop:Generator_RowClassName="AppointmentStatusRow" msprop:Generator_UserTableName="AppointmentStatus" msprop:Generator_RowEvArgName="AppointmentStatusRowChangeEvent">
+        <xs:element name="AppointmentStatus" msprop:Generator_TableClassName="AppointmentStatusDataTable" msprop:Generator_TableVarName="tableAppointmentStatus" msprop:Generator_TablePropName="AppointmentStatus" msprop:Generator_RowDeletingName="AppointmentStatusRowDeleting" msprop:Generator_RowChangingName="AppointmentStatusRowChanging" msprop:Generator_RowEvHandlerName="AppointmentStatusRowChangeEventHandler" msprop:Generator_RowDeletedName="AppointmentStatusRowDeleted" msprop:Generator_UserTableName="AppointmentStatus" msprop:Generator_RowChangedName="AppointmentStatusRowChanged" msprop:Generator_RowEvArgName="AppointmentStatusRowChangeEvent" msprop:Generator_RowClassName="AppointmentStatusRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="status_appointment" msprop:Generator_ColumnVarNameInTable="columnstatus_appointment" msprop:Generator_ColumnPropNameInRow="status_appointment" msprop:Generator_ColumnPropNameInTable="status_appointmentColumn" msprop:Generator_UserColumnName="status_appointment">

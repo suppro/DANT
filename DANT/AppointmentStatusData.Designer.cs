@@ -789,7 +789,7 @@ namespace DANT.AppointmentStatusDataTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        status_appointment, id\r\nFROM            AppointmentStatus\r\nWHERE   " +
-                "    id != 4";
+                "    id != 4 and id != 6";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
