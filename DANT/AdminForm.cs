@@ -96,8 +96,8 @@ namespace DANT
 
             if (!Regex.IsMatch(txtClientName.Text, regexName) || !Regex.IsMatch(txtClientSurname.Text, regexName) || !Regex.IsMatch(txtClientPatronymic.Text, regexName))
             {
-                MessageBox.Show("Имя должно быть соответсвовать следующим требованиям:\n- Имя может состоять только из букв одного языка\n- В имени обязательна должна присутствовать заглавная буква\n" +
-                    "- Имя должно состоять как минимум из 2 букв и максимум из 24\n- Имя недолжно содержать никаких других символов, кроме букв.", "Ошибка"); return;
+                MessageBox.Show("Имя должно быть соответсвовать следующим требованиям:\n- Имя может состоять только из букв одного языка;\n- В имени обязательна должна присутствовать заглавная буква;\n" +
+                    "- Имя должно состоять как минимум из 2 букв и максимум из 24;\n- Имя недолжно содержать никаких других символов, кроме букв.", "Ошибка"); return;
             }
 
             if (!Regex.IsMatch(txtClientPhone.Text, regexNumberPhone))
@@ -221,15 +221,18 @@ namespace DANT
                 else
                 {
                     appointment.status_id = Convert.ToInt32(cbAppointmentStatus.SelectedValue);
-                    //Блок исключений изменний записи приема вне дня приема. При тестах программы блок закомментирован
-                    /*
                     if (appointment.status_id == 1)
-                        MessageBox.Show("Нельзя поменять статус записи на 'Записан'","Ошибка"); return;
+                    { 
+                        MessageBox.Show("Нельзя поменять статус записи на 'Записан'", "Ошибка"); return; 
+                    }
                     else if (DateTime.Today < dateAppointment && appointment.status_id == 2)
+                    {
                         MessageBox.Show("Нельзя поменять статус записи на 'Явился на прием' до такого как наступит дата приема ", "Ошибка"); return;
+                    }  
                     else if (DateTime.Today < dateAppointment && appointment.status_id == 3)
+                    {
                         MessageBox.Show("Нельзя поменять статус записи на 'Не явился на прием' до такого как наступит дата приема ", "Ошибка"); return;
-                    */
+                    }
                     db.Entry(appointment).State = EntityState.Modified;
                 }
                 db.SaveChanges();
@@ -353,6 +356,18 @@ namespace DANT
             
             DateTime dt = DateTime.Today;
             DateTime datePosibleAppointment = dt.AddDays(30);
+
+            using (DANTDBEntities db = new DANTDBEntities())
+            {
+                Client model = (from u in db.Client
+                                orderby u.id descending
+                                select u).FirstOrDefault();
+                if (model.id < Convert.ToInt32(txtClientID.Text))
+                {
+                    MessageBox.Show("Клиента с ID " + Convert.ToInt32(txtClientID.Text) + " не существует в информационной системе", "Ошибка");
+                    return false;
+                }
+            }
 
             if (dateAppointment <= dt)
             {

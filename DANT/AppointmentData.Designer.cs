@@ -1004,7 +1004,7 @@ namespace DANT.AppointmentDataTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Timetable.time, Client.name + ' ' + Client.surname + ' ' + Client.patronymic AS fio, Client.card_number, Client.phone, AppointmentStatus.status_appointment, Appointment.date, Appointment.id, Appointment.employee_id, 
+            this._commandCollection[0].CommandText = @"SELECT        Timetable.time, Client.surname + ' ' + Client.name + ' ' + Client.patronymic AS fio, Client.card_number, Client.phone, AppointmentStatus.status_appointment, Appointment.date, Appointment.id, Appointment.employee_id, 
                          Timetable.id AS Expr1, Appointment.status_id
 FROM            Appointment INNER JOIN
                          AppointmentStatus ON Appointment.status_id = AppointmentStatus.id INNER JOIN

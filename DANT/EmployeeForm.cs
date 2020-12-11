@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace DANT
 {
@@ -54,11 +53,18 @@ namespace DANT
             check.check_status_id = 1;
             check.service_cost = Convert.ToInt32(txtServiceCost.Text.Trim());
 
-
-            if (String.IsNullOrEmpty(check.appointment_id.ToString()) || String.IsNullOrEmpty(check.service_cost.ToString()))
+            if (String.IsNullOrEmpty(cbClient.SelectedValue.ToString()) || String.IsNullOrEmpty(check.service_cost.ToString()))
             {
                 MessageBox.Show("Все поля должны быть заполненны"); return;
             }
+
+            var regexNumberID = @"^[1-9]\d{0,7}$";
+
+            if (!Regex.IsMatch(txtServiceCost.Text, regexNumberID))
+            {
+                MessageBox.Show("Стоимсоть должна состоять из цифр и иметь длинну не более 7 символов", "Ошибка"); return;
+            }
+
 
             using (DANTDBEntities db = new DANTDBEntities())
             {
