@@ -42,6 +42,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnClearClient = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNumberCard = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -267,6 +268,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.OldLace;
+            this.panel3.Controls.Add(this.btnClearClient);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.txtNumberCard);
             this.panel3.Controls.Add(this.label7);
@@ -283,6 +285,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 400);
             this.panel3.TabIndex = 24;
+            // 
+            // btnClearClient
+            // 
+            this.btnClearClient.Location = new System.Drawing.Point(3, 268);
+            this.btnClearClient.Name = "btnClearClient";
+            this.btnClearClient.Size = new System.Drawing.Size(184, 23);
+            this.btnClearClient.TabIndex = 44;
+            this.btnClearClient.Text = "Отменить выбор";
+            this.btnClearClient.UseVisualStyleBackColor = true;
+            this.btnClearClient.Click += new System.EventHandler(this.ClearClientClick);
             // 
             // label8
             // 
@@ -1183,5 +1195,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnClearClient;
     }
 }

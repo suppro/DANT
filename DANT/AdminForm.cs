@@ -65,7 +65,6 @@ namespace DANT
         //Загрузка всех остальных данных из бд
         private void UpdateTable()
         {
-            this.employeeTableAdapter.Fill(this.employeeData.Employee);
             this.dataTable1TableAdapter1.Fill(this.appointmentDoctorData.DataTable1);
             this.appointmentStatusTableAdapter.Fill(this.appointmentStatusData.AppointmentStatus);
             this.employeeTableAdapter1.Fill(this.checkDoctorData.Employee);
@@ -152,6 +151,7 @@ namespace DANT
         //Выбор клиента (двойное нажатие на ячейку)
         private void selectClient(object sender, EventArgs e)
         {
+            btnClearClient.Enabled = true;
             if (dgvClient.CurrentRow.Index != -1)
             {
                 client.id = Convert.ToInt32(dgvClient.CurrentRow.Cells["idDataGridViewTextBoxColumn"].Value);
@@ -220,6 +220,7 @@ namespace DANT
                 }
                 else
                 {
+                    /*
                     appointment.status_id = Convert.ToInt32(cbAppointmentStatus.SelectedValue);
                     if (appointment.status_id == 1)
                     { 
@@ -234,6 +235,7 @@ namespace DANT
                         MessageBox.Show("Нельзя поменять статус записи на 'Не явился на прием' до такого как наступит дата приема ", "Ошибка"); return;
                     }
                     db.Entry(appointment).State = EntityState.Modified;
+                    */
                 }
                 db.SaveChanges();
             }
@@ -337,6 +339,18 @@ namespace DANT
             btnDeleteAppointment.Enabled = false;
             btnAppointment.Text = "Добавить запись";
             appointment.id = 0;
+        }
+        private void ClearClientClick(object sender, EventArgs e)
+        {
+            ClearClient();
+        }
+
+        private void ClearClient()
+        {
+            this.clientTableAdapter.Fill(this.clientData.Client);
+            txtClientName.Text = txtClientSurname.Text = txtClientPatronymic.Text = txtClientPhone.Text = txtNumberCard.Text = "";
+            btnClearClient.Enabled = false;
+            client.id = 0;
         }
 
         //Функция вызывается при изменении даты или врача на странице записей
