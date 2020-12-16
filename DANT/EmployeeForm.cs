@@ -25,7 +25,6 @@ namespace DANT
             loadUserInfo();
             TableFilterCheck();
             TableFilterAppointment();
-            MessageBox.Show(cbAppointment.Items.Count.ToString());
             if (cbAppointment.Items.Count == 0)
                 btnCreateCheck.Enabled = false;
         }
