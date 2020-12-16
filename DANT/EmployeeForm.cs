@@ -21,15 +21,13 @@ namespace DANT
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
-            this.dataTable1TableAdapter1.Fill(this.numberAppointment.DataTable1);
-            if(cbAppointment.Items.Count == 0)
-                btnCreateCheck.Enabled = false;
             updateTable();
             loadUserInfo();
             TableFilterCheck();
             TableFilterAppointment();
+            MessageBox.Show(cbAppointment.Items.Count.ToString());
+            if (cbAppointment.Items.Count == 0)
+                btnCreateCheck.Enabled = false;
         }
         private void loadUserInfo()
         {
@@ -90,6 +88,9 @@ namespace DANT
                 {
                     db.Check.Add(check);
                     db.SaveChanges();
+                }
+                using (DANTDBEntities db = new DANTDBEntities())
+                {
                     appointment = db.Appointment.Where(x => x.id == check.appointment_id).FirstOrDefault();
                     appointment.status_id = 4;
                     db.Entry(appointment).State = EntityState.Modified;
