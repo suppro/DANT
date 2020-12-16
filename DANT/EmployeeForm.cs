@@ -21,6 +21,11 @@ namespace DANT
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            this.dataTable1TableAdapter1.Fill(this.numberAppointment.DataTable1);
+            if(cbAppointment.Items.Count == 0)
+                btnCreateCheck.Enabled = false;
             updateTable();
             loadUserInfo();
             TableFilterCheck();
@@ -49,11 +54,11 @@ namespace DANT
 
         private void addCheck(object sender, EventArgs e)
         {
-            check.appointment_id = Convert.ToInt32(cbClient.SelectedValue.ToString());
+            check.appointment_id = Convert.ToInt32(cbAppointment.SelectedValue.ToString());
             check.check_status_id = 1;
             check.service_cost = Convert.ToInt32(txtServiceCost.Text.Trim());
 
-            if (String.IsNullOrEmpty(cbClient.SelectedValue.ToString()) || String.IsNullOrEmpty(check.service_cost.ToString()))
+            if (String.IsNullOrEmpty(cbAppointment.SelectedItem.ToString()) || String.IsNullOrEmpty(check.service_cost.ToString()))
             {
                 MessageBox.Show("Все поля должны быть заполненны"); return;
             }
@@ -102,9 +107,9 @@ namespace DANT
 
         private void updateTable() 
         {
-            this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
-            this.dataTable1TableAdapter1.Fill(this.numberAppointment.DataTable1);
             this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            this.dataTable1TableAdapter1.Fill(this.numberAppointment.DataTable1);
         }
 
         private void TableFilterClickAppointment(object sender, EventArgs e)
@@ -127,7 +132,7 @@ namespace DANT
         private void TableFilterAppointment()
         {
             var dateAppointmentSelected = new DateTime(dtAppointment.Value.Year, dtAppointment.Value.Month, dtAppointment.Value.Day);
-            appointmentDataBindingSource1.Filter = $"employee_id = '{doctorID}' and date = '{dateAppointmentSelected}' and status_id <> 6";
+            appointmentDataBindingSource.Filter = $"employee_id = '{doctorID}' and date = '{dateAppointmentSelected}' and status_id <> 6";
             this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
         }
         private void closeApp(object sender, EventArgs e)

@@ -21,6 +21,8 @@ namespace DANT
         //Функция срабатывающая при загрузки формы. Запускает функции отвечающие за загрузку данных в форму
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "employeeData.Employee". При необходимости она может быть перемещена или удалена.
+            this.employeeTableAdapter.Fill(this.employeeData.Employee);
             UpdateTable();
             loadUserInfo();
             TableFilterAppointment();
@@ -220,8 +222,8 @@ namespace DANT
                 }
                 else
                 {
-                    /*
                     appointment.status_id = Convert.ToInt32(cbAppointmentStatus.SelectedValue);
+                    /*
                     if (appointment.status_id == 1)
                     { 
                         MessageBox.Show("Нельзя поменять статус записи на 'Записан'", "Ошибка"); return; 
@@ -233,9 +235,8 @@ namespace DANT
                     else if (DateTime.Today < dateAppointment && appointment.status_id == 3)
                     {
                         MessageBox.Show("Нельзя поменять статус записи на 'Не явился на прием' до такого как наступит дата приема ", "Ошибка"); return;
-                    }
-                    db.Entry(appointment).State = EntityState.Modified;
                     */
+                    db.Entry(appointment).State = EntityState.Modified;        
                 }
                 db.SaveChanges();
             }

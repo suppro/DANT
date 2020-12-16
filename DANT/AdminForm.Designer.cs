@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -83,7 +83,6 @@
             this.timeData = new DANT.TimeData();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbDoctorName = new System.Windows.Forms.ComboBox();
-            this.employeeDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeData = new DANT.EmployeeData();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -126,11 +125,12 @@
             this.timetableTableAdapter = new DANT.TimeDataTableAdapters.TimetableTableAdapter();
             this.clientTableAdapter = new DANT.ClientDataTableAdapters.ClientTableAdapter();
             this.dataTable1TableAdapter = new DANT.AppointmentDataTableAdapters.DataTable1TableAdapter();
-            this.employeeTableAdapter = new DANT.EmployeeDataTableAdapters.EmployeeTableAdapter();
             this.dataTable1TableAdapter1 = new DANT.AppointmentDoctorDataTableAdapters.DataTable1TableAdapter();
             this.appointmentStatusTableAdapter = new DANT.AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter();
             this.employeeTableAdapter1 = new DANT.CheckDoctorDataTableAdapters.EmployeeTableAdapter();
             this.dataTable1TableAdapter2 = new DANT.CheckListTableAdapters.DataTable1TableAdapter();
+            this.employeeDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new DANT.EmployeeDataTableAdapters.EmployeeTableAdapter();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,7 +144,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorData)).BeginInit();
@@ -157,6 +156,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -660,11 +660,6 @@
             this.cmbDoctorName.TabIndex = 36;
             this.cmbDoctorName.ValueMember = "id";
             // 
-            // employeeDataBindingSource
-            // 
-            this.employeeDataBindingSource.DataMember = "Employee";
-            this.employeeDataBindingSource.DataSource = this.employeeData;
-            // 
             // employeeData
             // 
             this.employeeData.DataSetName = "EmployeeData";
@@ -887,14 +882,14 @@
             // dgvCheckList
             // 
             this.dgvCheckList.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCheckList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCheckList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.timeDataGridViewTextBoxColumn1,
@@ -908,24 +903,24 @@
             this.checkstatusidDataGridViewTextBoxColumn,
             this.idDataGridViewTextBoxColumn3});
             this.dgvCheckList.DataSource = this.checkListBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCheckList.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCheckList.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCheckList.Location = new System.Drawing.Point(6, 35);
             this.dgvCheckList.Name = "dgvCheckList";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckList.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCheckList.RowHeadersVisible = false;
             this.dgvCheckList.Size = new System.Drawing.Size(787, 330);
             this.dgvCheckList.TabIndex = 0;
@@ -1020,10 +1015,6 @@
             // 
             this.dataTable1TableAdapter.ClearBeforeFill = true;
             // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
             // dataTable1TableAdapter1
             // 
             this.dataTable1TableAdapter1.ClearBeforeFill = true;
@@ -1039,6 +1030,15 @@
             // dataTable1TableAdapter2
             // 
             this.dataTable1TableAdapter2.ClearBeforeFill = true;
+            // 
+            // employeeDataBindingSource
+            // 
+            this.employeeDataBindingSource.DataMember = "Employee";
+            this.employeeDataBindingSource.DataSource = this.employeeData;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // AdminForm
             // 
@@ -1071,7 +1071,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorData)).EndInit();
@@ -1085,6 +1084,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1161,9 +1161,7 @@
         private AppointmentDataTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.BindingSource employeeDataBindingSource;
         private EmployeeData employeeData;
-        private EmployeeDataTableAdapters.EmployeeTableAdapter employeeTableAdapter;
         private System.Windows.Forms.BindingSource appointmentDoctorDataBindingSource;
         private AppointmentDoctorData appointmentDoctorData;
         private AppointmentDoctorDataTableAdapters.DataTable1TableAdapter dataTable1TableAdapter1;
@@ -1196,5 +1194,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnClearClient;
+        private System.Windows.Forms.BindingSource employeeDataBindingSource;
+        private EmployeeDataTableAdapters.EmployeeTableAdapter employeeTableAdapter;
     }
 }
