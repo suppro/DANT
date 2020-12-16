@@ -21,8 +21,7 @@ namespace DANT
         //Функция срабатывающая при загрузки формы. Запускает функции отвечающие за загрузку данных в форму
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "employeeData.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter.Fill(this.employeeData.Employee);
+            btnClearClient.Enabled = false;
             UpdateTable();
             loadUserInfo();
             TableFilterAppointment();
@@ -67,6 +66,7 @@ namespace DANT
         //Загрузка всех остальных данных из бд
         private void UpdateTable()
         {
+            this.employeeTableAdapter.Fill(this.employeeData.Employee);
             this.dataTable1TableAdapter1.Fill(this.appointmentDoctorData.DataTable1);
             this.appointmentStatusTableAdapter.Fill(this.appointmentStatusData.AppointmentStatus);
             this.employeeTableAdapter1.Fill(this.checkDoctorData.Employee);
@@ -142,7 +142,8 @@ namespace DANT
             }
 
             //Очищаем TextBox
-            txtClientName.Text = txtClientSurname.Text = txtClientPatronymic.Text = txtClientPhone.Text = "";
+            txtClientName.Text = txtClientSurname.Text = txtClientPatronymic.Text = txtClientPhone.Text = txtNumberCard.Text = "";
+            btnClearClient.Enabled = false;
             //Добавляем значение 0 полю id
             client.id = 0;
             //Заполняем таблицу клиентов новыми данными
@@ -240,7 +241,6 @@ namespace DANT
                 }
                 db.SaveChanges();
             }
-            
             txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
             appointment.id = 0;
             this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
