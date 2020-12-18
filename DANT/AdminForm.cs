@@ -21,6 +21,10 @@ namespace DANT
         //Функция срабатывающая при загрузки формы. Запускает функции отвечающие за загрузку данных в форму
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "cursaNeChet.Client". При необходимости она может быть перемещена или удалена.
+            this.clientTableAdapter2.Fill(this.cursaNeChet.Client);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "kursaChet.Client". При необходимости она может быть перемещена или удалена.
+            this.clientTableAdapter1.Fill(this.kursaChet.Client);
             btnClearClient.Enabled = false;
             UpdateTable();
             loadUserInfo();

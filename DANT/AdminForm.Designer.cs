@@ -83,6 +83,7 @@
             this.timeData = new DANT.TimeData();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbDoctorName = new System.Windows.Forms.ComboBox();
+            this.employeeDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeData = new DANT.EmployeeData();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -122,6 +123,8 @@
             this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkList = new DANT.CheckList();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.kURSABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter = new DANT.TimeDataTableAdapters.TimetableTableAdapter();
             this.clientTableAdapter = new DANT.ClientDataTableAdapters.ClientTableAdapter();
             this.dataTable1TableAdapter = new DANT.AppointmentDataTableAdapters.DataTable1TableAdapter();
@@ -129,8 +132,23 @@
             this.appointmentStatusTableAdapter = new DANT.AppointmentStatusDataTableAdapters.AppointmentStatusTableAdapter();
             this.employeeTableAdapter1 = new DANT.CheckDoctorDataTableAdapters.EmployeeTableAdapter();
             this.dataTable1TableAdapter2 = new DANT.CheckListTableAdapters.DataTable1TableAdapter();
-            this.employeeDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new DANT.EmployeeDataTableAdapters.EmployeeTableAdapter();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.kursaChet = new DANT.kursaChet();
+            this.kursaChetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientTableAdapter1 = new DANT.kursaChetTableAdapters.ClientTableAdapter();
+            this.cursaNeChet = new DANT.cursaNeChet();
+            this.cursaNeChetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientTableAdapter2 = new DANT.cursaNeChetTableAdapters.ClientTableAdapter();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,6 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorData)).BeginInit();
@@ -156,7 +175,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kURSABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kursaChet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kursaChetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursaNeChet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursaNeChetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -247,6 +273,8 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControl1.Location = new System.Drawing.Point(172, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -660,6 +688,11 @@
             this.cmbDoctorName.TabIndex = 36;
             this.cmbDoctorName.ValueMember = "id";
             // 
+            // employeeDataBindingSource
+            // 
+            this.employeeDataBindingSource.DataMember = "Employee";
+            this.employeeDataBindingSource.DataSource = this.employeeData;
+            // 
             // employeeData
             // 
             this.employeeData.DataSetName = "EmployeeData";
@@ -1003,6 +1036,24 @@
             this.checkList.DataSetName = "CheckList";
             this.checkList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.SeaShell;
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Controls.Add(this.label20);
+            this.tabPage4.Controls.Add(this.dataGridView2);
+            this.tabPage4.Controls.Add(this.dataGridView1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(799, 400);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "Защита";
+            // 
+            // kURSABindingSource
+            // 
+            this.kURSABindingSource.DataMember = "Client";
+            // 
             // timetableTableAdapter
             // 
             this.timetableTableAdapter.ClearBeforeFill = true;
@@ -1031,14 +1082,121 @@
             // 
             this.dataTable1TableAdapter2.ClearBeforeFill = true;
             // 
-            // employeeDataBindingSource
-            // 
-            this.employeeDataBindingSource.DataMember = "Employee";
-            this.employeeDataBindingSource.DataSource = this.employeeData;
-            // 
             // employeeTableAdapter
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.dataGridView1.DataSource = this.kursaChetBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 51);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(368, 180);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dataGridView2.DataSource = this.cursaNeChetBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(403, 51);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(390, 183);
+            this.dataGridView2.TabIndex = 3;
+            // 
+            // kursaChet
+            // 
+            this.kursaChet.DataSetName = "kursaChet";
+            this.kursaChet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kursaChetBindingSource
+            // 
+            this.kursaChetBindingSource.DataMember = "Client";
+            this.kursaChetBindingSource.DataSource = this.kursaChet;
+            // 
+            // idDataGridViewTextBoxColumn4
+            // 
+            this.idDataGridViewTextBoxColumn4.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn4.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
+            this.idDataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "surname";
+            this.dataGridViewTextBoxColumn2.HeaderText = "surname";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // clientTableAdapter1
+            // 
+            this.clientTableAdapter1.ClearBeforeFill = true;
+            // 
+            // cursaNeChet
+            // 
+            this.cursaNeChet.DataSetName = "cursaNeChet";
+            this.cursaNeChet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cursaNeChetBindingSource
+            // 
+            this.cursaNeChetBindingSource.DataMember = "Client";
+            this.cursaNeChetBindingSource.DataSource = this.cursaNeChet;
+            // 
+            // idDataGridViewTextBoxColumn5
+            // 
+            this.idDataGridViewTextBoxColumn5.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn5.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
+            this.idDataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "name";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "surname";
+            this.dataGridViewTextBoxColumn4.HeaderText = "surname";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // clientTableAdapter2
+            // 
+            this.clientTableAdapter2.ClearBeforeFill = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(7, 17);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(49, 13);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Четные:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(419, 17);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(60, 13);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "Нечетные:";
             // 
             // AdminForm
             // 
@@ -1071,6 +1229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentStatusData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDoctorData)).EndInit();
@@ -1084,7 +1243,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataBindingSource)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kURSABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kursaChet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kursaChetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursaNeChet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursaNeChetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1196,5 +1363,23 @@
         private System.Windows.Forms.Button btnClearClient;
         private System.Windows.Forms.BindingSource employeeDataBindingSource;
         private EmployeeDataTableAdapters.EmployeeTableAdapter employeeTableAdapter;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.BindingSource kURSABindingSource;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource kursaChetBindingSource;
+        private kursaChet kursaChet;
+        private kursaChetTableAdapters.ClientTableAdapter clientTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.BindingSource cursaNeChetBindingSource;
+        private cursaNeChet cursaNeChet;
+        private cursaNeChetTableAdapters.ClientTableAdapter clientTableAdapter2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
     }
 }

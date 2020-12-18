@@ -111,6 +111,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="cursaNeChet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cursaNeChet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -129,6 +134,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeeListData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="kursaChet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kursaChet.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
@@ -268,6 +278,17 @@
     <None Include="ClientData.xss">
       <DependentUpon>ClientData.xsd</DependentUpon>
     </None>
+    <None Include="cursaNeChet.xsc">
+      <DependentUpon>cursaNeChet.xsd</DependentUpon>
+    </None>
+    <None Include="cursaNeChet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cursaNeChet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="cursaNeChet.xss">
+      <DependentUpon>cursaNeChet.xsd</DependentUpon>
+    </None>
     <None Include="EmployeeData.xsc">
       <DependentUpon>EmployeeData.xsd</DependentUpon>
     </None>
@@ -294,6 +315,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="kursaChet.xsc">
+      <DependentUpon>kursaChet.xsd</DependentUpon>
+    </None>
+    <None Include="kursaChet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>kursaChet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="kursaChet.xss">
+      <DependentUpon>kursaChet.xsd</DependentUpon>
+    </None>
     <None Include="ModelDB.edmx.diagram">
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </None>
