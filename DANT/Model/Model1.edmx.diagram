@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c7fc9da56b4f45ffac7901096d9bffdf" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="705e895fd25c4c2082300be63f9422fb" Name="Diagram1">
         <EntityTypeShape EntityType="DANTDBModel.Appointment" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DANTDBModel.AppointmentStatus" Width="1.5" PointX="2.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DANTDBModel.AppointmentStatus" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DANTDBModel.Check" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DANTDBModel.CheckStatus" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DANTDBModel.Client" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DANTDBModel.Client" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DANTDBModel.Employee" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DANTDBModel.Employee_Service" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DANTDBModel.Position" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DANTDBModel.Service" Width="1.5" PointX="11" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DANTDBModel.Timetable" Width="1.5" PointX="7.25" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DANTDBModel.Сategory" Width="1.5" PointX="2.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DANTDBModel.Service" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DANTDBModel.Timetable" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DANTDBModel.Сategory" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <AssociationConnector Association="DANTDBModel.FK_Appointment_AppointmentStatus" ManuallyRouted="false" />
         <AssociationConnector Association="DANTDBModel.FK_Appointment_Client" ManuallyRouted="false" />
         <AssociationConnector Association="DANTDBModel.FK_Appointment_Employee" ManuallyRouted="false" />

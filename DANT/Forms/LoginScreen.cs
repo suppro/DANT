@@ -80,9 +80,5 @@ namespace DANT
             }
         }
 
-        private void closeApp(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

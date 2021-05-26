@@ -22,6 +22,8 @@ namespace DANT
         //Функция срабатывающая при загрузки формы. Запускает функции отвечающие за загрузку данных в форму
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentData1.DataTable1". При необходимости она может быть перемещена или удалена.
+            this.dataTable1TableAdapter3.Fill(this.appointmentData1.DataTable1);
             btnClearClient.Enabled = false;
             UpdateTable();
             loadUserInfo();
@@ -47,7 +49,7 @@ namespace DANT
         //Загрузка данных панели сотрудника сотрудника
         private void loadUserInfo()
         {
-            lbDate.Text = Convert.ToString(DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year);
+            //lbDate.Text = Convert.ToString(DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year);
             using (DANTDBEntities db = new DANTDBEntities())
             {
 
@@ -55,8 +57,8 @@ namespace DANT
                                   join q in db.Position on u.position_id equals q.id
                                   where u.login == loginName
                                   select u).FirstOrDefault();
-                lbEmployeeName.Text = model.name + " " + model.surname;
-                lbPosition.Text = model.Position.position1;
+                lbEmployeeName.Text = model.surname + " " + model.name.Remove(model.name.Length - (model.name.Length - 1)) + "." + model.surname.Remove(model.name.Length - (model.name.Length - 1)) + ".";
+                //lbPosition.Text = model.Position.position1;
                 if (model == null)
                 {
                     MessageBox.Show("Ошибка закрузки данных пользователя", "Ошибка");

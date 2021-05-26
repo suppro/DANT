@@ -34,7 +34,7 @@ namespace DANT
         }
         private void loadUserInfo()
         {
-            lbDate.Text = Convert.ToString(DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year);
+            //lbDate.Text = Convert.ToString(DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year);
             using (DANTDBEntities db = new DANTDBEntities())
             {
 
@@ -47,8 +47,8 @@ namespace DANT
                     MessageBox.Show("Ошибка закрузки данных", "Ошибка");
                     return;
                 }
-                lbEmployeeName.Text = model.name + " " + model.surname;
-                lbPosition.Text = model.Position.position1;
+                lbEmployeeName.Text = model.surname + " " + model.name.Remove(model.name.Length - (model.name.Length - 1)) + "." + model.surname.Remove(model.name.Length - (model.name.Length - 1)) + ".";
+                //lbPosition.Text = model.Position.position1;
                 doctorID = model.id;
             }
         }
@@ -113,14 +113,50 @@ namespace DANT
             if (string.IsNullOrEmpty(cbNameService.Text))
                 return;
             listService.Items.Add(cbNameService.Text);
-            txtServiceCost.Text = (Convert.ToInt32(txtServiceCost.Text)).ToString();
+            txtServiceCost.Text = (Convert.ToInt32(txtServiceCost.Text) + getServicePrice("add")).ToString();
         }
         private void deleteService(object sender, EventArgs e)
         {
             if (listService.Items.Count > 0)
+            {
+                txtServiceCost.Text = (Convert.ToInt32(txtServiceCost.Text) - getServicePrice("delete")).ToString();
                 listService.Items.RemoveAt(listService.SelectedIndex);
-
+            }
+            else
+            {
+                MessageBox.Show("Элемент списка не выбран"); return;
+            }
         }
+        private int getServicePrice(string operation)
+        {
+            if (operation == "add")
+            {
+                using (DANTDBEntities db = new DANTDBEntities())
+                {
+                    Service model = (from u in db.Service
+                                     where u.name == cbNameService.Text
+                                     select u).FirstOrDefault();
+                    return (int)model.price;
+                }
+            }
+            if (operation == "delete")
+            {
+                using (DANTDBEntities db = new DANTDBEntities())
+                {
+                    Service model = (from u in db.Service
+                                     where u.name == listService.SelectedItem.ToString()
+                                     select u).FirstOrDefault();
+                    return (int)model.price;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Операция не определена");
+                return 0;
+            }
+        }
+
+        
 
 
 
