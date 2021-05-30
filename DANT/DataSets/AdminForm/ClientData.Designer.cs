@@ -832,7 +832,7 @@ namespace DANT.DataSets.AdminForm.ClientDataTableAdapters {
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [Client] SET [card_number] = @card_number, [phone] = @phone WHERE (([card_number] = @Original_card_number) AND ([phone] = @Original_phone) AND ([id] = @Original_id));
-SELECT card_number, name + ' ' + surname + ' ' + patronymic AS fio, phone, id FROM Client WHERE (id = @id)";
+SELECT card_number, surname + ' ' + name + ' ' + patronymic AS fio, phone, id FROM Client WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@card_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "card_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -855,7 +855,7 @@ SELECT card_number, name + ' ' + surname + ' ' + patronymic AS fio, phone, id FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        card_number, name + \' \' + surname + \' \' + patronymic AS fio, phone," +
+            this._commandCollection[0].CommandText = "SELECT        card_number, surname + \' \' + name + \' \' + patronymic AS fio, phone," +
                 " id\r\nFROM            Client\r\nWHERE        (deleted IS NULL)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }

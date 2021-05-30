@@ -34,13 +34,12 @@ namespace DANT
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbEmployeeName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnClearClient = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtNumberCard = new System.Windows.Forms.TextBox();
+            this.btnClearClient = new MetroFramework.Controls.MetroButton();
+            this.btnClient = new MetroFramework.Controls.MetroButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnClient = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtClientSurname = new System.Windows.Forms.TextBox();
@@ -59,14 +58,14 @@ namespace DANT
             this.dtAppointment = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnClearAppointment = new MetroFramework.Controls.MetroButton();
+            this.btnDeleteAppointment = new MetroFramework.Controls.MetroButton();
+            this.btnAppointment = new MetroFramework.Controls.MetroButton();
             this.label17 = new System.Windows.Forms.Label();
-            this.btnClearAppointment = new System.Windows.Forms.Button();
-            this.btnDeleteAppointment = new System.Windows.Forms.Button();
             this.cbAppointmentStatus = new System.Windows.Forms.ComboBox();
             this.appointmentStatusDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentStatusData = new DANT.DataSets.AdminForm.AppointmentStatusData();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnAppointment = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txtClientID = new System.Windows.Forms.TextBox();
             this.dtDateAppointment = new System.Windows.Forms.DateTimePicker();
@@ -125,6 +124,10 @@ namespace DANT
             this.dataTable1TableAdapter2 = new DANT.DataSets.DoctorForm.CheckListTableAdapters.DataTable1TableAdapter();
             this.employeeTableAdapter = new DANT.DataSets.AdminForm.EmployeeDataTableAdapters.EmployeeTableAdapter();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lbEmployeeName = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
@@ -160,28 +163,14 @@ namespace DANT
             this.metroTabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbEmployeeName
-            // 
-            this.lbEmployeeName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbEmployeeName.AutoSize = true;
-            this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbEmployeeName.Location = new System.Drawing.Point(845, 9);
-            this.lbEmployeeName.Name = "lbEmployeeName";
-            this.lbEmployeeName.Size = new System.Drawing.Size(89, 20);
-            this.lbEmployeeName.TabIndex = 1;
-            this.lbEmployeeName.Text = "Имя врача";
-            this.lbEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.btnClearClient);
-            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.txtNumberCard);
-            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.btnClearClient);
             this.panel3.Controls.Add(this.btnClient);
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.txtClientSurname);
@@ -192,35 +181,51 @@ namespace DANT
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(11, 7);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 341);
+            this.panel3.Size = new System.Drawing.Size(200, 390);
             this.panel3.TabIndex = 24;
             // 
-            // btnClearClient
+            // label3
             // 
-            this.btnClearClient.Location = new System.Drawing.Point(3, 268);
-            this.btnClearClient.Name = "btnClearClient";
-            this.btnClearClient.Size = new System.Drawing.Size(184, 23);
-            this.btnClearClient.TabIndex = 44;
-            this.btnClearClient.Text = "Отменить выбор";
-            this.btnClearClient.UseVisualStyleBackColor = true;
-            this.btnClearClient.Click += new System.EventHandler(this.ClearClientClick);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(0, 194);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 13);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Номер карты";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "Номер карты";
             // 
             // txtNumberCard
             // 
             this.txtNumberCard.Enabled = false;
-            this.txtNumberCard.Location = new System.Drawing.Point(3, 210);
+            this.txtNumberCard.Location = new System.Drawing.Point(8, 210);
             this.txtNumberCard.Name = "txtNumberCard";
             this.txtNumberCard.Size = new System.Drawing.Size(184, 20);
-            this.txtNumberCard.TabIndex = 22;
+            this.txtNumberCard.TabIndex = 53;
+            // 
+            // btnClearClient
+            // 
+            this.btnClearClient.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnClearClient.Highlight = true;
+            this.btnClearClient.Location = new System.Drawing.Point(8, 262);
+            this.btnClearClient.Name = "btnClearClient";
+            this.btnClearClient.Size = new System.Drawing.Size(184, 20);
+            this.btnClearClient.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnClearClient.TabIndex = 50;
+            this.btnClearClient.Text = "Отменить выбор";
+            this.btnClearClient.UseSelectable = true;
+            this.btnClearClient.Click += new System.EventHandler(this.ClearClientClick);
+            // 
+            // btnClient
+            // 
+            this.btnClient.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnClient.Highlight = true;
+            this.btnClient.Location = new System.Drawing.Point(8, 236);
+            this.btnClient.Name = "btnClient";
+            this.btnClient.Size = new System.Drawing.Size(184, 20);
+            this.btnClient.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnClient.TabIndex = 49;
+            this.btnClient.Text = "Добавить пациента";
+            this.btnClient.UseSelectable = true;
+            this.btnClient.Click += new System.EventHandler(this.AddClient);
             // 
             // label7
             // 
@@ -232,20 +237,10 @@ namespace DANT
             this.label7.TabIndex = 12;
             this.label7.Text = "Добавить пациента";
             // 
-            // btnClient
-            // 
-            this.btnClient.Location = new System.Drawing.Point(3, 236);
-            this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(184, 26);
-            this.btnClient.TabIndex = 11;
-            this.btnClient.Text = "Добавить клиента";
-            this.btnClient.UseVisualStyleBackColor = true;
-            this.btnClient.Click += new System.EventHandler(this.AddClient);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(0, 38);
+            this.label6.Location = new System.Drawing.Point(5, 38);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 13;
@@ -254,7 +249,7 @@ namespace DANT
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(0, 155);
+            this.label9.Location = new System.Drawing.Point(5, 155);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 21;
@@ -262,7 +257,7 @@ namespace DANT
             // 
             // txtClientSurname
             // 
-            this.txtClientSurname.Location = new System.Drawing.Point(3, 54);
+            this.txtClientSurname.Location = new System.Drawing.Point(8, 54);
             this.txtClientSurname.MaxLength = 27;
             this.txtClientSurname.Name = "txtClientSurname";
             this.txtClientSurname.Size = new System.Drawing.Size(184, 20);
@@ -270,7 +265,7 @@ namespace DANT
             // 
             // txtClientName
             // 
-            this.txtClientName.Location = new System.Drawing.Point(3, 93);
+            this.txtClientName.Location = new System.Drawing.Point(8, 93);
             this.txtClientName.MaxLength = 27;
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(184, 20);
@@ -278,7 +273,7 @@ namespace DANT
             // 
             // txtClientPhone
             // 
-            this.txtClientPhone.Location = new System.Drawing.Point(3, 171);
+            this.txtClientPhone.Location = new System.Drawing.Point(8, 171);
             this.txtClientPhone.MaxLength = 27;
             this.txtClientPhone.Name = "txtClientPhone";
             this.txtClientPhone.Size = new System.Drawing.Size(184, 20);
@@ -286,7 +281,7 @@ namespace DANT
             // 
             // txtClientPatronymic
             // 
-            this.txtClientPatronymic.Location = new System.Drawing.Point(3, 132);
+            this.txtClientPatronymic.Location = new System.Drawing.Point(8, 132);
             this.txtClientPatronymic.MaxLength = 27;
             this.txtClientPatronymic.Name = "txtClientPatronymic";
             this.txtClientPatronymic.Size = new System.Drawing.Size(184, 20);
@@ -295,7 +290,7 @@ namespace DANT
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 116);
+            this.label2.Location = new System.Drawing.Point(7, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 18;
@@ -304,7 +299,7 @@ namespace DANT
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 77);
+            this.label4.Location = new System.Drawing.Point(7, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 17;
@@ -324,7 +319,7 @@ namespace DANT
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.RowHeadersVisible = false;
             this.dgvClient.RowHeadersWidth = 51;
-            this.dgvClient.Size = new System.Drawing.Size(722, 341);
+            this.dgvClient.Size = new System.Drawing.Size(722, 389);
             this.dgvClient.TabIndex = 23;
             this.dgvClient.DoubleClick += new System.EventHandler(this.selectClient);
             // 
@@ -394,12 +389,12 @@ namespace DANT
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.btnClearAppointment);
             this.panel2.Controls.Add(this.btnDeleteAppointment);
+            this.panel2.Controls.Add(this.btnAppointment);
+            this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.cbAppointmentStatus);
             this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.btnAppointment);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.txtClientID);
             this.panel2.Controls.Add(this.dtDateAppointment);
@@ -411,8 +406,47 @@ namespace DANT
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.Location = new System.Drawing.Point(3, 10);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(204, 338);
+            this.panel2.Size = new System.Drawing.Size(200, 390);
             this.panel2.TabIndex = 42;
+            // 
+            // btnClearAppointment
+            // 
+            this.btnClearAppointment.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnClearAppointment.Highlight = true;
+            this.btnClearAppointment.Location = new System.Drawing.Point(8, 266);
+            this.btnClearAppointment.Name = "btnClearAppointment";
+            this.btnClearAppointment.Size = new System.Drawing.Size(184, 20);
+            this.btnClearAppointment.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnClearAppointment.TabIndex = 53;
+            this.btnClearAppointment.Text = "Отменить выбор";
+            this.btnClearAppointment.UseSelectable = true;
+            this.btnClearAppointment.Click += new System.EventHandler(this.ClearAppontmentClick);
+            // 
+            // btnDeleteAppointment
+            // 
+            this.btnDeleteAppointment.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnDeleteAppointment.Highlight = true;
+            this.btnDeleteAppointment.Location = new System.Drawing.Point(8, 292);
+            this.btnDeleteAppointment.Name = "btnDeleteAppointment";
+            this.btnDeleteAppointment.Size = new System.Drawing.Size(184, 20);
+            this.btnDeleteAppointment.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnDeleteAppointment.TabIndex = 52;
+            this.btnDeleteAppointment.Text = "Удалить запись";
+            this.btnDeleteAppointment.UseSelectable = true;
+            this.btnDeleteAppointment.Click += new System.EventHandler(this.DeleteAppointment);
+            // 
+            // btnAppointment
+            // 
+            this.btnAppointment.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAppointment.Highlight = true;
+            this.btnAppointment.Location = new System.Drawing.Point(8, 240);
+            this.btnAppointment.Name = "btnAppointment";
+            this.btnAppointment.Size = new System.Drawing.Size(184, 20);
+            this.btnAppointment.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAppointment.TabIndex = 51;
+            this.btnAppointment.Text = "Добавить запись";
+            this.btnAppointment.UseSelectable = true;
+            this.btnAppointment.Click += new System.EventHandler(this.AddAppointment);
             // 
             // label17
             // 
@@ -422,27 +456,6 @@ namespace DANT
             this.label17.Size = new System.Drawing.Size(80, 13);
             this.label17.TabIndex = 44;
             this.label17.Text = "Статус записи";
-            // 
-            // btnClearAppointment
-            // 
-            this.btnClearAppointment.Location = new System.Drawing.Point(8, 302);
-            this.btnClearAppointment.Name = "btnClearAppointment";
-            this.btnClearAppointment.Size = new System.Drawing.Size(184, 23);
-            this.btnClearAppointment.TabIndex = 43;
-            this.btnClearAppointment.Text = "Отменить выбор";
-            this.btnClearAppointment.UseVisualStyleBackColor = true;
-            this.btnClearAppointment.Click += new System.EventHandler(this.ClearAppontmentClick);
-            // 
-            // btnDeleteAppointment
-            // 
-            this.btnDeleteAppointment.Enabled = false;
-            this.btnDeleteAppointment.Location = new System.Drawing.Point(8, 272);
-            this.btnDeleteAppointment.Name = "btnDeleteAppointment";
-            this.btnDeleteAppointment.Size = new System.Drawing.Size(184, 23);
-            this.btnDeleteAppointment.TabIndex = 42;
-            this.btnDeleteAppointment.Text = "Удалить запись";
-            this.btnDeleteAppointment.UseVisualStyleBackColor = true;
-            this.btnDeleteAppointment.Click += new System.EventHandler(this.DeleteAppointment);
             // 
             // cbAppointmentStatus
             // 
@@ -470,21 +483,12 @@ namespace DANT
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(22, 9);
+            this.label15.Location = new System.Drawing.Point(0, 9);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(170, 24);
+            this.label15.Size = new System.Drawing.Size(200, 24);
             this.label15.TabIndex = 24;
             this.label15.Text = "Запись пациента";
-            // 
-            // btnAppointment
-            // 
-            this.btnAppointment.Location = new System.Drawing.Point(8, 240);
-            this.btnAppointment.Name = "btnAppointment";
-            this.btnAppointment.Size = new System.Drawing.Size(184, 26);
-            this.btnAppointment.TabIndex = 23;
-            this.btnAppointment.Text = "Записать клиента";
-            this.btnAppointment.UseVisualStyleBackColor = true;
-            this.btnAppointment.Click += new System.EventHandler(this.AddAppointment);
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label14
             // 
@@ -636,7 +640,7 @@ namespace DANT
             this.dgvAppointment.Name = "dgvAppointment";
             this.dgvAppointment.RowHeadersVisible = false;
             this.dgvAppointment.RowHeadersWidth = 51;
-            this.dgvAppointment.Size = new System.Drawing.Size(730, 292);
+            this.dgvAppointment.Size = new System.Drawing.Size(730, 344);
             this.dgvAppointment.TabIndex = 35;
             this.dgvAppointment.DoubleClick += new System.EventHandler(this.SelectAppointment);
             // 
@@ -930,13 +934,65 @@ namespace DANT
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel4.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panel4.Controls.Add(this.lbEmployeeName);
+            this.panel4.Controls.Add(this.iconButton2);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.iconButton1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(984, 42);
             this.panel4.TabIndex = 6;
+            // 
+            // lbEmployeeName
+            // 
+            this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbEmployeeName.Location = new System.Drawing.Point(664, 6);
+            this.lbEmployeeName.Name = "lbEmployeeName";
+            this.lbEmployeeName.Size = new System.Drawing.Size(281, 24);
+            this.lbEmployeeName.TabIndex = 30;
+            this.lbEmployeeName.Text = "Имя сотрудника";
+            this.lbEmployeeName.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 40;
+            this.iconButton2.Location = new System.Drawing.Point(940, 0);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(44, 41);
+            this.iconButton2.TabIndex = 29;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(34, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 24);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Выход";
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(-3, 0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(46, 42);
+            this.iconButton1.TabIndex = 27;
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // metroTabControl1
             // 
@@ -945,8 +1001,8 @@ namespace DANT
             this.metroTabControl1.Controls.Add(this.metroTabPage3);
             this.metroTabControl1.Location = new System.Drawing.Point(12, 48);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
-            this.metroTabControl1.Size = new System.Drawing.Size(960, 398);
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(960, 438);
             this.metroTabControl1.TabIndex = 7;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -959,7 +1015,7 @@ namespace DANT
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(952, 356);
+            this.metroTabPage1.Size = new System.Drawing.Size(952, 396);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Пациенты";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -979,7 +1035,7 @@ namespace DANT
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(952, 356);
+            this.metroTabPage2.Size = new System.Drawing.Size(952, 396);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Записи";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -999,7 +1055,7 @@ namespace DANT
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(952, 356);
+            this.metroTabPage3.Size = new System.Drawing.Size(952, 396);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "Квитанции";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -1028,10 +1084,10 @@ namespace DANT
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 450);
+            this.ClientSize = new System.Drawing.Size(984, 498);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.panel4);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Стоматология";
@@ -1074,7 +1130,6 @@ namespace DANT
         }
 
         #endregion
-        private System.Windows.Forms.Label lbEmployeeName;
         private System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtClientPhone;
@@ -1085,7 +1140,6 @@ namespace DANT
         private System.Windows.Forms.TextBox txtClientSurname;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnClient;
         private System.Windows.Forms.ComboBox cbTime;
         private System.Windows.Forms.ComboBox cmbDoctorName;
         private System.Windows.Forms.DataGridView dgvAppointment;
@@ -1095,7 +1149,6 @@ namespace DANT
         private System.Windows.Forms.TextBox txtClientID;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnAppointment;
         private System.Windows.Forms.DateTimePicker dtDateAppointment;
         private System.Windows.Forms.BindingSource timeDataBindingSource;
         private TimeData timeData;
@@ -1114,8 +1167,6 @@ namespace DANT
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox cbAppointmentStatus;
-        private System.Windows.Forms.Button btnDeleteAppointment;
-        private System.Windows.Forms.Button btnClearAppointment;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DateTimePicker dtCheck;
         private System.Windows.Forms.Label label18;
@@ -1126,8 +1177,6 @@ namespace DANT
         private System.Windows.Forms.DataGridViewTextBoxColumn cardnumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtNumberCard;
         private System.Windows.Forms.BindingSource appointmentDataBindingSource;
         private AppointmentData appointmentData;
         private DataSets.AdminForm.AppointmentDataTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
@@ -1155,7 +1204,6 @@ namespace DANT
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnClearClient;
         private System.Windows.Forms.BindingSource employeeDataBindingSource;
         private DataSets.AdminForm.EmployeeDataTableAdapters.EmployeeTableAdapter employeeTableAdapter;
         private System.Windows.Forms.Panel panel4;
@@ -1188,5 +1236,16 @@ namespace DANT
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusidDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroButton btnClearClient;
+        private MetroFramework.Controls.MetroButton btnClient;
+        private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Label lbEmployeeName;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private MetroFramework.Controls.MetroButton btnClearAppointment;
+        private MetroFramework.Controls.MetroButton btnDeleteAppointment;
+        private MetroFramework.Controls.MetroButton btnAppointment;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNumberCard;
     }
 }

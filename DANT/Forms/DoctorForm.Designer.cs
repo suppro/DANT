@@ -92,6 +92,10 @@ namespace DANT
             this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbEmployeeName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.servicesDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesData)).BeginInit();
@@ -114,7 +118,7 @@ namespace DANT
             // 
             // dtAppointment
             // 
-            this.dtAppointment.Location = new System.Drawing.Point(454, 13);
+            this.dtAppointment.Location = new System.Drawing.Point(503, 13);
             this.dtAppointment.Name = "dtAppointment";
             this.dtAppointment.Size = new System.Drawing.Size(184, 20);
             this.dtAppointment.TabIndex = 44;
@@ -125,7 +129,7 @@ namespace DANT
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.White;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(389, 8);
+            this.label16.Location = new System.Drawing.Point(438, 8);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(59, 24);
             this.label16.TabIndex = 45;
@@ -239,13 +243,13 @@ namespace DANT
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(36, 5);
+            this.label11.Location = new System.Drawing.Point(0, 5);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(122, 24);
+            this.label11.Size = new System.Drawing.Size(204, 24);
             this.label11.TabIndex = 25;
             this.label11.Text = "Создать чек";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnCreateCheck
             // 
@@ -481,7 +485,7 @@ namespace DANT
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(953, 348);
             this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "Создание чека оплаты услуг";
+            this.metroTabPage2.Text = "Создние квитанций";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
@@ -610,8 +614,11 @@ namespace DANT
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel4.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panel4.Controls.Add(this.lbEmployeeName);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.iconButton2);
+            this.panel4.Controls.Add(this.iconButton1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
@@ -620,17 +627,60 @@ namespace DANT
             // 
             // lbEmployeeName
             // 
-            this.lbEmployeeName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbEmployeeName.AutoSize = true;
-            this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbEmployeeName.Location = new System.Drawing.Point(845, 9);
+            this.lbEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbEmployeeName.Location = new System.Drawing.Point(664, 6);
             this.lbEmployeeName.Name = "lbEmployeeName";
-            this.lbEmployeeName.Size = new System.Drawing.Size(89, 20);
-            this.lbEmployeeName.TabIndex = 1;
-            this.lbEmployeeName.Text = "Имя врача";
-            this.lbEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbEmployeeName.Size = new System.Drawing.Size(281, 24);
+            this.lbEmployeeName.TabIndex = 27;
+            this.lbEmployeeName.Text = "Имя сотрудника";
+            this.lbEmployeeName.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(37, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 24);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Выход";
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 40;
+            this.iconButton2.Location = new System.Drawing.Point(940, 0);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(44, 41);
+            this.iconButton2.TabIndex = 3;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(0, 0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(46, 42);
+            this.iconButton1.TabIndex = 2;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // entityCommand1
+            // 
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
             // 
             // EmployeeForm
             // 
@@ -735,6 +785,10 @@ namespace DANT
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Panel panel4;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
+        private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label lbEmployeeName;
     }
 }

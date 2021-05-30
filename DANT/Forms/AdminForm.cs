@@ -23,7 +23,7 @@ namespace DANT
         private void AdminForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "appointmentData1.DataTable1". При необходимости она может быть перемещена или удалена.
-            this.dataTable1TableAdapter3.Fill(this.appointmentData1.DataTable1);
+            
             btnClearClient.Enabled = false;
             UpdateTable();
             loadUserInfo();
@@ -43,8 +43,8 @@ namespace DANT
         {
             var doctorAppointmentSelected = Convert.ToInt32(cmbAppointmentDoctor.SelectedValue);
             var dateAppointmentSelected = new DateTime(dtAppointment.Value.Year, dtAppointment.Value.Month, dtAppointment.Value.Day);
-            appointmentDataBindingSource.Filter = $"employee_id = '{doctorAppointmentSelected}' and date = '{dateAppointmentSelected}' and status_id <> 6";
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            appointmentData1BindingSource.Filter = $"employee_id = '{doctorAppointmentSelected}' and date = '{dateAppointmentSelected}' and status_id <> 6";
+            this.dataTable1TableAdapter3.Fill(this.appointmentData1.DataTable1);
         }
         //Загрузка данных панели сотрудника сотрудника
         private void loadUserInfo()
@@ -74,7 +74,7 @@ namespace DANT
             this.appointmentStatusTableAdapter.Fill(this.appointmentStatusData.AppointmentStatus);
             this.employeeTableAdapter1.Fill(this.checkDoctorData.Employee);
             this.dataTable1TableAdapter2.Fill(this.checkList.DataTable1);
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            this.dataTable1TableAdapter3.Fill(this.appointmentData1.DataTable1);
             this.clientTableAdapter.Fill(this.clientData.Client);
             this.timetableTableAdapter.Fill(this.timeData.Timetable);
         }
@@ -227,7 +227,6 @@ namespace DANT
                 else
                 {
                     appointment.status_id = Convert.ToInt32(cbAppointmentStatus.SelectedValue);
-                    /*
                     if (appointment.status_id == 1)
                     { 
                         MessageBox.Show("Нельзя поменять статус записи на 'Записан'", "Ошибка"); return; 
@@ -239,14 +238,14 @@ namespace DANT
                     else if (DateTime.Today < dateAppointment && appointment.status_id == 3)
                     {
                         MessageBox.Show("Нельзя поменять статус записи на 'Не явился на прием' до такого как наступит дата приема ", "Ошибка"); return;
-                    */
+                    }
                     db.Entry(appointment).State = EntityState.Modified;        
                 }
                 db.SaveChanges();
             }
             txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
             appointment.id = 0;
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            this.dataTable1TableAdapter3.Fill(this.appointmentData1.DataTable1);
             MessageBox.Show("Данные успешно добавлены");
             ClearAppointment();
         }
@@ -256,13 +255,13 @@ namespace DANT
         {
             if (dgvClient.CurrentRow.Index != -1)
             {
-                appointment.id = Convert.ToInt32(dgvAppointment.CurrentRow.Cells["idDataGridViewTextBoxColumn1"].Value);
+                appointment.id = Convert.ToInt32(dgvAppointment.CurrentRow.Cells["idDataGridViewTextBoxColumn4"].Value);
                 txtClientID.Enabled = false;
                 cmbDoctorName.Enabled = false;
                 dtDateAppointment.Enabled = false;
                 cbTime.Enabled = false;
                 cbAppointmentStatus.Enabled = true;
-                btnDeleteAppointment.Enabled = true;
+                btnClearAppointment.Enabled = true;
                 btnClearAppointment.Enabled = true;
                 using (DANTDBEntities db = new DANTDBEntities())
                 {
@@ -294,7 +293,7 @@ namespace DANT
                 }
             }
             ClearAppointment();
-            btnDeleteAppointment.Enabled = false;
+            btnClearAppointment.Enabled = false;
             MessageBox.Show("Удаление прошло успешно");
         }
         private void ChangeCheck(object sender, EventArgs e)
@@ -332,7 +331,7 @@ namespace DANT
         }
         private void ClearAppointment()
         {
-            this.dataTable1TableAdapter.Fill(this.appointmentData.DataTable1);
+            this.dataTable1TableAdapter3.Fill(this.appointmentData1.DataTable1);
             txtClientID.Text = cmbDoctorName.Text = dtDateAppointment.Text = cbTime.Text = "";
             txtClientID.Enabled = true;
             cmbDoctorName.Enabled = true;
@@ -340,7 +339,7 @@ namespace DANT
             cbTime.Enabled = true;
             cbAppointmentStatus.Enabled = false;
             btnClearAppointment.Enabled = false;
-            btnDeleteAppointment.Enabled = false;
+            btnClearAppointment.Enabled = false;
             btnAppointment.Text = "Добавить запись";
             appointment.id = 0;
         }
@@ -387,6 +386,7 @@ namespace DANT
                 }
             }
 
+            
             if (dateAppointment <= dt)
             {
                 MessageBox.Show("Записать пациента возможно только на следующие дни от текущей даты", "Ошибка"); return false;
@@ -395,7 +395,7 @@ namespace DANT
             {
                 MessageBox.Show("Записать пациента возможно только не более чем на месяц вперед", "Ошибка"); return false;
             }
-
+            
             using (DANTDBEntities db = new DANTDBEntities())
             {
                 Appointment model = (from u in db.Appointment
